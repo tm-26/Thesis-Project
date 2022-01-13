@@ -1,0 +1,50 @@
+Apple
+Amazon
+Boeing 
+Bank of America
+BHP
+Berkshire Hathaway
+China Life Insurance
+Comcast 
+Chevron
+Dominion Energy
+DATA Communications Management
+Disney
+Dow
+Duke Energy
+Exelon
+General Electric
+Alphabet/Google
+Home Depot
+Intel
+Johnson & Johnson/Johnson and Johnson/J and J/J&J/J & J/Johnson&Johnson/JandJ
+JPMorgan
+Coca/CocaCola
+Mastercard
+3M
+Altria
+Merck
+Microsoft
+National Grid
+Nippon Telegraph
+Novartis
+Oracle
+Pepsi
+Pfizer
+Procter
+PetroChina
+Royal Dutch Shell
+Rio Tinto
+Southern Company
+S&P/S & P/S and P/SandP
+Softing
+AT&T/AT & T
+Toyota
+Total Energy Services
+UnitedHealth/United Health
+United Parcel
+Vale
+Verizon
+Wells Fargo
+Walmart
+Exxon

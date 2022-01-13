@@ -1,0 +1,7 @@
+-KDD17
+--2007-2016
+--Top 5 companies of 10 big sectors
+
+-stocknet
+--2014-2016
+--8 stocks in the Conglomerates sector and the top 10 stocks in capital size in each of the other 8 sectors
