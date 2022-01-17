@@ -1,0 +1,87 @@
+Apple
+ABB
+AbbVie
+American Electric Power
+AgroFresh
+Amgen
+Amazon
+Boeing
+Alibaba
+Bank of America
+BHP
+Banco de Chile/Bank of Chile/Chile bank
+BHP
+BP/British Petroleum 
+Berkshire Hathaway
+Santander-Chile
+AB/InBev/Anheuser
+Citigroup/Citi
+Caterpillar
+CELG
+China Life Insurance
+Charter Communications
+Comcast
+Compass
+Cisco
+Chevron
+Dominion
+Danaher
+Disney
+Duke Energy
+Exelon
+Facebook
+General Dynamics
+General Electric
+Alphabet/Google
+Home Depot
+Honeywel
+Spectrum Brands
+HSBC
+Icahn
+Intel
+Johnson & Johnson/Johnson and Johnson/J and J/J&J/J & J/Johnson&Johnson/JandJ
+JPMorgan
+Coca/CocaCola
+Lockheed
+Mastercard
+McDonald's/McDonald
+Medtronic
+3M
+Altria
+Merck
+Microsoft
+NextEra
+National Grid plc
+Novartis
+Oracle
+PG&E/PG & E/Pacific Gas
+BKNG/Booking Holdings
+Pepsi
+Pfizer
+Procter
+PICO
+Philip Morris
+PPL
+PetroChina
+Royal Dutch Shell
+REX American
+Schlumberger
+China Petroleum & Chemical/China Petroleum&Chemical/China Petroleum and Chemical/Sinopec
+Sanofi
+Southern Company
+Steel Partners
+Sempra
+AT&T/AT & T
+Toyota
+Total Energy Services
+Taiwan Semiconductor/TSMC
+Unilever
+Unilever
+UnitedHealth/United Health
+United Parcel
+United Technologies/Raytheon
+Visa
+Verizon
+Wells Fargo
+Walmart
+Exxon

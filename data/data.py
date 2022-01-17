@@ -31,6 +31,7 @@ Data extracted from New York Times:
 Ensured that the above contains all the important data by checking different data values from various timestamps
 """
 
+import csv
 import json
 import os
 import shutil
@@ -40,14 +41,21 @@ from tqdm import tqdm
 # Global variable declaration
 unwantedCharacters = "!#$%\'()*+,-./:;<=>?@[\\]^_`{|}~012456789"
 stopwords = []
+stockArticleCounter = {}
+words = []
+datasetName = ""
 
 
 def saveArticle(stockCode, article):
-    with open("kdd17/NYT-Business/" + stockCode.upper() + '/' + article["pub_date"][0:10] + ".json", "w+", encoding="utf-8") as saveFile:
+    stockArticleCounter[stockCode.upper()] += 1
+
+    with open(datasetName + "/NYT-Business/" + stockCode.upper() + '/' + article["pub_date"][0:10] + ".json", "w+",
+              encoding="utf-8") as saveFile:
         json.dump(article, saveFile)
 
 
 def compare(stockName, word):
+    # If stockName has multiple words
     if " " in stockName:
         save = True
         for j, current in enumerate(stockName.split()):
@@ -68,20 +76,20 @@ def compare(stockName, word):
 
 def validate(words):
     if words is not None:
-        return [word for word in words.translate(str.maketrans('', '', unwantedCharacters)).lower().split() if word not in stopwords]
+        return [word for word in words.translate(str.maketrans('', '', unwantedCharacters)).lower().split() if
+                word not in stopwords]
     return []
 
 
 if __name__ == "__main__":
-    # Starting with KDD17 NYT
-
-    # Variable Declaration
-    stockCodes = os.listdir("kdd17/Numerical/ourpped")
-    stockNames = []
-
     # Parameter Declaration
     remakeFiles = True
     remakeStockNames = False
+    datasetName = "kdd17"  # Can be either "kdd17" or "stocknet"
+
+    # Variable Declaration
+    stockCodes = os.listdir(datasetName + "/Numerical/ourpped")
+    stockNames = []
 
     # Get all stock codes
     for i in range(len(stockCodes)):
@@ -89,17 +97,17 @@ if __name__ == "__main__":
 
     # Make directories and delete previously extracted articles
     if remakeFiles:
-        if os.path.exists("kdd17/NYT-Business"):
-            shutil.rmtree("kdd17/NYT-Business")
-            os.mkdir("kdd17/NYT-Business")
+        if os.path.exists(datasetName + "/NYT-Business"):
+            shutil.rmtree(datasetName + "/NYT-Business")
+            os.mkdir(datasetName + "/NYT-Business")
         for code in stockCodes:
-            os.mkdir("kdd17/NYT-Business/" + code)
+            os.mkdir(datasetName + "/NYT-Business/" + code)
 
     # Create stockNames.txt
-    if remakeStockNames or not os.path.exists("kdd17/stockNames.txt"):
-        if os.path.exists("kdd17/stockNames.txt"):
-            os.remove("kdd17/stockNames.txt")
-        with open("kdd17/stockNames.txt", "w+") as file:
+    if remakeStockNames or not os.path.exists(datasetName + "/stockNames.txt"):
+        if os.path.exists(datasetName + "/stockNames.txt"):
+            os.remove(datasetName + "/stockNames.txt")
+        with open(datasetName + "/stockNames.txt", "w+") as file:
             for code in tqdm(stockCodes):
                 try:
                     file.write(yfinance.Ticker(code).info["longName"] + "\n")
@@ -107,14 +115,18 @@ if __name__ == "__main__":
                     file.write(code + "\n")
         print("Manual checking of stock names is now required.")
         print("Rerun script with remakeStockNames=False when stock names are checked.")
+        exit()
 
     # Get stock names
-    with open("kdd17/stockNames.txt") as file:
+    with open(datasetName + "/stockNames.txt") as file:
         stockNames = file.read().split("\n")
 
     # Generate dictionary with stock codes and names
     stocks = {}
     for i in range(len(stockNames)):
+
+        stockArticleCounter[stockCodes[i]] = 0
+
         if '/' in stockNames[i]:
             stocks[stockCodes[i].lower()] = [c.lower() for c in stockNames[i].split('/')]
         else:
@@ -129,6 +141,7 @@ if __name__ == "__main__":
             with open("NYT-Business/" + fileName, encoding="utf-8") as file:
                 data = json.load(file)
                 for article in data:
+                    # Get all needed data from article
                     words = validate(article["abstract"]) + validate(article["snippet"]) + \
                             validate(article["lead_paragraph"]) + validate(article["headline"]["main"]) + \
                             validate(article["headline"]["kicker"]) + validate(article["headline"]["content_kicker"]) + \
@@ -141,11 +154,14 @@ if __name__ == "__main__":
 
                     for i, word in enumerate(words):
                         for stock in stocks.items():
+                            # Check if stock code in article
                             if stock[0] == word:
                                 saveArticle(stock[0], article)
-                                break
+                                continue
 
                             generated = False
+
+                            # Check if stock name in article
 
                             if isinstance(stock[1], list):
                                 for current in stock[1]:
@@ -156,7 +172,11 @@ if __name__ == "__main__":
                             else:
                                 if compare(stock[1], word):
                                     saveArticle(stock[0], article)
-                                    break
+                                    continue
                             if generated:
-                                break
-
+                                continue
+    with open(datasetName + "/NYT-Business/stockArticleCounter.csv", "w+", newline='') as stockArticleCounterFile:
+        writer = csv.writer(stockArticleCounterFile)
+        writer.writerow(["Stock", "Number of Articles"])
+        for stock, count in stockArticleCounter.items():
+            writer.writerow([stock, count])
