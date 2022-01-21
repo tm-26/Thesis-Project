@@ -1,18 +1,18 @@
 """
 KDD17
 - Numerical (X)
-- New York Times
+- New York Times (X)
 - Twitter
 
 --------------------
 
-Stocknet
-- Numerical
-- New York Times
-- Twitter
-"""
+Stocknet (X)
+- Numerical (X)
+- New York Times (X)
+- Twitter (X)
 
-"""
+---------------------------------------------
+
 Data extracted from New York Times:
 -abstract
 -snippet
@@ -33,8 +33,11 @@ Ensured that the above contains all the important data by checking different dat
 
 import csv
 import json
+import math
 import os
+import requests
 import shutil
+import time
 import yfinance
 from tqdm import tqdm
 
@@ -44,6 +47,14 @@ stopwords = []
 stockArticleCounter = {}
 words = []
 datasetName = ""
+
+
+def saveStockCounter(path, rowName, stockCounter):
+    with open(path, "w+", newline='') as stockCounterFile:
+        writer = csv.writer(stockCounterFile)
+        writer.writerow(["Stock", rowName])
+        for stock, count in stockCounter.items():
+            writer.writerow([stock, count])
 
 
 def saveArticle(stockCode, article):
@@ -82,16 +93,30 @@ def validate(words):
 
 
 if __name__ == "__main__":
+
     # Parameter Declaration
     remakeFiles = True
     remakeStockNames = False
-    datasetName = "kdd17"  # Can be either "kdd17" or "stocknet"
+    datasetName = "stocknet"  # Can be either "kdd17" or "stocknet"
     sentimentType = "Twitter"  # Can be either "Twitter" or "NYT-Business"
+    stockCounter = True  # Overrides remakeFiles=True
+
+    if stockCounter:
+        if datasetName == "stocknet" and sentimentType == "Twitter":
+            stockCounter = {}
+            for stock in tqdm(os.listdir("stocknet/Twitter")):
+                numberOfTweets = 0
+                for date in os.listdir("stocknet/Twitter/" + stock):
+                    numberOfTweets += sum(1 for tweets in open("stocknet/Twitter/" + stock + '/' + date, encoding="utf-8"))
+                stockCounter[stock] = numberOfTweets
+            saveStockCounter("stocknet/Twitter/stockTweetCounter.csv", "Number of Tweets", stockCounter)
+        else:
+            print("Not yet implemented")
+        exit()
 
     # Variable Declaration
     stockCodes = os.listdir(datasetName + "/Numerical/ourpped")
     stockNames = []
-
 
     # Get all stock codes
     for i in range(len(stockCodes)):
@@ -109,6 +134,50 @@ if __name__ == "__main__":
         print("Handle Twitter here")
 
     elif sentimentType == "NYT-Business":
+
+        if not os.path.isdir("NYT-Business"):
+
+            if not os.path.isdir("NYT"):
+                os.mkdir("NYT")
+
+                # First get all NYT data
+                year = "2007"
+                month = '1'
+                key = "" # Insert NYT API Key here
+                filterQuery = "\"source:(\"The New York Times\")"
+                done = os.listdir("NYT")
+                i = 0
+
+                print("Getting all NYT data using API")
+
+                for year in tqdm(range(2007, 2017)):
+                    for month in range(1, 13):
+                        if str(month) + '-' + str(year) + ".json" not in done:
+                            query_url = "https://api.nytimes.com/svc/archive/v1/" + str(year) + '/' + str(
+                                month) + ".json?api-key=" + key + "&fq=" + filterQuery
+                            response = requests.get(query_url).json()
+                            with open("../dataset/NYT/" + str(month) + '-' + str(year) + ".json", "w+") as file:
+                                json.dump(response["response"], file)
+                            time.sleep(6.1)
+                        i += 1
+
+            data = os.listdir("NYT")
+
+            os.mkdir("NYT-Business")
+
+            print("Getting all NYT-Business data")
+
+            for i in data:
+                with open("NYT/" + i) as file:
+                    currentBusiness = []
+                    currentAll = json.load(file)["docs"]
+                    for j in currentAll:
+                        if j["section_name"].lower() in ["business", "business day"] or j["news_desk"].lower() in \
+                                ["business", "business day"]:
+                            currentBusiness.append(j)
+                with open("NYT-Business/" + i, "w+", encoding="utf-8") as file:
+                    json.dump(currentBusiness, file, ensure_ascii=False)
+
         # Create stockNames.txt
         if remakeStockNames or not os.path.exists(datasetName + "/stockNames.txt"):
             if os.path.exists(datasetName + "/stockNames.txt"):
@@ -125,7 +194,7 @@ if __name__ == "__main__":
 
         # Get stock names
         with open(datasetName + "/stockNames.txt") as file:
-            stockNames = file.read().split("\n")
+            stockNames = file.read().split('\n')
 
         # Generate dictionary with stock codes and names
         stocks = {}
@@ -156,7 +225,8 @@ if __name__ == "__main__":
                                 validate(article["lead_paragraph"]) + validate(article["headline"]["main"]) + \
                                 validate(article["headline"]["kicker"]) + \
                                 validate(article["headline"]["content_kicker"]) + \
-                                validate(article["headline"]["print_headline"]) + validate(article["headline"]["name"]) + \
+                                validate(article["headline"]["print_headline"]) + validate(
+                            article["headline"]["name"]) + \
                                 validate(article["headline"]["seo"]) + validate(article["headline"]["sub"])
 
                         if article["keywords"] is not None:
@@ -186,10 +256,6 @@ if __name__ == "__main__":
                                         continue
                                 if generated:
                                     continue
-        with open(datasetName + "/NYT-Business/stockArticleCounter.csv", "w+", newline='') as stockArticleCounterFile:
-            writer = csv.writer(stockArticleCounterFile)
-            writer.writerow(["Stock", "Number of Articles"])
-            for stock, count in stockArticleCounter.items():
-                writer.writerow([stock, count])
+        saveStockCounter(datasetName + "/stockArticleCounter" + sentimentType + ".csv", "Number of Articles", stockArticleCounter)
     else:
         print(sentimentType + " is not a valid sentimentType parameter value")
