@@ -33,7 +33,6 @@ Ensured that the above contains all the important data by checking different dat
 
 import csv
 import json
-import math
 import os
 import requests
 import shutil
@@ -60,9 +59,20 @@ def saveStockCounter(path, rowName, stockCounter):
 def saveArticle(stockCode, article):
     stockArticleCounter[stockCode.upper()] += 1
 
-    with open(datasetName + "/NYT-Business/" + stockCode.upper() + '/' + article["pub_date"][0:10] + ".json", "w+",
-              encoding="utf-8") as saveFile:
-        json.dump(article, saveFile)
+    if os.path.exists(datasetName + "/NYT-Business/" + stockCode.upper() + '/' + article["pub_date"][0:10] + ".json"):
+        with open(datasetName + "/NYT-Business/" + stockCode.upper() + '/' + article["pub_date"][0:10] + ".json", "r+",
+                  encoding="utf-8") as saveFile:
+            currentArticles = json.load(saveFile)
+            if type(currentArticles) is list:
+                currentArticles.append(article)
+            else:
+                currentArticles = [currentArticles, article]
+            saveFile.seek(0)
+            saveFile.write(json.dumps(currentArticles))
+    else:
+        with open(datasetName + "/NYT-Business/" + stockCode.upper() + '/' + article["pub_date"][0:10] + ".json", "w+",
+                  encoding="utf-8") as saveFile:
+            json.dump(article, saveFile)
 
 
 def compare(stockName, word):
@@ -97,9 +107,9 @@ if __name__ == "__main__":
     # Parameter Declaration
     remakeFiles = True
     remakeStockNames = False
-    datasetName = "stocknet"  # Can be either "kdd17" or "stocknet"
-    sentimentType = "Twitter"  # Can be either "Twitter" or "NYT-Business"
-    stockCounter = True  # Overrides remakeFiles=True
+    datasetName = "kdd17"  # Can be either "kdd17" or "stocknet"
+    sentimentType = "NYT-Business"  # Can be either "Twitter" or "NYT-Business"
+    stockCounter = False  # Overrides remakeFiles=True
 
     if stockCounter:
         if datasetName == "stocknet" and sentimentType == "Twitter":
@@ -107,7 +117,8 @@ if __name__ == "__main__":
             for stock in tqdm(os.listdir("stocknet/Twitter")):
                 numberOfTweets = 0
                 for date in os.listdir("stocknet/Twitter/" + stock):
-                    numberOfTweets += sum(1 for tweets in open("stocknet/Twitter/" + stock + '/' + date, encoding="utf-8"))
+                    numberOfTweets += sum(
+                        1 for tweets in open("stocknet/Twitter/" + stock + '/' + date, encoding="utf-8"))
                 stockCounter[stock] = numberOfTweets
             saveStockCounter("stocknet/Twitter/stockTweetCounter.csv", "Number of Tweets", stockCounter)
         else:
@@ -143,7 +154,7 @@ if __name__ == "__main__":
                 # First get all NYT data
                 year = "2007"
                 month = '1'
-                key = "" # Insert NYT API Key here
+                key = ""  # Insert NYT API Key here
                 filterQuery = "\"source:(\"The New York Times\")"
                 done = os.listdir("NYT")
                 i = 0
@@ -233,11 +244,18 @@ if __name__ == "__main__":
                             for keyword in article["keywords"]:
                                 words.extend(validate(keyword["value"]))
 
+                        savedAlready = []
+
                         for i, word in enumerate(words):
                             for stock in stocks.items():
+
+                                if stock[0] in savedAlready:
+                                    continue
+
                                 # Check if stock code in article
                                 if stock[0] == word:
                                     saveArticle(stock[0], article)
+                                    savedAlready.append(stock[0])
                                     continue
 
                                 generated = False
@@ -248,14 +266,17 @@ if __name__ == "__main__":
                                     for current in stock[1]:
                                         if compare(current, word):
                                             saveArticle(stock[0], article)
+                                            savedAlready.append(stock[0])
                                             generated = True
                                             break
                                 else:
                                     if compare(stock[1], word):
                                         saveArticle(stock[0], article)
+                                        savedAlready.append(stock[0])
                                         continue
                                 if generated:
                                     continue
-        saveStockCounter(datasetName + "/stockArticleCounter" + sentimentType + ".csv", "Number of Articles", stockArticleCounter)
+        saveStockCounter(datasetName + "/stockArticleCounter" + sentimentType + ".csv", "Number of Articles",
+                         stockArticleCounter)
     else:
         print(sentimentType + " is not a valid sentimentType parameter value")
