@@ -1,0 +1,713 @@
+Date,Sentence,Prediction,sentimentScore
+2007-01-02,The retailer is determined to push energy-saving light bulbs with the help of some unlikely partners.,positive,0.8364450931549072
+2007-01-02,Wal-Mart Puts Some Muscle Behind Power-Sipping Bulbs,neutral,0.06710520386695862
+2007-01-03,Robert L. Nardelli was criticized for his pay package and failure to lift the chain’s stagnant stock price.,negative,-0.9467766284942627
+2007-01-03,Embattled Chief Executive Resigns at Home Depot,negative,-0.7843955159187317
+2007-01-03," Home Depot, the giant home-improvement chain, said Wednesday that Robert L. Nardelli resigned as its chairman and chief executive.",neutral,-0.38365739583969116
+2007-01-03,"Mr. Nardelli’s departure, which the company said was part of a mutual agreement, comes amid mounting criticism of Home Depot’s executive compensation practices and its flagging stock price.",negative,-0.9250380992889404
+2007-01-03,Home Depot’s Chief Resigns as Proxy Fight Looms,negative,-0.8120979070663452
+2007-01-03," When you are carrying $210 million in goodies, it is hard to make a quiet exit.",neutral,-0.2944433093070984
+2007-01-03,"This is especially true when you are Robert Nardelli, whose pay as the chief executive of Home Depot has long been a source of controversy.",neutral,-0.2364570051431656
+2007-01-03,"Hours after his resignation was announced early Wednesday, there were some strong reactions to Mr. Nardelli’s severance package, which the company valued at $210 million.",positive,0.7177236080169678
+2007-01-03,A Golden Goodbye for Home Depot Chief,positive,0.5161252617835999
+2007-01-04,The departure of Home Depot’s chief was a victory for shareholders hoping to force corporate directors to be more accountable for executive pay.,negative,-0.1011582612991333
+2007-01-04,A Warning Shot by Investors to Boards and Chiefs,negative,-0.4054684638977051
+2007-01-04,The board decided that Robert L. Nardelli should go — with a $210 million exit package.,neutral,0.1311524659395218
+2007-01-04,Home Depot Ousts Highly Paid Chief,negative,-0.6368944644927979
+2007-01-04,"Robert L. Nardelli’s departure illustrates that even when investor voices are heard on executive pay, shareholders often wind up holding the bag.",neutral,-0.35853278636932373
+2007-01-04,An Ousted Chief’s Going-Away Pay Is Seen by Many as Typically Excessive,negative,-0.6136451363563538
+2007-01-04,General Electric has long been seen as a training ground for future C.E.O.’s.,neutral,0.06089362874627113
+2007-01-04,"The ouster of Robert L. Nardelli, a G.E.",neutral,-0.09920792281627655
+2007-01-04,"alumnus, may change that perception.",neutral,0.06327779591083527
+2007-01-04,G.E.,neutral,0.04150601476430893
+2007-01-04,"Magic Can Fade, After G.E.",neutral,-0.023438408970832825
+2007-01-04," As shareholders, industry watchers and lawmakers continued to express outrage over the $210 million golden farewell that Home Depot awarded its ousted chief executive, Robert L. Nardelli, The New York Times takes a look at where it all began: General Electric, which has become a kind of high-end boutique where company directors go when they are looking for the cream of the crop in chief executives.",negative,-0.5472309589385986
+2007-01-04,"Home Depot Moves Put G.E., Martin Lipton in Spotlight",neutral,0.03459958732128143
+2007-01-04,Bob Nardelli could not see the value of good pay — at least for others.,neutral,-0.3757965564727783
+2007-01-04,Nardelli’s Departure,neutral,-0.13965219259262085
+2007-01-05,"When Robert L. Nardelli refused to accept a pay cut, he lost the crucial support of Kenneth G. Langone, a director at Home Depot.",negative,-0.9096767902374268
+2007-01-05,A Director Decides to Override a Friendship,neutral,-0.06778247654438019
+2007-01-05,An activist investor led the campaign against Home Depot’s management and strategy that culminated in the ouster of its chief executive.,negative,-0.8379167318344116
+2007-01-05,"Gadflies Get Respect, and Not Just at Home Depot",neutral,0.07602851092815399
+2007-01-05," Everyone who knows him says it: In a tough fight, Kenneth G. Langone is a guy you want in your corner.",neutral,-0.04445332661271095
+2007-01-05,"But when Robert L. Nardelli, the former chief executive of Home Depot, refused to bend to the will of an exasperated board and accept a pay cut, he lost the crucial support of a friend who as lead director not only recruited him but presided over his compensation contract that would later draw so much fire, according to a report in The New York Times.",negative,-0.9209396839141846
+2007-01-05,How Langone Lost Faith in Nardelli,negative,-0.5804776549339294
+2007-01-05,"For decades, activist shareholders were an entertaining, but largely ignored, Wall Street sideshow.",neutral,-0.23754768073558807
+2007-01-05,"Today, however, it seems that activists have captured the center ring and are directing the main event.",neutral,0.0529257170855999
+2007-01-05,"On Wednesday, shareholder advocates like Relational Investors‘ Ralph V. Whitworth could claim one of their biggest prizes yet when Home Depot announced the resignation of its chairman and chief executive, Robert L. Nardelli, long a target of shareholders’ ire for his large compensation and the company’s flagging stock price.",negative,-0.7823412418365479
+2007-01-05,Gadfly Investors Get Respect,neutral,0.06449618935585022
+2007-01-06,"The new year began with a series of surprises, not all of them pleasant.",neutral,0.11249557137489319
+2007-01-06,Highly Paid Chief Is Paid $210 Million to Go Away,neutral,-0.022507324814796448
+2007-01-06,Frank Blake faces the challenge of rebuilding Home Depot’s reputation among home-renovating consumers and lifting the chain’s sagging stock price.,positive,0.8878498673439026
+2007-01-06,"At Home Depot, the New Chief Needs to Sell an Old Story to Wall Street",neutral,-0.08188419044017792
+2007-01-07,"Robert L. Nardelli, the former chief executive of Home Depot, had to quit the Business Roundtable, which is only for sitting chief executives.",negative,-0.6500456929206848
+2007-01-07,"He’s Not Out of Cash, but Is Out of the Club",negative,-0.5668651461601257
+2007-01-08,Private equity firms are beginning to offer compensation on a previously unimaginable scale to chief executives.,neutral,0.20093417167663574
+2007-01-08,Private Firms Lure Chief Executives With Top Pay,neutral,-0.15680214762687683
+2007-01-08," Robert L. Nardelli’s unceremonious departure from Home Depot may spell the end of the era of super-size pay packages for chief executives of public companies, but a new refuge for lavish compensation is emerging elsewhere.",negative,-0.36316442489624023
+2007-01-08,Private equity firms are beginning to offer compensation on a previously unimaginable scale to the chief executives who run the once-public companies that the firms have bought out.,neutral,0.15432845056056976
+2007-01-08,Private Firms Lure C.E.O.’s With Top Pay,neutral,0.04696417227387428
+2007-01-09,"Home Depot, the home improvement store chain, said Monday that its board would require that two-thirds of its independent directors approve any compensation granted to Robert L. Nardelli, the former chairman and chief executive.",neutral,-0.013907801359891891
+2007-01-09,"The decision, made last Thursday but not disclosed until Monday in a regulatory filing, follows an uproar over Mr. Nardelli’s pay.",negative,-0.7886856198310852
+2007-01-09,Home Depot to Review Nardelli’s Pay,neutral,-0.0376400500535965
+2007-01-10,"Now that the board has ousted Home Depot’s chairman and chief executive, Robert L. Nardelli, shareholders are expecting big changes at the home improvement retailing giant.",neutral,-0.009359635412693024
+2007-01-10,Home Depot Board Faces New Outcry,negative,-0.9019043445587158
+2007-01-10," Home Depot‘s ousted chairman and chief executive, Robert L. Nardelli, may not be the only one to walk the plank at the home improvement retailing giant.",neutral,-0.1895095556974411
+2007-01-10,"Some shareholder activists and corporate governance watchdogs are now turning their attention to the company’s board, criticizing Home Depot’s decision to allow three directors to remain even after reaching the mandatory retirement age of 72.",negative,-0.9251169562339783
+2007-01-10,Home Depot Board Faces New Outcry,negative,-0.9019043445587158
+2007-01-11, Eric Jackson is not happy that Yahoo has lost more than a third of its market value over the past year.,negative,-0.9592028260231018
+2007-01-11,"But since he holds fewer than 1,000 shares of the Internet giant, he lacks the muscle of big-time activist shareholders such as Carl Icahn, Nelson Peltz or Ralph Whitworth, who have wrested concessions from the likes of ImClone Systems, Wendy’s International and Home Depot in recent months.",negative,-0.7104430794715881
+2007-01-11,"Still, Mr. Jackson hopes to use the Internet to consolidate the anger of other small shareholders, attempting to become what TheStreet.com’s Vishesh Kumar describes as a “virtual activist investor.”",neutral,0.012720808386802673
+2007-01-11,Tilting at Yahoo With a Web Site and Wiki,neutral,0.006522085517644882
+2007-01-12,Employment contracts have been blamed for virtually guaranteeing huge payouts even when an executive fails.,negative,-0.7974504828453064
+2007-01-12,"Hire by the Contract Now, Risk a Big Regret Later",negative,-0.5603632926940918
+2007-01-14,"Being a chief executive has many perks, but job security is not one of them.",neutral,0.020149849355220795
+2007-01-14,"For Top Executives, a Need to Be Aware of the Nearest Exit",neutral,-0.05114790052175522
+2007-01-16,Is Kenneth Langone “Patient Zero” — the primary carrier of a malady that makes corporate boards feverishly inflate executive pay?,negative,-0.6710469722747803
+2007-01-16,"At the least, he is what The New Yorker’s James Surowiecki dubs a “supercarrier,” given his track record, which includes that of the recently ousted Home Depot head, Robert L. Nardelli.",neutral,-0.1768328994512558
+2007-01-16,"And abetting Mr. Langone is the clubby world of corporate boards, an increasingly interconnected social network where directors and executives tend to scratch each other’s back.",neutral,0.0036205872893333435
+2007-01-16,How Rising C.E.O.,neutral,0.05855482816696167
+2007-01-16,Pay Spreads,neutral,0.065059594810009
+2007-01-17,A loose-knit coalition of hackers around the world defeated the antipiracy software protecting several high-resolution movies in the HD DVD format and began distributing copies of the films.,negative,-0.8256027698516846
+2007-01-17,A DVD Copy Protection Is Overcome by Hackers,negative,-0.6584271788597107
+2007-01-24,"Home Depot may pay its chief executive, Frank Blake $8.9 million this year, less than the $39.7 million it paid his predecessor, Robert Nardelli, who was ousted this month amid criticism of his compensation.",negative,-0.9216464161872864
+2007-01-24,"Mr. Blake, who took over Jan. 2, received a base salary of $975,000.",neutral,0.029949413612484932
+2007-01-24,"He will get the rest if he meets the board’s profit and stock performance goals, the company said on Wednesday.",neutral,0.3645194470882416
+2007-01-24,Home Depot’s New C.E.O.,neutral,0.047345198690891266
+2007-01-24,to Receive $8.9 Million,neutral,0.005007334053516388
+2007-01-25,"Home Depot’s new chief executive received a base salary of $975,000, and will get the rest if he meets profit and stock performance goals.",neutral,0.3259473145008087
+2007-01-25,Home Depot Chief’s Pay in 2007 Could Reach $8.9 Million,neutral,-0.11757571995258331
+2007-01-25,"The LaserShield $200 starter kit comes with a master alarm unit, a wireless detection unit and two keychain remotes.",neutral,0.03313594311475754
+2007-01-25,An Electronic Watchdog Will Follow You to a New Home,neutral,-0.00844513438642025
+2007-02-01,The Federal Deposit Insurance Corporation on Wednesday extended for one year a moratorium on considering nonfinancial companies’ applications to establish or acquire banks.,neutral,0.01422223448753357
+2007-02-01,"The decision suspends applications from companies like Wal-Mart Stores, Home Depot and DaimlerChrysler, and gives Congress time to consider legislation that would prohibit them from running their own lending banks, called industrial loan corporations.",negative,-0.38345688581466675
+2007-02-01,Federal Deposit Insurance Corporation Extends Moratorium,negative,-0.5152751803398132
+2007-02-06,The home improvement retailer reached an agreement with a large shareholder that will prevent a proxy fight over the company’s strategy.,positive,0.8927211165428162
+2007-02-06,Home Depot Proxy Fight Is Settled,negative,-0.6702609062194824
+2007-02-06,"Home Depot reached an agreement Monday night with a large shareholder, Relational Investors, that will prevent a proxy fight over the company’s strategy.",positive,0.6925386786460876
+2007-02-06,But the move could increase pressure on Home Depot to sell one of its units.,negative,-0.9357108473777771
+2007-02-06,"Under the terms of the agreement, Relational, a San Diego investment fund, will receive a seat on the company’s board and four directors involved in hiring Robert L. Nardelli, the recently dismissed chief executive, will leave the board in 2008.",neutral,0.011638034135103226
+2007-02-06,"A founder of Relational, David H. Batchelder, will join the Home Depot board on Feb. 22, and the investment fund will drop its proxy challenge, the two companies said in a joint statement.",neutral,0.025708435103297234
+2007-02-06,"As Home Depot Settles Proxy Fight, Sale Talk Lingers",neutral,-0.028580576181411743
+2007-02-08,Home Depot’s new chief  is working to return the chain to its humble retail roots and erase the perception that it has lost its focus.,neutral,0.18789416551589966
+2007-02-08,Home Depot Gets a Fresh Coat of Less-Glossy Paint,neutral,0.3557370603084564
+2007-02-10,Commercial real estate is positively smoking.,neutral,0.40838590264320374
+2007-02-10,"That was made plain by two big deals this week, one of them (nominally) the biggest leveraged buyout in history.",positive,0.7814803123474121
+2007-02-10,A Giddy Time for Owners of Office Towers,neutral,0.0429176390171051
+2007-02-12,Home Depot is introducing a campaign unusual for its frankly emotional appeal.,neutral,0.0057198237627744675
+2007-02-12,Home Depot Taps the Weepy Part of Reality TV,neutral,0.027418069541454315
+2007-02-12,"Home Depot said Monday that it had hired Lehman Brothers to consider a sale or spinoff of its contractor-supply business, a move that would undo an ambitious and expensive diversification strategy advocated by its recently ousted chief executive, Robert Nardelli.",negative,-0.7065064311027527
+2007-02-12,Home Depot Considers Sale of Contractor-Supply Unit,neutral,0.00024581700563430786
+2007-02-12,An ad from Home Depot's campaign.,neutral,0.03288809210062027
+2007-02-12,Home Depot,neutral,0.008649162948131561
+2007-02-12,An ad from Home Depot's campaign.,neutral,0.03288809210062027
+2007-02-12,Home Depot,neutral,0.008649162948131561
+2007-02-13,"The company announced a move that, if completed, would be a sharp rebuke of the strategy of the former chief executive Robert L. Nardelli.",negative,-0.3769538998603821
+2007-02-13,Home Depot May Shed Unit to Focus on Retail,negative,-0.5761181712150574
+2007-02-13,A recent offer by the country’s biggest buyout firms to take Home Depot‘s wholesale supply division off Frank Blake’s hands was apparently the spark that lit the flame.,positive,0.622074544429779
+2007-02-13,"The New York Times reports that shortly after Robert L. Nardelli was deposed as chief executive of Home Depot, several private equity firms told Mr. Blake, the company’s new leader, that they would consider buying the retailer’s $12 billion wholesale business.",neutral,0.10654915869235992
+2007-02-13,Buyout Shops Made Home Depot an Offer It Couldn’t Refuse,neutral,-0.29850515723228455
+2007-02-14,Why stop at $39 billion?,neutral,-0.04832272231578827
+2007-02-14,"The Blackstone Group set a record for leveraged buyouts with its deal for Equity Office Properties Trust last week, driving investment bankers mad with the idea that an even bigger whale of a buyout is swimming out there.",neutral,-0.10976357758045197
+2007-02-14,"And in this private equity boom, giants once thought of as unthinkable buyout candidates — Home Depot, Yahoo — have been floated as possible targets.",neutral,0.06869254261255264
+2007-02-14,A $100 Billion L.B.O.?,neutral,0.05188054218888283
+2007-02-14,Keep Dreaming,neutral,0.10906010866165161
+2007-02-14," He may have been autocratic and very well compensated, but former Home Depot chief executive Robert Nardelli may also have been onto something.",neutral,-0.20854638516902924
+2007-02-14,"That is the suggestion that a few analysts are making as they evaluate the recent decision by Mr. Nardelli’s successor, Frank Blake, to consider selling Home Depot’s contractor-supply business.",neutral,-0.022794097661972046
+2007-02-14,"Building that business was a pet project of Mr. Nardelli, who was convinced that the consumer remodeling market was reaching maturity.",neutral,0.11013919860124588
+2007-02-14,"He pinned his strategy — and much of the company’s capital — on HD Supply, the Home Depot division that serves commercial customers.",neutral,0.06941340118646622
+2007-02-14,Should Blake Zig Just Because Nardelli Zagged?,negative,-0.5159188508987427
+2007-02-21,A report delivered by Home Depot’s new chief executive revealed how much work it will take to turn around the home improvement chain.,neutral,0.32184314727783203
+2007-02-21,Home Depot Profit Falls as Wal-Mart Reports a Rebound,negative,-0.9345028400421143
+2007-02-22,Some video buffs may want to relay their high-definition programming all over the house or take it with them on the road.,neutral,-0.018640965223312378
+2007-02-22,"Blend a PC Into Your TV System, Using Wireless and High Definition",neutral,0.005148462951183319
+2007-03-01,"Competition for Home Depot‘s wholesale supply business is already heating up, even though the company has yet to formally announce an auction.",neutral,0.4308699667453766
+2007-03-01,And the roster of interested bidders reads like a private equity hall of fame.,neutral,0.10883181542158127
+2007-03-01,"According to The Financial Times, three teams of private equity firms have formed to consider bids for the business, which could go for about $11 billion.",neutral,0.07971948385238647
+2007-03-01,"Private Equity Teams Up for Home Depot Auction, Report Says",neutral,0.42373913526535034
+2007-03-14," Home Depot‘s chief executive, Frank Blake, offered a reality check Wednesday to those who are hoping his company will soon become the biggest buyout target in history.",positive,0.5755016207695007
+2007-03-14,"“We’re not thinking about going private,” Mr. Blake said at a Metro Atlanta Chamber of Commerce conference.",neutral,-0.05498378723859787
+2007-03-14,“We’re very pleased with the capital structure we have.” There has been speculation that Home Depot’s stalled stock price and its valuable real-estate assets could make the home-improvement retailer an attractive acquisition candidate for private equity firms.,positive,0.8118988275527954
+2007-03-14,"With a market capitalization of about $76 billion, though, Home Depot would be quite a tall order for even a posse of firms flush with cash.",neutral,0.242335245013237
+2007-03-14,Home Depot Chief: No Plans to Go Private,neutral,-0.0007904451340436935
+2007-03-15,Home Depot said the full board will attend the annual shareholders’ meeting.,neutral,0.03533558547496796
+2007-03-15,Retailer’s Board Pledges to Speak,neutral,0.12715664505958557
+2007-03-15,Blaming the Old Boss at Home Depot,negative,-0.5104272961616516
+2007-03-15,Three Envelopes at Home Depot,neutral,-0.0024721845984458923
+2007-03-20,The board has been working to regain investors' trust after coming under fire for the sky-high compensation package paid to former chief executive Robert Nardelli.,negative,-0.1827632188796997
+2007-03-20,Two Members of Home Depot Board Will Not Stand for Re-Election,neutral,-0.09954165667295456
+2007-03-20,The company gave no reason for the departures nor did it say if the company had chosen successors for the directors.,neutral,-0.02114097774028778
+2007-03-20,Two Directors of Home Depot Will Not Seek Re-election,neutral,-0.021815931424498558
+2007-03-20,Perhaps the seat was a little too hot.,negative,-0.42913463711738586
+2007-03-20,Two Directors of Home Depot Will Not Seek Re-election,neutral,-0.021815931424498558
+2007-03-29," Home Depot‘s recently ousted chief executive, Robert Nardelli, has received a job offer from Cerberus Capital Management, CNBC reported, citing undisclosed sources.",neutral,-0.28633636236190796
+2007-03-29,"But the home-improvement retailer may try to prevent him from joining Cerberus, a private equity firm whose investments include tje General Motors Acceptance Corporation and the parent of Air Canada, by invoking his noncompete contract, CNBC said.",negative,-0.8756704330444336
+2007-03-29,Cerberus Said to Offer Job to Home Depot Ex-Chief,neutral,0.09508492052555084
+2007-04-04,Four public companies that have made the rounds as potential targets for buyout firms.,neutral,0.03872185945510864
+2007-04-04,"Ready, Aim, Fire: Takeover Target Practice on Wall Street",neutral,0.041972171515226364
+2007-04-16,"Several large private equity firms submitted first-round bids for Home Depot‘s HD Supply unit, but Home Depot may not be all that interested in selling the unit, according to The Deal.com.",neutral,0.15545614063739777
+2007-04-16,"When the company said in February that it was considering strategic alternatives, HD Supply was seen as a distraction to Home Depot’s core business.",negative,-0.8888987302780151
+2007-04-16,"But with the housing market slowing dramatically in recent months, analysts now say the unit, which is less reliant on the residential housing market, could help the retailer weather the housing storm.",positive,0.8870220184326172
+2007-04-16,Home Depot May Change Its Mind on Unit Sale,neutral,-0.0905289277434349
+2007-04-17,The new environmental initiative would become the largest green labeling program in American retailing.,positive,0.7666037082672119
+2007-04-17,Home Depot to Display an Environmental Label,neutral,-0.18684911727905273
+2007-04-18,Companies are increasingly being urged to listen more closely to shareholders.,neutral,0.10310724377632141
+2007-04-18,There could be such a thing as too much.,negative,-0.5819368362426758
+2007-04-18,"In sharp contrast to the Home Depot annual meeting last May that investors decried as unresponsive, Citigroup‘s session yesterday dragged on, writes The New York Times’ Eric Dash.",neutral,-0.09442278742790222
+2007-04-18,And on.,neutral,0.052930064499378204
+2007-04-18,And on.,neutral,0.052930064499378204
+2007-04-18,Citigroup Listens and Listens to Holders,neutral,0.0312795527279377
+2007-04-26,The Epson PowerLite Home Cinema 1080 costs about as much as a large-screen TV and lets you project a 100-inch HD picture on any wall.,neutral,0.015692975372076035
+2007-04-26,A High-Definition Projector That Competes on Price,neutral,0.05391854792833328
+2007-04-29,Be sure of your goals.,neutral,0.12974902987480164
+2007-04-29,And remember that your former employees may now want to hire you.,neutral,0.0280793197453022
+2007-04-29,Sizing Up Your Skills for a Return to Work,neutral,0.12150029093027115
+2007-05-17,The Hewlett-Packard Pavilion HDX has a 20-inch screen and can handle HD DVD discs and HDMI video.,neutral,0.04780092462897301
+2007-05-17,A Fire-Breathing Laptop Powered Up for Entertainment,neutral,0.09052643179893494
+2007-05-19,A private equity fund and some well-known billionaires were in acquisitive moods this week.,neutral,0.14945784211158752
+2007-05-19,"Shoppers Are Holding Back, but Billionaires Are Buying",negative,-0.6326556205749512
+2007-05-22, Is Home Depot having trouble selling its supply unit?,negative,-0.842602014541626
+2007-05-22,"According to The New York Post, the softening housing market and other complications are creating challenges for Home Depot as it tries to find a buyer for its professional supply business.",negative,-0.8919318914413452
+2007-05-22,Headwinds for Home Depot’s Supply Auction?,negative,-0.7367844581604004
+2007-05-23,The chief for the home improvement chain will try to make up for past mistakes by laying out his vision for the future at its annual meeting Wednesday.,neutral,0.04465527459979057
+2007-05-23,Home Depot to Investors: Mea Culpa,neutral,0.006826881319284439
+2007-05-23,"It was, as even Home Depot executives will concede, a 37-minute fiasco.",negative,-0.9225802421569824
+2007-05-23,"In a basement hotel ballroom in Delaware, with the board nowhere in sight and huge timers on stage to cut off angry investors, Home Depot held a hasty annual meeting last year that attendees alternately described as “appalling” and “arrogant.”",negative,-0.7784635424613953
+2007-05-23,"Home Depot Plans Kinder, Gentler Shareholder Meeting",neutral,0.29529377818107605
+2007-05-25,"Robert L. Nardelli, Home Depot’s ousted chief executive, loomed large over this year’s annual shareholder meeting.",negative,-0.7396510243415833
+2007-05-25,"Apologetic, Home Depot Tries to Move Beyond Nardelli’s Shadow",neutral,0.09296596795320511
+2007-05-25,Frank Blake strove to make this year’s shareholders meeting a model of openness.,neutral,0.4003789722919464
+2007-05-25,Home Depot Chief Offers Apology to Shareholders,negative,-0.43891915678977966
+2007-05-25,"At Home Depot‘s annual meeting yesterday, investors and management went back and forth on a range of issues as the specter of Robert L. Nardelli, the company’s ousted chief executive, continued to haunt the proceedings.",negative,-0.7822580337524414
+2007-05-25,"Apologetic, Home Depot Tries to Move Beyond Nardelli’s Shadow",neutral,0.09296596795320511
+2007-05-26,"The chain’s new chief executive was everything his predecessor was not: folksy, sincere, occasionally funny and often self-deprecating.",neutral,0.016071751713752747
+2007-05-26,Speaking Up in Fresh Air at Home Depot,neutral,0.2089148610830307
+2007-05-31,"Radiosophy's HD100 pulls in HD Radio signals, a digital format that is broadcast alongside standard radio by more than 1,200 stations in this country.",neutral,0.16905558109283447
+2007-05-31,A Digital Radio That Costs Less Than Half Its Cheapest Rival,neutral,-0.24227266013622284
+2007-06-07,"Plextor has come out with its Mini Digital HDTV Receiver, which connects to a laptop’s U.S.B.",neutral,0.29721975326538086
+2007-06-07,port.,neutral,0.045706965029239655
+2007-06-07,Away From the Set but Not Away From HDTV,neutral,-0.3400890827178955
+2007-06-15,The auction for Home Depot‘s supply unit may finally be heating up.,neutral,0.09425842761993408
+2007-06-15,"Two private equity consortiums are planning to table offers of about $10 billion each for the contractor-supplies unit of the world’s largest home-improvement retailer, Bloomberg News reported.",neutral,0.44519495964050293
+2007-06-15,"Home Depot Unit to Get Bids from 2 Buyout Groups, Report Says",positive,0.7397793531417847
+2007-06-19,"Home Depot has agreed to sell its Home Depot Supply Unit to three private equity firms — Bain Capital, the Carlyle Group and Clayton Dubilier & Rice for $10.3 billion, the buyers announced this afternoon, confirming a report by DealBook.",neutral,0.22851917147636414
+2007-06-19,Home Depot to Sell Supply Unit for $10 Billion,neutral,-0.0008787773549556732
+2007-06-20,The home improvement chain sold its supply unit to a group of private equity firms for more than $10.3 billion.,neutral,0.01797698438167572
+2007-06-20,Home Depot Sells a Unit That Never Fit,neutral,-0.019728131592273712
+2007-06-20,The unit was sold for $10.3 billion to a group of private equity firms that will take an equal stake in the company.,neutral,0.03353453427553177
+2007-06-20,Home Depot Agrees to Sell Supply Unit,neutral,0.15201106667518616
+2007-06-23,Yahoo looked to new leadership in its battle against Google.,neutral,0.3549804389476776
+2007-06-23,It was a bad week for automakers.,negative,-0.9418354034423828
+2007-06-23,"Home Depot downsized by a unit, and Wal-Mart introduced products and services for the unbanked.",neutral,0.07696117460727692
+2007-06-23,Detroit Would Like Higher Numbers but Not This One,neutral,0.07252569496631622
+2007-06-25,Some environmentalists say that Home Depot is being too inclusive in its new Eco Options marketing campaign.,negative,-0.8249936103820801
+2007-06-25,"At Home Depot, How Green Is That Chainsaw?",neutral,0.028344297781586647
+2007-07-11,"As sales of home improvement items fall and consumer confidence weakens, retailers are starting to feel the effects of the housing slump.",negative,-0.9503641724586487
+2007-07-11,"Citing Weak Housing Market, Home Depot and Sears Lower Estimates",negative,-0.9232276678085327
+2007-07-14,A growing number of people are taking “virtuous vacations” where they spend time working for nonprofit groups.,neutral,-0.003478139638900757
+2007-07-14,Vacation Is No Time to Be Idle,neutral,-0.1758292019367218
+2007-07-15,"Investors overcame earnings warnings from Home Depot and Sears Holdings and dismissed concerns about the subprime mortgage market, sending the Dow Jones industrial average and the Standard & Poor’s 500-stock index to record highs last week.",positive,0.2630234956741333
+2007-07-15,"Stocks Rally, Sending Indexes to Record Highs",positive,0.40159446001052856
+2007-07-30,"Activists are urging Home Depot to withdraw advertising from Fox News, whose hosts and commentators dismiss global warming as liberal hysteria.",negative,-0.874899685382843
+2007-07-30,"Environmentalists Push, but Home Depot Refuses to Drop Ads on Fox News",negative,-0.8567697405815125
+2007-07-30,"After all the posturing between the Blu-Ray and HD DVD camps, the numbers show that player sales are about even between the two warring formats.",neutral,0.21342402696609497
+2007-07-30,Posturing in the Hi-Def DVD Battle,neutral,0.015450969338417053
+2007-08-02,"The new TiVo HD recorder offers 20 hours of HD storage (or 180 hours of standard TV), an easy-to-use interface and the ability to record two channels at once.",positive,0.534494936466217
+2007-08-02,An Easy-to-Use HD Digital Recorder (and at a Lower Price),neutral,0.0704839825630188
+2007-08-06,Robert L. Nardelli said that he wanted to move faster and more efficiently with Chrysler’s turnaround strategy.,positive,0.7637758851051331
+2007-08-06,Ex-Home Depot Chief Taking Reins at Chrysler,neutral,-0.07636690884828568
+2007-08-06,"Robert L. Nardelli, ousted from Home Depot amid shareholder discontent, has been picked to lead Chrysler by its new owner, Cerberus Capital Management.",neutral,-0.024232711642980576
+2007-08-06,Ex-Home Depot Chief to Take Reins at Chrysler,neutral,0.01694045215845108
+2007-08-06,"Robert L. Nardelli, who was ousted as chief executive of Home Depot this year amid shareholder discontent over his enormous pay package, will soon take on one of the most prominent jobs in corporate America: revitalizing the troubled automaker Chrysler.",neutral,-0.03652186691761017
+2007-08-06,Ex-Home Depot Chief to Lead Chrysler,neutral,0.04212980717420578
+2007-08-07,"Robert L. Nardelli is being given the chance to try to bring off two comebacks: Chrysler’s, and his own.",positive,0.7703359723091125
+2007-08-07,"Once Tainted, Nardelli Now Has Chrysler’s Keys",neutral,-0.09034843742847443
+2007-08-07,"Few have felt the effects of the yearlong slump in housing and construction sales as forcefully or as suddenly as the USG Corporation, the nation’s largest maker of drywall.",negative,-0.8827252984046936
+2007-08-07,Drywall Maker in Pain as Housing Suffers,negative,-0.7920304536819458
+2007-08-07,"When Robert L. Nardelli was sent packing from Home Depot in January with a $210 million exit package and a reputation as an imperious chief executive who had made strategic blunders, he seemed tarnished forever.",negative,-0.8702548146247864
+2007-08-07,Nardelli Now Has Chrysler’s Keys,neutral,0.03241829574108124
+2007-08-09,The ongoing troubles in the debt markets may have rocked yet another major buyout.,negative,-0.880230724811554
+2007-08-09,"On Thursday, Home Depot said it is in talks with the three private equity firms that agreed to buy its supply unit — discussions that may lead to a lower price than the agreed-upon $10.325 billion.",negative,-0.39036625623703003
+2007-08-09,Home Depot also said it would cut the price it is offering in its share buyback.,negative,-0.9305943250656128
+2007-08-09,Home Depot Says Supply Unit May Be Sold for Less,negative,-0.6085167527198792
+2007-08-09,News that Home Depot may receive less than $10.3 billion for the sale of its professional supply unit helped drive the home-improvement retailer’s shares down more than 4.8 percent in afternoon trading Thursday.,negative,-0.9631288647651672
+2007-08-09,"But despite the company’s terse explanation that financing conditions prompted the move, we’re still skeptical.",neutral,0.08832693099975586
+2007-08-09,Why Is Home Depot Back at the Table?,neutral,-0.3892146348953247
+2007-08-13,"As a former Home Depot chief heads Chrysler, Detroit has completed a new-model changeover of the executive suite.",neutral,0.17121662199497223
+2007-08-13,"Importing Chiefs, Detroit Reflects on Its ‘Car Guys’",neutral,0.061014171689748764
+2007-08-15,Wal-Mart and Home Depot reported earnings disappointments for the second quarter and predicted an even bumpier year ahead.,negative,-0.9544287919998169
+2007-08-15,Two Giant Retail Chains Say Sales Are Slumping,negative,-0.9399706125259399
+2007-08-16,"Home Depot and a group of private-equity firms that are in talks to buy the retailer’s supply business have agreed to delay the closing date by a week to Aug. 23, the company said Wednesday.",negative,-0.7259396910667419
+2007-08-16,Home Depot Supply Sale Delayed,neutral,0.003438405692577362
+2007-08-21,Paramount and DreamWorks Animation said they would exclusively back the HD DVD format for the release of high-definition movies on disc.,neutral,0.47609150409698486
+2007-08-21,Two Studios to Support HD DVD Over Rival,positive,0.49095022678375244
+2007-08-23,"Home Depot‘s plans to sell its wholesale supply division to a group of private equity buyers is in doubt because the investment banks involved are reluctant to fund the deal, even at a lower price, The Financial Times reported.",negative,-0.9164496064186096
+2007-08-23,"Banks Balk at Funding Home Depot Deal, Report Says",negative,-0.9431955814361572
+2007-08-24,"Home Depot was scrambling last night to save the sale of its wholesale unit to a consortium of private equity firms, lowering its asking price by about $1.2 billion from the original $10.3 billion it agreed upon, people involved in the talks said.",negative,-0.817669153213501
+2007-08-24,Home Depot Said to Cut Price to Try to Save Sale of Unit,negative,-0.858794629573822
+2007-08-24,"Home Depot was scrambling Thursday night to save the sale of its wholesale unit to a consortium of private equity firms, lowering its asking price by about $1.2 billion from the original $10.3 billion it agreed upon, according to The New York Times.",negative,-0.8988361954689026
+2007-08-24,Home Depot Scrambles to Save Sale of Unit,negative,-0.4376206696033478
+2007-08-24,"Negotiations over the fate of Home Depot‘s professional supply unit are likely to drag on through the weekend as financing of the $10.3 billion deal remains up in the air, people briefed on the matter told DealBook.",neutral,-0.215531587600708
+2007-08-24,"Bankers and lawyers are expected to keep battling over whether the banks in the deal can withdraw their financing commitments, in what one person told The New York Times was “the most expensive game of chicken you’ve ever played.”",negative,-0.8947033882141113
+2007-08-24,A Delay in the Home Depot Battle Royale,negative,-0.6620698571205139
+2007-08-25,"While stocks leveled off after the Fed’s rate cut, the woes from the collapse of the subprime mortgage market continued to claim more victims.",negative,-0.8179923892021179
+2007-08-25,"Wall Street, Still a Little Wobbly, Steadies Itself",positive,0.3209093511104584
+2007-08-26,"Home Depot reached a tentative new agreement today to sell its wholesale unit to a consortium of private equity firms for a reduced price of $8.5 billion, according to people involved  in the deal.",neutral,0.15617048740386963
+2007-08-26,Home Depot Is Said to Cut Deal’s Price by $1.8 Billion,negative,-0.9446018934249878
+2007-08-27,"The company dropped the sale price of its commercial supply business by nearly $2 billion, one of the first big buyouts renegotiated amid the credit squeeze.",negative,-0.9585446119308472
+2007-08-27,Home Depot Unit Sees Price Drop in Tight Market,negative,-0.9304677844047546
+2007-08-27,"To save its struggling deal, Home Depot was forced to drop the sale price of its commercial supply business by nearly $2 billion yesterday, according to The New York Times, becoming one of the first big buyouts to be renegotiated as a result of the recent tightening of credit and problems in the housing market.",negative,-0.9557287693023682
+2007-08-27,Price for Home Depot Unit Plunges in a Tight Market,negative,-0.9330416917800903
+2007-08-27,"Shares in Home Depot rose 1.9 percent to $35.33 in afternoon trading Monday on news that the sale of the company’s wholesale supply unit, HD Supply, is still on track.",positive,0.9060361981391907
+2007-08-27,"The retailing giant agreed to trim the price to $8.5 billion as it prepares to sell the unit to Bain Capital, the Carlyle Group and Clayton Dubilier & Rice.",negative,-0.435941219329834
+2007-08-27,Home Depot Shares Rise as Deal Is Repriced,positive,0.46565139293670654
+2007-08-27,Will the drama at HD Supply spawn any sequels?,neutral,0.10792127251625061
+2007-08-27,Home Depot: A Script for Deal Renegotiations?,neutral,0.03235732391476631
+2007-08-28,"A consortium of private equity firms agreed to pay $8.5 billion, nearly $2 billion less than the original agreement.",neutral,0.2846173644065857
+2007-08-28,Home Depot Sells Supply Business,neutral,0.012124700471758842
+2007-08-28,"As the credit markets tighten, some investors fret that the renegotiated deal for Home Depot’s wholesale supply unit may be an omen for other buyouts.",negative,-0.9283199906349182
+2007-08-28,Redone Home Depot Deal Not Thought Contagious,negative,-0.6017186641693115
+2007-08-28,"Home Depot said on Tuesday that it was lowering the price of its wholesale supply unit business by nearly $2 billion, confirming media reports.",negative,-0.9274176359176636
+2007-08-28,"As previously reported, the retailer will sell HD Supply to a consortium of private equity firms for $8.5 billion, while holding onto a 12.5 percent stake in the unit and backing $1 billion in financing.",neutral,0.07863738387823105
+2007-08-28,Home Depot Confirms New Price for Supply Unit,neutral,0.11086331307888031
+2007-08-29,"Home Depot agreed yesterday to sell its commercial supply business to an alliance of private equity firms for $8.5 billion, nearly $2 billion less than the original agreement.",neutral,0.12598396837711334
+2007-08-29,"Home Depot Sells Unit, With Price Cut",neutral,-0.03843841701745987
+2007-08-29,"The really important question about the sale of Home Depot‘s construction supply business apparently isn’t the price, which Home Depot lowered 18 percent on Tuesday, to $8.5 billion, after round-the-clock negotiations.",neutral,0.03666910529136658
+2007-08-29,"Terms Aside, Did Home Depot Give Away the Store?",neutral,-0.06576059758663177
+2007-08-30,Viewers for whom action matters need to pay as much attention to how fast images are processed as to the size of the screen.,neutral,0.0017797239124774933
+2007-08-30,Not All HDTVs Can Keep Up With the Action,neutral,0.10826481878757477
+2007-09-05,"Home Depot said Tuesday it expects to repurchase 289.6 million shares of stock at $37 a share, after reviewing the preliminary results of a tender offer to buy back stock.",neutral,0.07918466627597809
+2007-09-05,Home Depot Details Stock Buyback,neutral,0.04673133045434952
+2007-09-06,The LG Super Blu Player BH200 will cost around $999 when it makes its way to stores next month.,neutral,0.03984307125210762
+2007-09-06,"Above the Format Wars, a Player for HD DVD and Blu-ray",neutral,0.03488569334149361
+2007-09-06,James E. Press has been lured away from Toyota as Chrysler transforms itself as a private company.,negative,-0.7370867133140564
+2007-09-06,Chrysler Hires a Top Toyota Executive,neutral,-0.016621679067611694
+2007-09-18,The death of the paper airline ticket is finally at hand.,neutral,-0.010312177240848541
+2007-09-18,They Lasted Longer Than Airline Meals Did,neutral,-0.10533924400806427
+2007-09-27,"Kodak’s V1253, a 12-megapixel camera, can connect to HD televisions (with an optional $100 dock) and produces video at 720p quality.",neutral,0.05115021392703056
+2007-09-27,A Digital Still Camera Built to Accommodate the High- Definition Television Experience,neutral,0.06286229938268661
+2007-10-04,"In the battle to determine which high-definition DVD format will become the next standard, Toshiba is hoping the third time’s a charm.",positive,0.5378526449203491
+2007-10-04,"Circuits: And in This Corner, a Third-Generation HD DVD Player",neutral,-0.010183960199356079
+2007-10-25,"The PCTV HD Ultimate Stick, which sells for $130, includes a telescoping antenna for broadcast television.",neutral,0.04658391699194908
+2007-10-25,Grab Those Free HDTV Signals and Feed Them to Your PC,neutral,-0.0018143560737371445
+2007-10-30,"Robert L. Nardelli, Chrysler’s new chief who earlier ran Home Depot, spoke about the auto industry in terms that suggested he was still in a home-improvement state of mind.",neutral,0.0703536793589592
+2007-10-30,"At Chrysler, Home Depot Still Lingers",neutral,-0.1503399759531021
+2007-10-30,"Robert L. Nardelli, the new Chrysler chief executive, has tried hard to sound like a “car guy” from the moment he landed in Detroit.",neutral,0.02853420376777649
+2007-10-30,"He boasted at his first news conference, in August, about his well-stocked garage that included a Jeep, a Plymouth Prowler and a PT Cruiser.",neutral,0.08509726822376251
+2007-10-30,"At Chrysler, Home Depot Still Lingers",neutral,-0.1503399759531021
+2007-11-07,Call it Phase 3 of the greening of corporate America.,neutral,0.11961933225393295
+2007-11-07,Companies are looking at their supply chain as the next frontier for combating climate change.,neutral,0.13235676288604736
+2007-11-07,"For Suppliers, the Pressure Is On",neutral,-0.18741834163665771
+2007-11-13,"Economic unease, from the credit markets to the gas pump, has proven a boon to the nation’s largest discount retailer, but a bust for the biggest home improvement chain.",negative,-0.9100173711776733
+2007-11-13,Wal-Mart Profit Is Up; Home Depot Takes a Hit,positive,0.8189573287963867
+2007-11-14,"Economic unease is proving a boon to the nation’s largest discount retailer, Wal-Mart Stores, but a bust for the biggest home improvement chain, Home Depot.",negative,-0.9172199368476868
+2007-11-14,"As Home Depot Fights a Weak Economy, Wal-Mart Sees a Ray of Holiday Hope",positive,0.5083175301551819
+2007-11-21,An unlikely alliance between stores and Web sites that prematurely leak copies of discount-filled advertisements indicates how worried retailers are about the holiday shopping season.,negative,-0.9322006702423096
+2007-11-21,But it turns out that a big source of the leaks are the retailers themselves.,negative,-0.5833268165588379
+2007-11-21,"Instead of Fighting Ad Leaks, Some Retailers Embrace Them",neutral,0.07032033801078796
+2007-12-31,"Even as prices fall, neither Sony’s Blu-ray nor Toshiba’s HD DVD, has gained an advantage.",positive,0.8067289590835571
+2007-12-31,"In the DVD War Over High Definition, Most Buyers Are Sitting It Out",neutral,-0.37168848514556885
+2008-01-01,"Bigger is better, right?",neutral,0.23239201307296753
+2008-01-01,Not so fast.,negative,-0.48107317090034485
+2008-01-01,Corporate America appears to have had second thoughts in 2007.,neutral,-0.15094806253910065
+2008-01-01,"In 2007, Some Giants Went Smaller",neutral,0.00437014177441597
+2008-01-04,"Warner Brothers, the only studio to back both high-definition video disk formats, now will only publish movies in Blu-ray.",neutral,0.025510398671030998
+2008-01-04,Some say this shift will quickly kill the competing HD DVD format.,negative,-0.8877835869789124
+2008-01-04,Did Warner Brothers Just Kill HD DVD?,negative,-0.6107914447784424
+2008-01-07,"The press conference for Toshiba, creator of the HD DVD format, felt more like a funeral following the news last week that gives the rival Blu-ray format momentum.",neutral,0.42286020517349243
+2008-01-07,Toshiba Plays Clinton to Sony’s Obama,neutral,-0.3406491279602051
+2008-01-07,"Vudu, the movie store in a set-top-box, is adding high definition titles to its nascent service.",neutral,0.12008196860551834
+2008-01-07,"High-Definition Movies, Without the Format War",neutral,-0.01570950262248516
+2008-01-10,A report says that the last two studios to back Toshiba’s HD DVD format — NBC Universal and Paramount — are backing away from their exclusive commitment in the wake of Warner Brothers’ endorsement of the rival Blu-ray format.,negative,-0.9129106998443604
+2008-01-10,Still unclear is whether anyone needs high definition discs at all.,neutral,-0.045465342700481415
+2008-01-10,HD DVDs Fall Like Dominoes,negative,-0.6069527864456177
+2008-01-19,A new specification will add features to Blu-ray disc players proves that people really just subscribe to consumer electronics rather than buying them.,neutral,0.40436291694641113
+2008-01-19,Accept that and you can defend profligate spending on the latest TV or being a penny-pincher.,neutral,0.06541604548692703
+2008-01-19,"You’re Not Buying Gadgets, You Are Subscribing to Them",neutral,-0.02479689195752144
+2008-01-22,Bobby G is a series on the Mojo HD Network that follows a publicity-loving entrepreneur and venture capitalist.,neutral,0.032999634742736816
+2008-01-22,Bobby G Opening Credits,neutral,0.06258723884820938
+2008-01-22,Bobby G is a series on the Mojo HD Network that follows a publicity-loving entrepreneur and venture capitalist.,neutral,0.032999634742736816
+2008-01-22,Bobby G Closing Credits,neutral,0.05199584364891052
+2008-01-28,What was a 50-50 market split in 2007 for the high-definition players shifted sharply in Blu-ray’s favor in the new year.,positive,0.014544427394866943
+2008-01-28,Sales of HD DVD Players Plunge After Warner Move,negative,-0.9477564096450806
+2008-01-31,HD DVD continues to show some fight in its seemingly unending war with Blu-ray.,positive,0.74651038646698
+2008-01-31,"Meanwhile, LG and Samsung introduce new dual-format players.",positive,0.6627240777015686
+2008-01-31,"In This War, How to Ally With Both",neutral,0.1389816701412201
+2008-01-31,"Battered by a downturn in the housing market, the company is laying off 500 workers at its headquarters in Atlanta, or about 10 percent of its work force there.",negative,-0.9634237289428711
+2008-01-31,Home Depot Plans Layoffs at Headquarters,negative,-0.8904345035552979
+2008-02-01,"Battered by a downturn in the housing market, the company is laying off about 10% of its workforce at its headquarters in Atlanta.",negative,-0.962839663028717
+2008-02-01,Home Depot Will Lay Off 500 Workers,negative,-0.9438874125480652
+2008-02-15,Toshiba still says it will fight on in the high definition disc race.,positive,0.5115912556648254
+2008-02-15,But campaign sources tell the Hollywood Reporter that it is preparing to accept that HD DVD simply can’t win.,neutral,0.023826390504837036
+2008-02-15,UPDATE: Wal-Mart is backing Blu-ray.,neutral,0.3009534180164337
+2008-02-15,This race is over.,neutral,0.04889439791440964
+2008-02-15,Will Toshiba Suspend Its HD DVD Campaign?,negative,-0.642764151096344
+2008-02-16,High-definition DVD died Friday after a brief illness.,neutral,-0.42709672451019287
+2008-02-16,The cause of death was the decision by Wal-Mart to stock only HD DVDs and players using the Blu-ray format.,negative,-0.7321557998657227
+2008-02-16,Taps for HD DVD as Wal-Mart Backs Blu-ray,negative,-0.7668963670730591
+2008-02-18,What are the bargains in electronics stores this week?,neutral,-0.17247341573238373
+2008-02-18,The Sunday Circular Analyst,neutral,0.053347986191511154
+2008-02-20,"The Japanese electronics giant threw in the towel on its HD DVD technology, announcing that it would no longer develop, produce or market disc players for the format.",negative,-0.8741480112075806
+2008-02-20,Toshiba Concedes Defeat in the DVD Battle,negative,-0.7734813690185547
+2008-02-20,"The Japanese electronics giant threw in the towel on its HD DVD technology, announcing that it would no longer develop, produce or market disc players for the format.",negative,-0.8741480112075806
+2008-02-20,Toshiba Concedes Defeat in the DVD Battle,negative,-0.7734813690185547
+2008-02-21,The Internet movie download era may be more distant than you think.,neutral,-0.03511033579707146
+2008-02-21,Web Movies Show Why DVDs Sell,neutral,-0.10801419615745544
+2008-02-22,"Instead of Blu-ray discs, some wonder if movies could be sold on flash memory cards.",neutral,-0.006417617201805115
+2008-02-22,"Flash, it turns out, is still too expensive and too slow to make this cost-effective.",neutral,0.022677086293697357
+2008-02-22,Buying Movies on Flash Drives: Nice Idea That Doesn’t Work,neutral,-0.09941720962524414
+2008-02-25,"The victory of Sony’s new Blu-ray high-definition disc over a rival format, Toshiba’s HD DVD, masks a problem facing the studios: the overall decline of the DVD market.",negative,-0.928061306476593
+2008-02-25,Studios Are Trying to Stop DVDs From Fading to Black,negative,-0.7032784223556519
+2008-03-10,"A new system that is incompatible with Blu-ray, called HD VMD, for versatile multilayer disc, is trying to find a niche.",neutral,0.07576722651720047
+2008-03-10,"Another DVD Format, but This One Says It’s Cheaper",neutral,0.04608812555670738
+2008-03-13,"When it is introduced, the YouTube service will be available only to TiVo users who have a Series 3 or HD set-top box and a broadband connection.",neutral,0.019071899354457855
+2008-03-13,"YouTube Coming to TV, With TiVo the Gateway",neutral,0.03625551983714104
+2008-03-19,"To assuage the feelings of the 200,000 customers who purchased HD DVD players from a Best Buy store, the company will announce Wednesday that it is giving each buyer a $50 gift card.",neutral,0.35377004742622375
+2008-03-19,"HD DVD Owners, Some Stores Want to Make Amends",neutral,0.12658825516700745
+2008-03-23,A bargaining culture once confined to car showrooms and jewelry stores is taking root in some major chains.,neutral,-0.25132596492767334
+2008-03-23,"Even at Megastores, Hagglers Find No Price Is Set in Stone",neutral,-0.2712991535663605
+2008-04-05,"Home Depot, the home improvement retailer, may cut as many as 1,000 jobs as it reduces human-resources departments in stores by half to shift more workers to the sales floor.",negative,-0.9590469598770142
+2008-04-05,Home Depot Job Cuts,negative,-0.7736683487892151
+2008-04-11,"Since the fall, many marketers have been appealing to worried consumers by acknowledging that times are tough.",negative,-0.051092714071273804
+2008-04-11,"Creative Spots, Courtesy of a Stalled Economy",neutral,0.08112197369337082
+2008-04-12,"Home Depot, the home improvement retailer that ousted its chief executive in early 2007, gave his successor compensation valued at $8.28 million last year, even as profit slid 24 percent.",negative,-0.9038492441177368
+2008-04-12,Home Depot Chief’s Pay,neutral,-0.13059726357460022
+2008-04-19,"Broadcasting & Cable: “CBS’ Entertainment Tonight and The Insider will make the leap to HD come September, making them the first two entertainment newsmagazines to announce such a move.”",positive,0.5737090110778809
+2008-04-19,‘Entertainment Tonight’ In HD Soon,neutral,0.04176287725567818
+2008-04-21,"As cable TV companies pack ever more HD channels into limited bandwidth, some owners of pricey plasma, projector and LCD TVs are complaining that they’re not getting the high-def quality they paid for, the Associated Press reports.",negative,-0.9472900629043579
+2008-04-21,They blame the increased signal compression being used to squeeze three digital HD signals into the bandwidth of one analog station.,negative,-0.6058372855186462
+2008-04-21,HD Enthusiasts Crying Foul Over Cable TV’s Crunched Signals,negative,-0.7000035047531128
+2008-04-24,The success of Blu-ray will depend on whether most people can even see the difference between a high definition DVD image and a standard definition one.,neutral,0.05024802312254906
+2008-04-24,"Meanwhile, Netflix, the online DVD rental company, believes that enough consumers see sufficient incremental value in Blu-ray, that they will be willing to pay more for it.",positive,0.7932329177856445
+2008-04-24,Blu-ray: Do Consumers Care?,neutral,-0.06508511304855347
+2008-05-01,The home improvement chain announced that it was dropping plans to open 50 stores and would close 15 poorly performing locations.,negative,-0.946844220161438
+2008-05-01,Slower Consumer Spending Hits Home Depot,negative,-0.6931167840957642
+2008-05-21,"Small businesses are trying to provide information to consumers about why their products are considered “green.” Nonetheless, there are few definite rules or standards.",neutral,-0.011079611256718636
+2008-05-21,The Goal Is to Do the Right Thing,neutral,0.10083326697349548
+2008-06-19,"Sanyo’s Xacti HD1010 compact video camera has a 2.7-inch display and 10x optical zoom lens, and can record video directly to an SD or SDHC memory card.",neutral,0.03180865943431854
+2008-06-19,"Out of a Pocket, a Video Camera Filled With Tricks in High Definition",neutral,-0.0023411326110363007
+2008-06-24,"Home Depot’s move will create the nation’s most widespread recycling program for the energy-saving bulbs, which have to be properly disposed of since they contain small amounts of mercury.",positive,0.6525368094444275
+2008-06-24,Home Depot Offers Recycling for Compact Fluorescent Bulbs,neutral,0.033791929483413696
+2008-08-14,"For NBC’s coverage of 13 Olympic sports, the announcers are not in Beijing, but in New York.",neutral,-0.004397328943014145
+2008-08-14,"Olympics: In the Announcers’ Booth, but Not in Beijing",neutral,-0.014482533559203148
+2008-08-20,"With the housing market in the doldrums and inflation running at a pace unseen in nearly two decades, consumers are not buying new homes.",negative,-0.8988462686538696
+2008-08-20,Instead they are focusing on repairs.,neutral,-0.02728193812072277
+2008-08-20,Home Repairs Become Focus as Consumers Feel Pinched,neutral,-0.1837702989578247
+2008-09-06,"When you think about it, the sports business in this country is dominated by self-made men looking for mountains to conquer.",neutral,-0.01565973088145256
+2008-09-06,Leaving Boardroom for Skybox,neutral,-0.3557310998439789
+2008-10-29,"The BDR-2 by Amex, a portable Blu-ray recorder, plays back all Blu-ray discs and even supports double-layer Blu-ray disc reading and writing, for storing up to 50 gigabytes on one disc.",neutral,0.0341024175286293
+2008-10-29,"Now You Can Burn Your Own Blu-ray HD Discs, on Mac or PC, for Less Money",neutral,-0.024181600660085678
+2008-11-12,"Pure Digital, the fastest growing company in Silicon Valley, introduces the new Flip Mino HD camcorder.",positive,0.764904260635376
+2008-11-12,A Camcorder Insurgent Goes HD,neutral,-0.21363385021686554
+2008-11-18,"Saks said it lost more than expected in the third quarter amid job losses on Wall Street and stock market turmoil, while Home Depot said quarterly profit sank 31 percent on slow sales.",negative,-0.9687679409980774
+2008-11-18,Rough Quarter for 2 Major Retailers,negative,-0.903957188129425
+2008-11-19,"Pure Digital has added high definition to its Flip Mino, which is already called the least-expensive, smallest and fastest camcorder on the market.",positive,0.6014825105667114
+2008-11-19,HD Video Made Sleek and Simple,neutral,0.12289289385080338
+2008-11-20,"David Pogue uses the Flip Mino HD, a small, inexpensive high-definition camcorder, to film this week's video.",neutral,0.023921877145767212
+2008-11-20,The Flip Mino HD,neutral,0.005140729248523712
+2008-12-03,The Neuros Link is a device that connects to a television via an HDMI cable and can stream Web video to any HD display.,neutral,0.0075229257345199585
+2008-12-03,YouTube and Hulu Visit the Living Room,neutral,0.005649298429489136
+2008-12-31,"The $699 Epson EX70 projector has three internal LCDs and projects 2,000 lumens at a widescreen 1,280-by-800-pixel resolution.",neutral,0.026101885363459587
+2008-12-31,"Not Too Big, Not Too Small.",neutral,0.02308231219649315
+2008-12-31,A Projector That Is Just the Right Size.,neutral,0.022914325818419456
+2009-01-05,"The demise of the HD DVD video disc format appeared to hand the future of home entertainment to Blu-ray, but struggles continue.",negative,-0.8769686222076416
+2009-01-05,Blu-ray’s Fuzzy Future,neutral,0.016586266458034515
+2009-01-07,Samsung is hoping to capitalize on consumer interest in ever-sleeker displays with a new line of LCD HDTVs that are barely one inch thick.,positive,0.8631747364997864
+2009-01-07,Samsung Uses LEDs for a Thinner HD Television,neutral,-0.0025815069675445557
+2009-01-07,"Seagate’s FreeAgent Theater HD media player taps into a portable hard drive to put video, photos and music on a television set.",neutral,0.003247719258069992
+2009-01-07,Player That Reaches Into a Hard Drive and Pulls Out Media,neutral,-0.03996234014630318
+2009-01-26,"Monday’s toll included 20,000 cuts at Caterpillar, 8,000 at Sprint Nextel, 7,000 at Home Depot and 8,000 from the expected merger of Pfizer and Wyeth.",negative,-0.8261474370956421
+2009-01-26,"62,000 Jobs Are Cut by U.S. and Foreign Companies",negative,-0.9543477892875671
+2009-02-24,"Some of the biggest names in American retailing, including Macy’s, Home Depot and Target, reported steep profit declines.",negative,-0.9662971496582031
+2009-02-24,Retail Earnings Reflect Slowing Spending,negative,-0.8526664972305298
+2009-03-18,The FreeAgent Theater HD media player transfers photographs and home video to a television screen.,neutral,0.007115684449672699
+2009-03-18,What’s on TV?,neutral,-0.038275204598903656
+2009-03-18,Your Videos and Photos With an HD Assist,neutral,0.0013486556708812714
+2009-04-01,The Rebel T1i may be the entry-level digital single-lens reflex camera to beat this spring.,positive,0.7626289129257202
+2009-04-01,"From Canon, a D.S.L.R.",neutral,0.043035879731178284
+2009-04-01,"That Shoots HD Video, Too",neutral,0.01954970881342888
+2009-04-08,Sony’s HDR-TG5V is a pocket-size HD camcorder that includes a built-in G.P.S.,neutral,0.016659613698720932
+2009-04-08,sensor that tags shots with the location where they were taken.,neutral,-0.01947132870554924
+2009-04-08,A Pocket-Size HD Camcorder That Knows Where It Is,neutral,-0.011000607162714005
+2009-04-08,"No, it’s not satellite radio, it’s HD, an underappreciated technology that is getting another look.",neutral,-0.36499711871147156
+2009-04-08,HD Radio Crying Out to Be Heard,neutral,0.07191304862499237
+2009-04-10,"David Pogue explains HD radio and tests some of the receivers that can broadcast ""multicast"" channels in HD.",neutral,0.01835605502128601
+2009-04-10,HD Radio: Status Report,neutral,0.009985043667256832
+2009-04-12,Stores like Target and Home Depot are scrambling to adjust advertising and marketing strategies to play up the value aspects of what they sell.,neutral,0.051535069942474365
+2009-04-12,"With Shoppers Pinching Pennies, Some Big Retailers Get the Message",negative,-0.5980494618415833
+2009-05-19,The leadership of Home Depot has decided to move from a culture of expansion to one that is less vulnerable to consumer and credit slowdowns.,positive,0.7042310833930969
+2009-05-19,Home Depot Girds for Continued Weakness,neutral,0.042163021862506866
+2009-05-20,Stocks were narrowly mixed in light trading on Tuesday as a surprise drop in construction and a cautious outlook from the retailer Home Depot led energy and utility stocks to pare gains.,negative,-0.915585994720459
+2009-05-20,Weak Construction Weighs on Investors,negative,-0.73955237865448
+2009-06-22,Wal-Mart enters the Fourth of July niche and Home Depot enlists a famous voice.,neutral,0.4455687701702118
+2009-06-22,Q & A with Stuart Elliott,neutral,0.02208399400115013
+2009-07-07,Web sites and other training resources for small-business owners.,neutral,0.019389348104596138
+2009-07-07,More Information on Training for Small Businesses,neutral,0.041474997997283936
+2009-07-16,"As the use of credit and debit cards has grown over the last decade, merchants argue that the attendant fees have sharply lifted the cost of doing business.",positive,0.06410124897956848
+2009-07-16,Card Fees Pit Retailers Against Banks,negative,-0.8054167032241821
+2009-08-18,"Profit declines and losses continue to weigh on major chains, with only discount-focused names like TJX showing growth.",negative,-0.9558989405632019
+2009-08-18,"With Few Exceptions, Retailers Remain Weak",neutral,-0.002723410725593567
+2009-08-20,"On Sept. 15, Microsoft plans to launch its new Zune HD portable media player, which could actually take the fight to Apple’s iPod Touch.",neutral,0.2381041944026947
+2009-08-20,Yet Another Media Player Plans to Take on the Leader,neutral,0.01063358411192894
+2009-08-22,"Home Depot and Lowe’s are positioning for the wave of small, do-it-yourself repair and maintenance projects as sales suffer.",negative,-0.9047594666481018
+2009-08-22,D.I.Y.,neutral,0.04094700515270233
+2009-08-22,Chains Adjust to Smaller Projects,neutral,0.019318342208862305
+2009-10-17,"The company of the home décor doyenne will allow its agreement with Kmart to lapse, just as it begins selling its products in Home Depot in January.",negative,-0.6279004812240601
+2009-10-17,Martha Stewart Fails to Reach New Partnership With Kmart,negative,-0.6546937227249146
+2009-11-17,"Some of the nation’s largest retailers, discount and luxury chains alike, posted better-than-expected earnings.",positive,0.837075412273407
+2009-11-17,Retailer Earnings Show Stabilization,neutral,0.07048344612121582
+2009-11-25,"The Dell Zino (full name Inspiron Zino HD) comes in a box a bit bigger than Apple’s Mac Mini, and adds some cosmetic flavor to the category of compact desktop computers.",neutral,0.424395352602005
+2009-11-25,"While the Mini is available in any color as long as it’s white, Zino has a selection of 10 replaceable, colorful lids you can purchase if you change the curtains or the sofa or just get bored with pink.",neutral,-0.007212329655885696
+2009-11-25,"Dell’s Zino May Be Square, but It Doesn’t Lack for Color",neutral,0.06995418667793274
+2009-12-01,"Another View: Bill George, a Harvard business professor and the author of “7 Lessons for Leading in Crisis,” puts forth some proposals to revive employment growth in a declining job market.",neutral,0.44024658203125
+2009-12-01,Another View: Innovation Can Unlock Job Growth,positive,0.7546730637550354
+2009-12-09,"Olive’s 4HD Hifi Music Server, a $2,000 two-terabyte hard drive, delivers audio in studio quality, which can be hard to find.",neutral,0.03287113457918167
+2009-12-09,A Server for the Most Demanding of Music Lovers,neutral,0.04188430309295654
+2009-12-15,"President Obama told a business audience at a Home Depot in northern Virginia that energy efficiency was a “win-win” because it would save energy, help the environment and create jobs.",positive,0.6790536046028137
+2009-12-15,Obama Promotes Insulation as ‘Sexy’,neutral,0.06701020151376724
+2009-12-29,"Despite the effects of the recession, a passion for art among owners of major buildings keeps fresh work in the lobbies.",neutral,0.16841581463813782
+2009-12-29,"In the Loftiest of Buildings, High Art Still Finds a Home",neutral,0.19187027215957642
+2010-01-07,"Another View: Jeffrey Sonnenfeld, a Yale business professor, looks at a rare admission of responsibility for failure, despite a culture that seems to celebrate passing the buck.",neutral,-0.031741224229335785
+2010-01-07,Another View: Who’s Sorry Now?,negative,-0.4590263068675995
+2010-01-13,The Tough-3000 is the first of the company’s rugged line to offer HD video capture (720p) and is also the most affordable Tough model at $230.,neutral,0.1963643729686737
+2010-01-13,"Rugged, Speedy, Aquatic, Cold-Tolerant.",neutral,0.15817174315452576
+2010-01-13,And Not a Seal.,neutral,-0.0052671656012535095
+2010-01-15,"Venture capitalists were never very interested in the retail sector, but they are now taking a second look, focusing on a new generation of online retailers and the next wave of technology to help stores optimize how they run their businesses, Reuters writes.",neutral,0.21780920028686523
+2010-01-15,Venture Capital Takes a Second Look at Retail,neutral,0.049095429480075836
+2010-02-04,"Last week, one entrepreneur had the opportunity to ask President Obama a question that no doubt has been on the mind of many others: Why can’t the government make small-business loans available directly to owners?",neutral,0.017200089991092682
+2010-02-04,A Small-Business Owner Takes His Case to the Top,negative,-0.5224820375442505
+2010-02-23,Two home improvement bazaars reported earnings that may reflect a turning point in the economy.,positive,0.5256165266036987
+2010-02-23,Home Improvement Retailers See Glints of Rebound,neutral,0.06287944316864014
+2010-04-07,"A federal appeals court said Sears Holdings is not liable to former Kmart Holding shareholders, who had accused the retailer of trying to drive down Kmart’s stock price to let executives buy shares cheaply.",negative,-0.8150156140327454
+2010-04-07,Sears and Lampert Win Dismissal of Kmart Fraud Suit,negative,-0.13178381323814392
+2010-04-14,"Wall Street traders took in the first batch of quarterly earnings reports on Tuesday, but nobody seemed quite sure what to make of the numbers, The New York Times reports.",neutral,0.0416325107216835
+2010-04-14,A Modest Gain as Investors Digest Earnings Reports,positive,0.4570598602294922
+2010-05-18,"Sales of luxury goods and home improvement items rose in the quarter, but Wal-Mart shoppers remained cautious.",positive,0.661402702331543
+2010-05-18,Wal-Mart Posts Slower Growth as Luxury and Home Goods Rebound,negative,-0.9275223016738892
+2010-05-19,"Stocks on Wall Street fell on Tuesday and the euro retreated to a new low, in part after Germany moved to impose tighter regulation of financial markets.",negative,-0.9362133741378784
+2010-05-19,U.S. Stocks Fall Amid New Concern About Europe,negative,-0.8573166728019714
+2010-06-08,"Provincetown, Mass., is the latest Cape Cod community to use zoning laws to protect local businesses.",neutral,0.04549965262413025
+2010-06-08,Cape Cod Residents Keep the Chain Stores Out,neutral,-0.11923788487911224
+2010-08-17,"Both Wal-Mart and Home Depot reported second-quarter profits, but their results suggested that consumers were not spending as much as had expected.",negative,-0.696582019329071
+2010-08-17,"In Wal-Mart and Home Depot Results, a Worried Consumer",negative,-0.9229199886322021
+2010-09-10,"U.S. investment-grade debt issuance swelled to its highest weekly total since May 2008, Thomson Reuters data shows.",positive,0.8943691253662109
+2010-09-10,Debt Be Proud,neutral,0.02725595235824585
+2010-09-24,"The former Home Depot and Chrysler chief is assuming yet another job on behalf of Cerberus, taking over the parent company of Remington Arms and Bushmaster Firearms.",neutral,0.02025373838841915
+2010-09-24,Cerberus’s Freedom Names Nardelli as Chief,neutral,-0.006476419046521187
+2010-10-20,"A secretive network of Republican donors, which included chieftains from the hedge fund and private equity industries, media moguls and wealthy individuals, is heading to the Palm Springs area for a long weekend in January, not to relax after a hard-fought election, but to plan for the next one.",neutral,-0.04924864321947098
+2010-10-20,Secretive G.O.P.,neutral,0.012517847120761871
+2010-10-20,Donors Are Planning Ahead,neutral,0.07452160865068436
+2010-11-16,"Although the giant retailer reported a rise in profit, its same-store sales in the United States declined for the sixth consecutive quarter.",negative,-0.9685157537460327
+2010-11-16,Growth Overseas Lifts Wal-Mart Profit,positive,0.817603588104248
+2010-11-22,Fifty-six percent of households now have at least some HD channels and an HD set.,neutral,0.049214188009500504
+2010-11-22,But most of viewers’ cable time is still spent watching regular definition.,neutral,-0.05986444652080536
+2010-11-22,Room to Grow as Homes Add HD TVs,positive,0.7573218941688538
+2010-12-28,"Major companies are building playgrounds to publicize their names, improve their images, encourage employees to volunteer and to promote fitness.",neutral,0.339359313249588
+2010-12-28,"Companies Promote Health and Brands, Making Playgrounds",neutral,0.03100554272532463
+2011-01-28,"To balance a drop in items sold for big renovations, the company is trying to get women, 50 percent of its customers, excited about more modest makeovers.",neutral,0.32757681608200073
+2011-01-28,"Revamping, Home Depot Woos Women",neutral,0.3698907196521759
+2011-02-23,"There are several options for transferring handwritten notes to your computer, including some that will convert the notes to text.",neutral,0.00020548328757286072
+2011-02-23,"Taking Notes, and Saving as Digital Text",neutral,0.016917571425437927
+2011-03-17,A Sears campaign names its competitors Home Depot and Lowe’s in an attempt to gain a foothold in gardening supplies.,negative,-0.7022042274475098
+2011-03-17,"In a Battle for Turf, Sears Revs Up the Riding Mower",neutral,0.1463317722082138
+2011-03-30,"In making share buybacks, companies have a long record of buying high and selling low.",neutral,0.016396142542362213
+2011-03-30,A Bad Record on Buybacks,negative,-0.7883759140968323
+2011-04-14,"Discovery is retooling its nine-year-old Discovery HD Theater as Velocity, an “upscale men’s lifestyle network” about fast cars, fancy auctions and famous races.",neutral,0.20034027099609375
+2011-04-14,New Discovery Channel Targets Wealthy Men,neutral,0.024692628532648087
+2011-05-06,"It’s the season for garden plants, and Home Depot and Lowe’s are giving you a clearer picture of the plant’s needs.",neutral,0.17470093071460724
+2011-05-06,"The Bar Code That Tells You How Much Water, Light and Fertilizer",neutral,0.004085909575223923
+2011-08-16,"Analysts said that chains were keeping inventories lean, using marketing dollars strategically and quickly marking down slow-moving items.",neutral,0.3138410747051239
+2011-08-16,Retailers Glean Profit in Slow Sales,negative,-0.7460507154464722
+2011-09-18,"Velocity, the cable channel replacing Discovery’s low-rated HD Theater channel, believes men making $150,000 or more are underserved in today’s television landscape.",negative,-0.8485985994338989
+2011-09-18,A Channel Woos the Man With Spare Cash for Toys,neutral,-0.0013028830289840698
+2012-01-19,"Above-average temperatures across the United States thus far are hurting retail sales, and retailers are running out of time to sell their winter inventory.",negative,-0.9623619914054871
+2012-01-19,Warm Winter Deflates Prospects for Retailers,negative,-0.8186377286911011
+2012-01-25,Who’s first on Google’s Adwords and the Communist sportswriter who pushed for Jackie Robinson.,neutral,-0.042708322405815125
+2012-01-25,"The Breakfast Meeting: Same Old Oscars, and Who’s Missing at Davos?",neutral,-0.4014497399330139
+2012-02-21,"Walmart, Macy’s, Home Depot and Saks Fifth Avenue all reported sales increases for their fourth quarters ending in January.",positive,0.8943623304367065
+2012-02-21,"But Walmart had to lower prices aggressively, hurting its profit.",negative,-0.9630290865898132
+2012-02-21,"High-End Retailers Report Strong Profits, but Walmart Still Struggles",positive,0.39371493458747864
+2012-02-21,"Europe agrees to a $173 billion aid package for Greece; Banks offer mortgage help, but there may not be anyone to explain how it works.",positive,0.6196853518486023
+2012-02-21,"Business Day Live | February 21, 2012",neutral,0.004301249980926514
+2012-04-10,"Dozens of corporate boards, including those of Halliburton, Kraft, Home Depot and Waste Management, insist or recommend their C.E.O.’s fly on private jets for security reasons.",negative,-0.5852760076522827
+2012-04-10,It’s a common corporate tax trick.,neutral,-0.1668010801076889
+2012-04-10,"For Some Corporate Chiefs, Private Security Is a Tax Break",neutral,-0.11159133911132812
+2012-04-15,CBS is betting that the free-wheeling spirit and eclectic playlist that made the Boston station popular from 1968 through the late 1980s will resonate with a new generation of listeners.,positive,0.7664326429367065
+2012-04-15,"Progressive Rock Station, WBCN, Returns on HD",neutral,0.0313803032040596
+2012-05-03,"With airlines cutting back direct service to small and midsize airports, passengers trying to save money are left with longer and more complicated flights.",negative,-0.9358890056610107
+2012-05-03,The Long Way Home,neutral,0.10923149436712265
+2012-05-03,"Largely excluded from the economic recovery, carpenters, electricians, plumbers and other construction workers are pleading for work on the online classified advertising site.",negative,-0.7174296975135803
+2012-05-03,"For Craftsmen, Fragile Lifeline From Craigslist",negative,-0.4963405132293701
+2012-05-09,"Installers, often working through big-box chains, are taking advantage of hefty tax breaks, creative financing and cheap Chinese-made panels to make solar power accessible to the mass market.",positive,0.5635181665420532
+2012-05-09,"Solar Installers Offer Deals, Gaining Converts",positive,0.6377072334289551
+2012-05-15,"The company lost $163 million, or 75 cents a share, versus a profit of $64 million in the same quarter a year ago.",negative,-0.947033703327179
+2012-05-15,J. C. Penney Posts Big Loss as 3 Retailers Gain,negative,-0.942277729511261
+2012-07-21,The waning of manufacturing in the economy may be resulting in a dilution of craftsmanship — long a vital ingredient in the American self-image as a can-do people.,negative,-0.8231543898582458
+2012-07-21,A Nation That’s Losing Its Toolbox,negative,-0.8090344667434692
+2012-08-12,"Data will include retail sales and leading economic indicators for July, and companies reporting results will include Groupon, Home Depot and Wal-Mart Stores.",neutral,0.03574333339929581
+2012-08-12,Economic Reports for the Week Ahead,neutral,0.005809202790260315
+2012-09-12,"Amazon says its Kindle Fire HD is “the best tablet at any price.” But there’s no GPS, no to-do list, no notes app.",neutral,0.1502005159854889
+2012-09-12,What’s the attraction?,neutral,-0.005922660231590271
+2012-09-12,The Fire HD: More Soot Than Sparks,neutral,-0.3310893476009369
+2012-10-27,"The Elephant Trunk, a large, lockable mailbox, was devised a decade ago for deliveries of items like desktop computers; now it’s back in a smaller version.",neutral,0.05225779861211777
+2012-10-27,Innovation Also Means Finding Ways to Adapt,neutral,0.15114018321037292
+2012-10-29,"Having lost sales because of closings during the hurricane, major retailers are working on preparations to increase revenue with needed after-storm supplies.",negative,-0.5574302673339844
+2012-10-29,Home Retailers Prepare for After the Deluge,neutral,-0.17371976375579834
+2012-10-31,"Let’s devote one column to three big touch-screen products: the Barnes & Noble Nook HD, the iPad Mini and Windows Phone 8.",neutral,0.02368805930018425
+2012-10-31,"This Year, Gift Ideas in Triplicate",neutral,0.07629765570163727
+2012-11-09,Sales of the wrench took off after Mr. Brown got Sears to do a test sale — and after Mr. Brown agreed not to sell his wrench to Home Depot or Lowe’s.,neutral,0.048577673733234406
+2012-11-09,Could the Inventor of the Bionic Wrench Have Avoided This Fight?,neutral,-0.19302627444267273
+2012-11-14,"As big banks keep credit tight and more people have no bank at all, retailers like Costco, Home Depot and Walmart are offering financial products like prepaid cards, loans and even life insurance.",neutral,0.03582816943526268
+2012-11-14,"On the New Shopping List: Milk, Bread, Eggs and a Mortgage",neutral,0.018553107976913452
+2012-11-14,The S.E.C.,neutral,0.014058651402592659
+2012-11-14,is being pressed to adopt new rules for money market funds.,neutral,0.17944996058940887
+2012-11-14,| Lawyers for two former hedge fund managers in an insider trading case are trying to discredit government witnesses.,negative,-0.8503839373588562
+2012-11-14,| About 804 million Facebook shares are becoming eligible to be sold.,neutral,0.049183279275894165
+2012-11-14,"| Costco, Walmart and Home Depot are giving new meaning to the term “retail bank.”",neutral,0.22356262803077698
+2012-11-14,New Push for Money Fund Rules,neutral,0.19788257777690887
+2013-03-06,"Some of the 30 companies in the Dow Jones industrial average are still down from their peaks, reflecting a move in financial power.",negative,-0.9545644521713257
+2013-03-06,Dow Companies See an Uneven Recovery,negative,-0.4869452118873596
+2013-03-12,"The big retailer’s new ads for the spring, a critical shopping season for home improvement stores, try to capitalize on the rising housing market.",positive,0.6062103509902954
+2013-03-12,Lowe’s Campaign Keeps Eye on the Weather,neutral,0.04095996916294098
+2013-04-03,Databases that are used by major retailers to prevent workers accused of stealing from getting another job are increasingly under scrutiny from labor lawyers and federal regulators.,negative,-0.8387494683265686
+2013-04-03,Retailers Track Employee Thefts in Vast Databases,negative,-0.48703432083129883
+2013-04-08,The location of the nation’s top colleges reflects the past as much as the present.,neutral,0.06471140682697296
+2013-04-08,"As a result, many students who live far away from such colleges – especially in the Sun Belt and Mountain West – suffer.",negative,-0.9480526447296143
+2013-04-08,How the Location of Colleges Hurts the Economy,negative,-0.6571381688117981
+2013-04-12,"HD Supply Holdings, an industrial distribution company owned by a group of private equity firms, has filed to go public.",neutral,-0.017649998888373375
+2013-04-12,It plans to use the proceeds to pay down debt.,neutral,0.07012206315994263
+2013-04-12,"HD Supply, Backed by Carlyle and Bain, Files for I.P.O.",neutral,0.061359189450740814
+2013-05-19,"Governments reports will include sales of new homes for April, and companies reporting earnings will include Campbell Soup, Home Depot, Hewlett-Packard and SABMiller.",neutral,0.01660817302763462
+2013-05-19,Economic Reports for the Week Ahead,neutral,0.005809202790260315
+2013-06-13,"HD Supply Holdings is planning an initial public offering that would value the entire company at about $4.3 billion, far less than the price paid by three private equity firms six years ago.",neutral,-0.3637950122356415
+2013-06-13,"With HD Supply I.P.O., a Reminder of the Buyout Boom",neutral,0.16803181171417236
+2013-06-20,A buyout consortium looks set to recoup its investment in HD Supply and then some in an upcoming initial public offering.,neutral,0.13125069439411163
+2013-06-20,But Home Depot fared even better.,positive,0.547199010848999
+2013-06-20,Home Depot Outflips Private Equity,negative,-0.5458981394767761
+2013-06-27,"HD Supply and Tremor Video have public offerings planned, but recent jolts in the stock and bond markets have reintroduced some caution into Wall Street.",positive,0.2618541717529297
+2013-06-27,I.P.O.’s Face Road Blocks as Markets Turn Shaky,negative,-0.8785944581031799
+2013-06-27,The market turmoil of recent weeks is affecting a range of companies seeking to go public.,negative,-0.6958599090576172
+2013-06-27,| Heads of Wall Street firms cheered the Supreme Court decision on gay marriage.,positive,0.6287549138069153
+2013-06-27,"| The Securities and Exchange Commission plans to test a new policy of requiring admissions of wrongdoing, according to a report.",neutral,-0.14835533499717712
+2013-06-27,| States and cities are learning that the days of easy money are coming to an end.,neutral,0.17528419196605682
+2013-06-27,I.P.O.’s Hit Market Turbulence,neutral,0.03102121502161026
+2013-06-27,"The pharmaceutical company Novo Nordisk has altered its ties with the celebrity chef Paula Deen, the public face of Victoza, its diabetes medication.",negative,-0.7522600293159485
+2013-06-27,Diabetes Drug Maker Suspends Deal With Deen,negative,-0.8283389210700989
+2013-06-28,"Shares in Noodles & Company, a fast-casual restaurant chain, doubled their initial public offering price by midafternoon on Friday, at $36.15.",positive,0.8996915817260742
+2013-06-28,Noodles & Co.,neutral,0.019938329234719276
+2013-06-28,Proves Irresistible in Tough Week for I.P.O.’s,positive,0.9039248824119568
+2013-08-20,"The retailer’s second-quarter sales gained 9.5 percent, to $22.5 billion.",positive,0.9196718335151672
+2013-08-20,"Earlier, J. C. Penney reported a nearly 12 percent drop in revenue.",negative,-0.9696118235588074
+2013-08-20,Home Depot Credits Housing Recovery for 17% Jump in Earnings,positive,0.8557336330413818
+2013-08-24,"Bloomberg L.P. said it would change its journalism operation, trading on the Nasdaq was halted for three hours and Home Depot reported earnings that exceeded projections.",negative,-0.9315183162689209
+2013-08-24,Pictures From the Week in Business,neutral,-0.026148244738578796
+2013-09-11,"Mr. Harbert is the president of the Eastern Region of Colliers International, a commercial real estate brokerage firm.",neutral,0.02357206866145134
+2013-09-11,Joseph R. Harbert,neutral,0.035020969808101654
+2013-09-16,Another blow to dozens of businesses on the Jersey Shore.,negative,-0.8540714979171753
+2013-09-16,Updates on the looming financial crises.,neutral,0.03436359390616417
+2013-09-16,And a Home Depot wedding proposal.,neutral,0.03587695211172104
+2013-09-16,Today in Small Business: Frauds and Cyberattacks,negative,-0.6437801122665405
+2013-10-08,"Building with materials at hand, like straw bales or soil, has gained followers, in part because of the energy savings the materials can yield.",positive,0.6841535568237305
+2013-10-08,Modern Updates to Old-School Building Materials,neutral,0.1844995617866516
+2013-11-08,The home improvement chain said it had fired the people who sent a Twitter message that was criticized as being racially insensitive.,negative,-0.921044111251831
+2013-11-08,Home Depot Apologizes for a Tweet That Offends,negative,-0.8734861612319946
+2013-11-17,"Retailers including Target, J.C. Penney and Home Depot, will report earnings, with a look to the holiday shopping season.",positive,0.5560294985771179
+2013-11-17,Economic Reports for the Week of Nov. 18,neutral,-0.09179005771875381
+2013-12-11,"Dropcam has a robust new model of its baby monitor, with features like infrared, two-way audio, an HD video-recording webcam, and motion detection.",positive,0.7242848873138428
+2013-12-11,"Keep an Eye on Children, or Other Valuables",neutral,0.020903674885630608
+2013-12-16,"Consumers have become bolder, and they know that they often have the upper hand during a tough season for retailers, who must compete with steep online discounts.",positive,0.45909354090690613
+2013-12-16,More Retailers See Haggling as a Price of Doing Business,negative,-0.4199983477592468
+2014-02-25,"The companies, two of the country’s biggest retailers, partly blamed a stormy January for slow sales, but they did well compared with other retailers.",positive,0.7299457788467407
+2014-02-25,"Mixed Results, but Strong Outlook, for Home Depot and Macy’s",positive,0.6304590702056885
+2014-02-28,"Over the past 15 years, something palpable has begun to change at big companies, Tony Schwartz writes.",neutral,0.3173985481262207
+2014-02-28,They are awakening to a larger perspective and a bigger view of the role they play in the world.,neutral,0.30853649973869324
+2014-02-28,A Purpose Beyond Profit,neutral,0.07508286833763123
+2014-03-13,Mr. Rickel and his brothers opened a chain of home-repair stores that offered supermarket-style shopping before Home Depot existed.,neutral,0.027644585818052292
+2014-03-13,"Robert Rickel, a Founder of Hardware Supermarkets, Dies at 90",neutral,-0.30559292435646057
+2014-03-20,"Walmart is waging an aggressive campaign for outdoor and garden business this spring for the first time, offering “Black Friday-like prices” on more than 60 items.",positive,0.5913245677947998
+2014-03-20,Walmart’s New Push for Outdoor Sales,neutral,0.3571252226829529
+2014-04-30,"Private equity may be a booming business, but the Carlyle Group was weighed down by declines in its global market strategies business and real assets segment.",negative,-0.9664183259010315
+2014-04-30,Profit at Carlyle Falls 18% as Real Estate Investments Underperform,negative,-0.9629751443862915
+2014-04-30,Molly Wood describes what you can do to improve the sound quality of your cellphone calls until new technologies like HD voice become more widely available.,positive,0.617078959941864
+2014-04-30,Calling With Clarity,neutral,0.08496908843517303
+2014-04-30,"Phone carriers say HD voice is the solution to a longstanding problem, but will it arrive before we all switch to Skype or just give up calling completely?",neutral,-0.023788459599018097
+2014-04-30,"With HD Voice, Better Call Quality Is Coming.",positive,0.9036911129951477
+2014-04-30,Text Your Friends.,neutral,-0.03489203006029129
+2014-05-20,"The home improvement chain’s first-quarter sales increased 2.9 percent from a year earlier, but it joined a variety of other retailers in missing earnings expectations.",negative,-0.5721511840820312
+2014-05-20,Home Depot Leads Weak Retail Sector Ahead of Spring Spending Thaw,negative,-0.9388615489006042
+2014-06-23,The manufacturing start-up is setting up a separate company whose main technology is software intended to help seamlessly connect all kinds of automated home devices.,neutral,0.03772991523146629
+2014-06-23,"Daily Report: Quirky to Spin Off Wink, Company for Smart-Home Products",neutral,0.049928560853004456
+2014-07-21,"The toy company, along with other brands and big retailers, is starting to use the technology to lure shoppers, while manufacturers see opportunity in mass customization.",neutral,0.42255979776382446
+2014-07-21,Hasbro to Collaborate With 3-D Printing Company to Sell Artwork,neutral,0.4550997018814087
+2014-08-17,"Quarterly earnings numbers from Home Depot, Target and others; a vote on oil-industry taxes in Alaska; possible Fed insights in a speech by its chairwoman; and data on housing starts, consumer prices and global economic recovery.",neutral,-0.05318677797913551
+2014-08-17,Retailers Report Earnings in a Subdued Season,negative,-0.8326672315597534
+2014-08-19,"Home construction increased sharply in July, the Commerce Department reported on Tuesday, as Home Depot, whose fate is tied closely to the housing market, announced a strong quarter.",positive,0.890210747718811
+2014-08-19,Two Good Omens for Housing Market,positive,0.43882086873054504
+2014-09-02,The retailer said it was investigating a report that customer credit and debit card data was stolen from its systems and put up for sale online.,negative,-0.9430386424064636
+2014-09-02,Home Depot Investigates a Possible Credit Card Breach,neutral,-0.3736920654773712
+2014-09-03,Bank and computer security company employees and law enforcement officials are tracing the track taken by the latest batch of stolen cards.,negative,-0.6882026195526123
+2014-09-03,Path of Stolen Credit Cards Leads Back to Home Depot Stores,negative,-0.5278925895690918
+2014-09-04,Bank and computer security company employees and law enforcement officials are tracing the track taken by the latest batch of stolen cards.,negative,-0.6882026195526123
+2014-09-04,"Daily Report: Tracing Stolen Credit Cards, Road Leads Back to Home Depot",negative,-0.5585302710533142
+2014-09-08,Home Depot confirmed on Monday that hackers had attacked its cash register system.,negative,-0.9325022101402283
+2014-09-08,Information on more than 60 million credit cards may have been stolen.,negative,-0.9012706279754639
+2014-09-08,Home Depot Data Breach Could Be the Largest Yet,negative,-0.7869644165039062
+2014-09-18,"Home Depot confirmed on Thursday that 56 million cardholders’ account information had been compromised in a five-month cyberattack, making the breach the largest known attack on a retailer.",negative,-0.9103928804397583
+2014-09-18,Home Depot Says Data From 56 Million Cards Was Taken in Breach,neutral,0.038494594395160675
+2014-09-20,"Before a major data breach, Home Depot was slow to raise its defenses against hackers despite alarms from security experts as far back as 2008.",positive,0.5593002438545227
+2014-09-20,Ex-Employees Say Home Depot Left Data Vulnerable,negative,-0.7894059419631958
+2014-10-02,"General Motors is recalling almost 118,000 of its 2013-14 model vehicles including the Chevrolet Tahoe and Cadillac Escalade.",neutral,-0.14536342024803162
+2014-10-02,G.M.,neutral,0.04808535426855087
+2014-10-02,Recalls More Cars Over Possible Stalling,negative,-0.8244953155517578
+2014-10-13,"The company, tapping a seasoned retail hand, said Marvin Ellison would become president in November and chief executive next August.",neutral,0.3922877013683319
+2014-10-13,J.C. Penney Names Home Depot Executive as Its Next Chief,neutral,0.010164132341742516
+2014-11-06,"Hackers took 53 million email addresses in addition to the payment card details of 56 million of its customers during this year’s data breach, the retailer disclosed.",negative,-0.9108088612556458
+2014-11-06,Home Depot Says Hackers Also Stole Email Addresses,negative,-0.8789464831352234
+2014-11-17,"Home Depot, Target and Lowe’s will report their third-quarter results this week, offering a hint at consumers’ outlooks; and the Fed will release minutes from its last meeting.",neutral,0.10618232190608978
+2014-11-17,"Retailers’ Earnings, Fed Minutes and a Panel on Wall St.",neutral,-0.16390708088874817
+2014-11-18,"The home improvement retailer, the target of a cyberattack affecting as many as 56 million customers, beat analysts’ expectations with $1.5 billion in net earnings.",positive,0.7000585198402405
+2014-11-18,Home Depot Posts a Strong 3rd Quarter Despite a Data Breach Disclosure,positive,0.4918932318687439
+2014-12-05,"A panel plans to hold a hearing next week on ways to “protect the financial sector” from cyberattacks, but for now there are no plans to have anyone from the financial services industry testify.",neutral,-0.11872698366641998
+2014-12-05,Senate to Hold Hearing on Cyberattacks Against Finance,neutral,-0.3431430757045746
+2014-12-23,"Companies still need to invest in cyberprotection and detection, says Richard Beales of Reuters Breakingviews.",neutral,0.049410946667194366
+2014-12-23,The Need for Bank Cyberinsurance,neutral,-0.06669991463422775
+2015-01-08,"In part because of wage stagnation, even smaller rises in health care costs are less affordable, a study by the Commonwealth Fund said.",negative,-0.8070133924484253
+2015-01-08,"Health Premiums Rise More Slowly, but Workers Shoulder More of Cost",positive,0.21993839740753174
+2015-01-15,A planned bill would expand New York’s definition of what constitutes the type of private information whose breach would mandate a disclosure.,positive,0.6557477712631226
+2015-01-15,It would cover email addresses and passwords.,neutral,0.00603747833520174
+2015-01-15,New York Attorney General Seeks Expanded Reports on Data Breaches,neutral,-0.030200086534023285
+2015-01-22,"Top executives, including Robert Smith of Vista Equity Partners and John Chambers of Cisco, say that not only are cyberattacks becoming more common, they are getting tougher to fight.",neutral,-0.42074084281921387
+2015-01-22,Executives in Davos Express Worries Over More Disruptive Cyberattacks,negative,-0.897050678730011
+2015-02-25,"The department store and home improvement chains, which both reported solid fourth-quarter earnings, have yet to see the full impact of shipping delays that hit inventory levels during a West Coast ports dispute.",negative,-0.9337335824966431
+2015-02-25,West Coast Port Gridlock Hits Inventory at Macy’s and Home Depot,negative,-0.9588369727134705
+2015-03-19,"Schools, museums and some entrepreneurial individuals are experimenting with ways to teach art techniques online.",neutral,0.11650556325912476
+2015-03-19,"Not Digital Art, but Art Learned Digitally",neutral,0.024895669892430305
+2015-04-22,The retailer will ask a half-dozen suppliers to stop using ortho-phthalates in their products because of health concerns by consumer groups.,negative,-0.8266887664794922
+2015-04-22,Home Depot Says It Will Phase Out Chemical Used in Vinyl Flooring,neutral,-0.12874659895896912
+2015-05-17,"Walmart, Home Depot and Target are among the retailers posting results this week; Japan will report its G.D.P.",positive,0.4044686555862427
+2015-05-17,on Wednesday; and the big Wall Street banks will hold their annual meetings with shareholders.,neutral,0.019083905965089798
+2015-05-17,Earnings From Walmart and More Big Retailers; Wall Street’s Annual Meetings,neutral,0.1273224651813507
+2015-05-19,"The company, the nation’s largest retailer, said an increase in its employees’ minimum wage had an effect on operating income.",positive,0.47079306840896606
+2015-05-19,Profit Slips at Walmart as Revenue Falls Flat,negative,-0.9543190598487854
+2015-06-03,Newer LEDs are gaining on compact fluorescent lights as substitutes for inefficient incandescent bulbs in lighting.,positive,0.7122368216514587
+2015-06-03,Lower-Cost LEDs Offer Some Competition to Compact Fluorescent Lights,neutral,0.2854110896587372
+2015-06-10,"In their efforts to steal credit card data, hackers have taken aim at small businesses, like Eataly’s food halls, as well as retail giants like Target and Home Depot.",negative,-0.8263866901397705
+2015-06-10,"Hackers Go After Little Fish, Too, While Trawling for Credit Cards",negative,-0.48655998706817627
+2015-07-22,"The deal for Interline Brands, a supplier of maintenance and repair products, is expected to bolster Home Depot’s sales to the professional market.",positive,0.9348418712615967
+2015-07-22,Home Depot to Buy Interline Brands for $1.6 Billion in Cash,neutral,0.0601266585290432
+2015-08-07,"If we don’t deal with income inequality, we’ll face intolerable taxes or social unrest.",negative,-0.8178086876869202
+2015-08-07,"Capitalists, Arise: We Need to Deal With Income Inequality",neutral,0.03089854121208191
+2015-08-17,"This week, some of the nation's biggest retailers report earnings, the Federal Reserve will publish an account of its July meeting, and Greece must make a critical repayment.",neutral,-0.20364703238010406
+2015-08-17,"Retailer Earnings, Fed Minutes and Greek Debt",neutral,-0.087906613945961
+2015-09-28,"As a deadline approaches for new chip-enabled credit and debit cards to thwart data breaches, banks and credit unions are applying another sort of pressure by suing retailers over lax security.",negative,-0.9511473178863525
+2015-09-28,"As Online Data Theft Escalates, Banks Look to Retailers to Bear the Losses",negative,-0.7501296401023865
+2015-11-09,"A hedge fund manager who accused Lumber Liquidators of selling wood with high levels of formaldehyde is making the same claims against Ark Floors, an importer of Chinese wood products.",negative,-0.9102943539619446
+2015-11-09,Laminate Maker Ark Is Accused of Selling Tainted Flooring,negative,-0.8476927876472473
+2015-11-17,"Sales and traffic improved at Walmart stores in the United States, but operating income fell more than 8 percent as the retailer invested in online operations and its work force.",negative,-0.9609537124633789
+2015-11-17,"Strong Sales at Walmart, Home Depot and TJX",positive,0.9174379706382751
+2016-01-05,"Advice for those thinking about buying a 4K television, also called Ultra HD, which has a higher resolution than the current high-definition 1080p TV sets.",neutral,0.06373368203639984
+2016-01-05,"Despite the CES Hype, It’s Better to Wait on That 4K TV",neutral,-0.023334845900535583
+2016-02-21,A pending wrongful death lawsuit will test a new legal strategy to prevent nursing homes from requiring their residents to take disputes to arbitration.,neutral,-0.26889920234680176
+2016-02-21,Pivotal Nursing Home Suit Raises a Simple Question: Who Signed the Contract?,neutral,0.029500482603907585
+2016-04-01,"Ms. Mattison, chief executive of Gracious Home New York, says she tries to follow a mentor’s advice to keep asking questions until she gets to the truth.",neutral,-0.03164239600300789
+2016-04-01,"Dottie Mattison: Talk Less, but Ask ‘Why’ More",neutral,-0.14343246817588806

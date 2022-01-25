@@ -59,8 +59,8 @@ def saveStockCounter(path, rowName, stockCounter):
 def saveArticle(stockCode, article):
     stockArticleCounter[stockCode.upper()] += 1
 
-    if os.path.exists(datasetName + "/NYT-Business/" + stockCode.upper() + '/' + article["pub_date"][0:10] + ".json"):
-        with open(datasetName + "/NYT-Business/" + stockCode.upper() + '/' + article["pub_date"][0:10] + ".json", "r+",
+    if os.path.exists(datasetName + "/NYT-Business/Individual Articles/" + stockCode.upper() + '/' + article["pub_date"][0:10] + ".json"):
+        with open(datasetName + "/NYT-Business/Individual Articles/" + stockCode.upper() + '/' + article["pub_date"][0:10] + ".json", "r+",
                   encoding="utf-8") as saveFile:
             currentArticles = json.load(saveFile)
             if type(currentArticles) is list:
@@ -105,11 +105,12 @@ def validate(words):
 if __name__ == "__main__":
 
     # Parameter Declaration
-    remakeFiles = True
+    remakeFiles = False
     remakeStockNames = False
     datasetName = "kdd17"  # Can be either "kdd17" or "stocknet"
     sentimentType = "NYT-Business"  # Can be either "Twitter" or "NYT-Business"
     stockCounter = False  # Overrides remakeFiles=True
+    createOurpped = True
 
     if stockCounter:
         if datasetName == "stocknet" and sentimentType == "Twitter":
@@ -203,80 +204,91 @@ if __name__ == "__main__":
             print("Rerun script with remakeStockNames=False when stock names are checked.")
             exit()
 
-        # Get stock names
-        with open(datasetName + "/stockNames.txt") as file:
-            stockNames = file.read().split('\n')
+        if not createOurpped:
 
-        # Generate dictionary with stock codes and names
-        stocks = {}
-        for i in range(len(stockNames)):
+            # Get stock names
+            with open(datasetName + "/stockNames.txt") as file:
+                stockNames = file.read().split('\n')
 
-            stockArticleCounter[stockCodes[i]] = 0
+            # Generate dictionary with stock codes and names
+            stocks = {}
+            for i in range(len(stockNames)):
 
-            if '/' in stockNames[i]:
-                stocks[stockCodes[i].lower()] = [c.lower() for c in stockNames[i].split('/')]
-            else:
-                stocks[stockCodes[i].lower()] = stockNames[i].lower()
+                stockArticleCounter[stockCodes[i]] = 0
 
-        # Get stopwords
-        with open("stopwords.txt") as stopwordsFile:
-            stopwords = stopwordsFile.read().split("\n")
+                if '/' in stockNames[i]:
+                    stocks[stockCodes[i].lower()] = [c.lower() for c in stockNames[i].split('/')]
+                else:
+                    stocks[stockCodes[i].lower()] = stockNames[i].lower()
 
-            # Get articles
-            for fileName in tqdm(os.listdir("NYT-Business")):
+            # Get stopwords
+            with open("stopwords.txt") as stopwordsFile:
+                stopwords = stopwordsFile.read().split("\n")
+                # Get articles
+                for fileName in tqdm(os.listdir("NYT-Business")):
 
-                if datasetName == "stocknet" and int(fileName[:-5][-4:]) < 2014:
-                    continue
+                    if datasetName == "stocknet" and int(fileName[:-5][-4:]) < 2014:
+                        continue
 
-                with open("NYT-Business/" + fileName, encoding="utf-8") as file:
-                    data = json.load(file)
-                    for article in data:
-                        # Get all needed data from article
-                        words = validate(article["abstract"]) + validate(article["snippet"]) + \
-                                validate(article["lead_paragraph"]) + validate(article["headline"]["main"]) + \
-                                validate(article["headline"]["kicker"]) + \
-                                validate(article["headline"]["content_kicker"]) + \
-                                validate(article["headline"]["print_headline"]) + validate(
-                            article["headline"]["name"]) + \
-                                validate(article["headline"]["seo"]) + validate(article["headline"]["sub"])
+                    with open("NYT-Business/" + fileName, encoding="utf-8") as file:
+                        data = json.load(file)
+                        for article in data:
+                            # Get all needed data from article
+                            words = validate(article["abstract"]) + validate(article["snippet"]) + \
+                                    validate(article["lead_paragraph"]) + validate(article["headline"]["main"]) + \
+                                    validate(article["headline"]["kicker"]) + \
+                                    validate(article["headline"]["content_kicker"]) + \
+                                    validate(article["headline"]["print_headline"]) + \
+                                    validate(article["headline"]["name"]) + validate(article["headline"]["seo"]) + \
+                                    validate(article["headline"]["sub"])
 
-                        if article["keywords"] is not None:
-                            for keyword in article["keywords"]:
-                                words.extend(validate(keyword["value"]))
+                            if article["keywords"] is not None:
+                                for keyword in article["keywords"]:
+                                    words.extend(validate(keyword["value"]))
 
-                        savedAlready = []
+                            savedAlready = []
 
-                        for i, word in enumerate(words):
-                            for stock in stocks.items():
+                            for i, word in enumerate(words):
+                                for stock in stocks.items():
 
-                                if stock[0] in savedAlready:
-                                    continue
+                                    if stock[0] in savedAlready:
+                                        continue
 
-                                # Check if stock code in article
-                                if stock[0] == word:
-                                    saveArticle(stock[0], article)
-                                    savedAlready.append(stock[0])
-                                    continue
-
-                                generated = False
-
-                                # Check if stock name in article
-
-                                if isinstance(stock[1], list):
-                                    for current in stock[1]:
-                                        if compare(current, word):
-                                            saveArticle(stock[0], article)
-                                            savedAlready.append(stock[0])
-                                            generated = True
-                                            break
-                                else:
-                                    if compare(stock[1], word):
+                                    # Check if stock code in article
+                                    if stock[0] == word:
                                         saveArticle(stock[0], article)
                                         savedAlready.append(stock[0])
                                         continue
-                                if generated:
-                                    continue
-        saveStockCounter(datasetName + "/stockArticleCounter" + sentimentType + ".csv", "Number of Articles",
-                         stockArticleCounter)
+
+                                    generated = False
+
+                                    # Check if stock name in article
+
+                                    if isinstance(stock[1], list):
+                                        for current in stock[1]:
+                                            if compare(current, word):
+                                                saveArticle(stock[0], article)
+                                                savedAlready.append(stock[0])
+                                                generated = True
+                                                break
+                                    else:
+                                        if compare(stock[1], word):
+                                            saveArticle(stock[0], article)
+                                            savedAlready.append(stock[0])
+                                            continue
+                                    if generated:
+                                        continue
+
+            saveStockCounter(datasetName + "/stockArticleCounter.csv", "Number of Articles", stockArticleCounter)
+
+        for stock in tqdm(os.listdir("kdd17/NYT-Business/Individual Articles")):
+            saveMe = [["Date", "Articles"]]
+            for article in os.listdir("kdd17/NYT-Business/Individual Articles/" + stock):
+                with open(datasetName + "/NYT-Business/Individual Articles/" + stock + '/' + article, "r", encoding="utf-8") as file:
+                    saveMe.append([article[:-5], file.read()])
+            with open(datasetName + "/NYT-Business/ourpped/" + stock + ".csv", "w+", encoding="utf-8", newline='') as file:
+                writer = csv.writer(file)
+                writer.writerows(saveMe)
+
     else:
         print(sentimentType + " is not a valid sentimentType parameter value")

@@ -8,7 +8,7 @@ from torch.utils.data import (DataLoader, RandomSampler, SequentialSampler, Tens
 from tqdm import tqdm_notebook as tqdm
 from tqdm import trange
 from nltk.tokenize import sent_tokenize
-from src.finbertUtils import *
+from finbertUtils import *
 import numpy as np
 import logging
 
