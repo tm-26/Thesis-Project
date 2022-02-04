@@ -2,15 +2,11 @@
 KDD17
 - Numerical (X)
 - New York Times (X)
-- Twitter
-
 --------------------
 
 Stocknet (X)
 - Numerical (X)
 - New York Times (X)
-- Twitter (X)
-
 ---------------------------------------------
 
 Data extracted from New York Times:
@@ -108,23 +104,8 @@ if __name__ == "__main__":
     remakeFiles = False
     remakeStockNames = False
     datasetName = "kdd17"  # Can be either "kdd17" or "stocknet"
-    sentimentType = "NYT-Business"  # Can be either "Twitter" or "NYT-Business"
     stockCounter = False  # Overrides remakeFiles=True
     createOurpped = True
-
-    if stockCounter:
-        if datasetName == "stocknet" and sentimentType == "Twitter":
-            stockCounter = {}
-            for stock in tqdm(os.listdir("stocknet/Twitter")):
-                numberOfTweets = 0
-                for date in os.listdir("stocknet/Twitter/" + stock):
-                    numberOfTweets += sum(
-                        1 for tweets in open("stocknet/Twitter/" + stock + '/' + date, encoding="utf-8"))
-                stockCounter[stock] = numberOfTweets
-            saveStockCounter("stocknet/Twitter/stockTweetCounter.csv", "Number of Tweets", stockCounter)
-        else:
-            print("Not yet implemented")
-        exit()
 
     # Variable Declaration
     stockCodes = os.listdir(datasetName + "/Numerical/ourpped")
@@ -136,159 +117,152 @@ if __name__ == "__main__":
 
     # Make directories and delete previously extracted articles
     if remakeFiles:
-        if os.path.exists(datasetName + '/' + sentimentType):
-            shutil.rmtree(datasetName + '/' + sentimentType)
-            os.mkdir(datasetName + '/' + sentimentType)
+        if os.path.exists(datasetName + "/NYT-Business"):
+            shutil.rmtree(datasetName + "/NYT-Business")
+            os.mkdir(datasetName + "/NYT-Business")
         for code in stockCodes:
-            os.mkdir(datasetName + '/' + sentimentType + '/' + code)
+            os.mkdir(datasetName + "/NYT-Business/" + code)
 
-    if sentimentType == "Twitter":
-        print("Handle Twitter here")
+    if not os.path.isdir("NYT-Business"):
 
-    elif sentimentType == "NYT-Business":
+        if not os.path.isdir("NYT"):
+            os.mkdir("NYT")
 
-        if not os.path.isdir("NYT-Business"):
+            # First get all NYT data
+            year = "2007"
+            month = '1'
+            key = ""  # Insert NYT API Key here
+            filterQuery = "\"source:(\"The New York Times\")"
+            done = os.listdir("NYT")
+            i = 0
 
-            if not os.path.isdir("NYT"):
-                os.mkdir("NYT")
+            print("Getting all NYT data using API")
 
-                # First get all NYT data
-                year = "2007"
-                month = '1'
-                key = ""  # Insert NYT API Key here
-                filterQuery = "\"source:(\"The New York Times\")"
-                done = os.listdir("NYT")
-                i = 0
+            for year in tqdm(range(2007, 2017)):
+                for month in range(1, 13):
+                    if str(month) + '-' + str(year) + ".json" not in done:
+                        query_url = "https://api.nytimes.com/svc/archive/v1/" + str(year) + '/' + str(
+                            month) + ".json?api-key=" + key + "&fq=" + filterQuery
+                        response = requests.get(query_url).json()
+                        with open("../dataset/NYT/" + str(month) + '-' + str(year) + ".json", "w+") as file:
+                            json.dump(response["response"], file)
+                        time.sleep(6.1)
+                    i += 1
 
-                print("Getting all NYT data using API")
+        data = os.listdir("NYT")
 
-                for year in tqdm(range(2007, 2017)):
-                    for month in range(1, 13):
-                        if str(month) + '-' + str(year) + ".json" not in done:
-                            query_url = "https://api.nytimes.com/svc/archive/v1/" + str(year) + '/' + str(
-                                month) + ".json?api-key=" + key + "&fq=" + filterQuery
-                            response = requests.get(query_url).json()
-                            with open("../dataset/NYT/" + str(month) + '-' + str(year) + ".json", "w+") as file:
-                                json.dump(response["response"], file)
-                            time.sleep(6.1)
-                        i += 1
+        os.mkdir("NYT-Business")
 
-            data = os.listdir("NYT")
+        print("Getting all NYT-Business data")
 
-            os.mkdir("NYT-Business")
+        for i in data:
+            with open("NYT/" + i) as file:
+                currentBusiness = []
+                currentAll = json.load(file)["docs"]
+                for j in currentAll:
+                    if j["section_name"].lower() in ["business", "business day"] or j["news_desk"].lower() in \
+                            ["business", "business day"]:
+                        currentBusiness.append(j)
+            with open("NYT-Business/" + i, "w+", encoding="utf-8") as file:
+                json.dump(currentBusiness, file, ensure_ascii=False)
 
-            print("Getting all NYT-Business data")
+    # Create stockNames.txt
+    if remakeStockNames or not os.path.exists(datasetName + "/stockNames.txt"):
+        if os.path.exists(datasetName + "/stockNames.txt"):
+            os.remove(datasetName + "/stockNames.txt")
+        with open(datasetName + "/stockNames.txt", "w+") as file:
+            for code in tqdm(stockCodes):
+                try:
+                    file.write(yfinance.Ticker(code).info["longName"] + "\n")
+                except (KeyError, TypeError):
+                    file.write(code + "\n")
+        print("Manual checking of stock names is now required.")
+        print("Rerun script with remakeStockNames=False when stock names are checked.")
+        exit()
 
-            for i in data:
-                with open("NYT/" + i) as file:
-                    currentBusiness = []
-                    currentAll = json.load(file)["docs"]
-                    for j in currentAll:
-                        if j["section_name"].lower() in ["business", "business day"] or j["news_desk"].lower() in \
-                                ["business", "business day"]:
-                            currentBusiness.append(j)
-                with open("NYT-Business/" + i, "w+", encoding="utf-8") as file:
-                    json.dump(currentBusiness, file, ensure_ascii=False)
+    if not createOurpped:
 
-        # Create stockNames.txt
-        if remakeStockNames or not os.path.exists(datasetName + "/stockNames.txt"):
-            if os.path.exists(datasetName + "/stockNames.txt"):
-                os.remove(datasetName + "/stockNames.txt")
-            with open(datasetName + "/stockNames.txt", "w+") as file:
-                for code in tqdm(stockCodes):
-                    try:
-                        file.write(yfinance.Ticker(code).info["longName"] + "\n")
-                    except (KeyError, TypeError):
-                        file.write(code + "\n")
-            print("Manual checking of stock names is now required.")
-            print("Rerun script with remakeStockNames=False when stock names are checked.")
-            exit()
+        # Get stock names
+        with open(datasetName + "/stockNames.txt") as file:
+            stockNames = file.read().split('\n')
 
-        if not createOurpped:
+        # Generate dictionary with stock codes and names
+        stocks = {}
+        for i in range(len(stockNames)):
 
-            # Get stock names
-            with open(datasetName + "/stockNames.txt") as file:
-                stockNames = file.read().split('\n')
+            stockArticleCounter[stockCodes[i]] = 0
 
-            # Generate dictionary with stock codes and names
-            stocks = {}
-            for i in range(len(stockNames)):
+            if '/' in stockNames[i]:
+                stocks[stockCodes[i].lower()] = [c.lower() for c in stockNames[i].split('/')]
+            else:
+                stocks[stockCodes[i].lower()] = stockNames[i].lower()
 
-                stockArticleCounter[stockCodes[i]] = 0
+        # Get stopwords
+        with open("stopwords.txt") as stopwordsFile:
+            stopwords = stopwordsFile.read().split("\n")
+            # Get articles
+            for fileName in tqdm(os.listdir("NYT-Business")):
 
-                if '/' in stockNames[i]:
-                    stocks[stockCodes[i].lower()] = [c.lower() for c in stockNames[i].split('/')]
-                else:
-                    stocks[stockCodes[i].lower()] = stockNames[i].lower()
+                if datasetName == "stocknet" and int(fileName[:-5][-4:]) < 2014:
+                    continue
 
-            # Get stopwords
-            with open("stopwords.txt") as stopwordsFile:
-                stopwords = stopwordsFile.read().split("\n")
-                # Get articles
-                for fileName in tqdm(os.listdir("NYT-Business")):
+                with open("NYT-Business/" + fileName, encoding="utf-8") as file:
+                    data = json.load(file)
+                    for article in data:
+                        # Get all needed data from article
+                        words = validate(article["abstract"]) + validate(article["snippet"]) + \
+                                validate(article["lead_paragraph"]) + validate(article["headline"]["main"]) + \
+                                validate(article["headline"]["kicker"]) + \
+                                validate(article["headline"]["content_kicker"]) + \
+                                validate(article["headline"]["print_headline"]) + \
+                                validate(article["headline"]["name"]) + validate(article["headline"]["seo"]) + \
+                                validate(article["headline"]["sub"])
 
-                    if datasetName == "stocknet" and int(fileName[:-5][-4:]) < 2014:
-                        continue
+                        if article["keywords"] is not None:
+                            for keyword in article["keywords"]:
+                                words.extend(validate(keyword["value"]))
 
-                    with open("NYT-Business/" + fileName, encoding="utf-8") as file:
-                        data = json.load(file)
-                        for article in data:
-                            # Get all needed data from article
-                            words = validate(article["abstract"]) + validate(article["snippet"]) + \
-                                    validate(article["lead_paragraph"]) + validate(article["headline"]["main"]) + \
-                                    validate(article["headline"]["kicker"]) + \
-                                    validate(article["headline"]["content_kicker"]) + \
-                                    validate(article["headline"]["print_headline"]) + \
-                                    validate(article["headline"]["name"]) + validate(article["headline"]["seo"]) + \
-                                    validate(article["headline"]["sub"])
+                        savedAlready = []
 
-                            if article["keywords"] is not None:
-                                for keyword in article["keywords"]:
-                                    words.extend(validate(keyword["value"]))
+                        for i, word in enumerate(words):
+                            for stock in stocks.items():
 
-                            savedAlready = []
+                                if stock[0] in savedAlready:
+                                    continue
 
-                            for i, word in enumerate(words):
-                                for stock in stocks.items():
+                                # Check if stock code in article
+                                if stock[0] == word:
+                                    saveArticle(stock[0], article)
+                                    savedAlready.append(stock[0])
+                                    continue
 
-                                    if stock[0] in savedAlready:
-                                        continue
+                                generated = False
 
-                                    # Check if stock code in article
-                                    if stock[0] == word:
+                                # Check if stock name in article
+
+                                if isinstance(stock[1], list):
+                                    for current in stock[1]:
+                                        if compare(current, word):
+                                            saveArticle(stock[0], article)
+                                            savedAlready.append(stock[0])
+                                            generated = True
+                                            break
+                                else:
+                                    if compare(stock[1], word):
                                         saveArticle(stock[0], article)
                                         savedAlready.append(stock[0])
                                         continue
+                                if generated:
+                                    continue
 
-                                    generated = False
+        saveStockCounter(datasetName + "/stockArticleCounter.csv", "Number of Articles", stockArticleCounter)
 
-                                    # Check if stock name in article
+    for stock in tqdm(os.listdir("kdd17/NYT-Business/Individual Articles")):
+        saveMe = [["Date", "Articles"]]
+        for article in os.listdir("kdd17/NYT-Business/Individual Articles/" + stock):
+            with open(datasetName + "/NYT-Business/Individual Articles/" + stock + '/' + article, "r", encoding="utf-8") as file:
+                saveMe.append([article[:-5], file.read()])
+        with open(datasetName + "/NYT-Business/ourpped/" + stock + ".csv", "w+", encoding="utf-8", newline='') as file:
+            writer = csv.writer(file)
+            writer.writerows(saveMe)
 
-                                    if isinstance(stock[1], list):
-                                        for current in stock[1]:
-                                            if compare(current, word):
-                                                saveArticle(stock[0], article)
-                                                savedAlready.append(stock[0])
-                                                generated = True
-                                                break
-                                    else:
-                                        if compare(stock[1], word):
-                                            saveArticle(stock[0], article)
-                                            savedAlready.append(stock[0])
-                                            continue
-                                    if generated:
-                                        continue
-
-            saveStockCounter(datasetName + "/stockArticleCounter.csv", "Number of Articles", stockArticleCounter)
-
-        for stock in tqdm(os.listdir("kdd17/NYT-Business/Individual Articles")):
-            saveMe = [["Date", "Articles"]]
-            for article in os.listdir("kdd17/NYT-Business/Individual Articles/" + stock):
-                with open(datasetName + "/NYT-Business/Individual Articles/" + stock + '/' + article, "r", encoding="utf-8") as file:
-                    saveMe.append([article[:-5], file.read()])
-            with open(datasetName + "/NYT-Business/ourpped/" + stock + ".csv", "w+", encoding="utf-8", newline='') as file:
-                writer = csv.writer(file)
-                writer.writerows(saveMe)
-
-    else:
-        print(sentimentType + " is not a valid sentimentType parameter value")
