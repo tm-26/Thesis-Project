@@ -4,6 +4,7 @@ import logging
 import matplotlib.pyplot
 import os
 import pandas
+import pickle
 import random
 import sklearn
 from finbert import predict
@@ -15,7 +16,6 @@ from torch.nn.functional import kl_div
 
 
 def getDistances(data):
-
     values = {}
 
     for point in tqdm(data):
@@ -35,8 +35,6 @@ def getDistances(data):
 
 
 def generateAccuracyFile():
-
-
     finBert = AutoModelForSequenceClassification.from_pretrained("../models/FinBert", cache_dir=None, num_labels=3)
     points = []
     predictions = []
@@ -77,114 +75,130 @@ if __name__ == "__main__":
     logging.disable()
 
     # Parameter Declaration
+    estimateScore = False  # True --> Estimate performance of FinBert, False --> Calculate real performance of FinBert
     generateFile = False
     newResultsFile = False
     showGraphs = True
-    iterations = 10
+    iterations = 0  # iterations = 0 -->  Calculate Metrics based on current values
 
     if generateFile:
         generateAccuracyFile()
 
-    iterationCounter = 0
-    realAccuracies = []
-    estimatedAccuracies = []
+    if estimateScore:
+        iterationCounter = 0
+        realAccuracies = []
+        estimatedAccuracies = []
 
-    with open("../results/finBert-EconomyNews.csv", "r", encoding="UTF-8") as file:
-        csvReader = csv.reader(file)
-        next(csvReader)  # skip header
-        data = list(map(tuple, csvReader))
+        with open("../results/finBert-EconomyNews.csv", "r", encoding="UTF-8") as file:
+            csvReader = csv.reader(file)
+            next(csvReader)  # skip header
+            data = list(map(tuple, csvReader))
 
-    if not os.path.isfile("../results/finBert-EconomyNews-EstimatedAccuracy.csv"):
-        newResultsFile = True
-    elif newResultsFile:
-        os.remove("../results/finBert-EconomyNews-EstimatedAccuracy")
+        if not os.path.isfile("../results/finBert-EconomyNews-EstimatedAccuracy.csv"):
+            newResultsFile = True
+        elif newResultsFile:
+            os.remove("../results/finBert-EconomyNews-EstimatedAccuracy")
 
-    with open("../results/finBert-EconomyNews-EstimatedAccuracy.csv", "a+", encoding="UTF-8", newline="") as resultsFile:
+        with open("../results/finBert-EconomyNews-EstimatedAccuracy.csv", "a+", encoding="UTF-8",
+                  newline="") as resultsFile:
 
-        if newResultsFile:
-            resultsFile.write("Estimated Accuracy,Real Accuracy\n")
+            if newResultsFile:
+                resultsFile.write("Estimated Accuracy,Real Accuracy\n")
 
-        while iterationCounter <= iterations:
+            while iterationCounter < iterations:
 
-            print("Iteration #" + str(iterationCounter + 1))
+                print("Iteration #" + str(iterationCounter + 1))
 
-            random.shuffle(data)
-            trainData = data[:int((len(data) + 1) * .80)]
-            testData = data[int((len(data) + 1) * .80):]
+                random.shuffle(data)
+                trainData = data[:int((len(data) + 1) * .80)]
+                testData = data[int((len(data) + 1) * .80):]
 
-            finbertEmbedder = FinbertEmbedding()
-            chosenEmbedding = 0
+                finbertEmbedder = FinbertEmbedding()
+                chosenEmbedding = 0
 
-            for point in trainData:
-                if point[1] == point[2]:
-                    chosenEmbedding = finbertEmbedder.sentence_vector(point[0])
-                    break
+                for point in trainData:
+                    if point[1] == point[2]:
+                        chosenEmbedding = finbertEmbedder.sentence_vector(point[0])
+                        break
 
-            trainValues = getDistances(trainData)
-            testValues = getDistances(testData)
+                trainValues = getDistances(trainData)
+                testValues = getDistances(testData)
 
-            dataFrameTrain = pandas.DataFrame(columns=["Domain-shift Detection Metric", "Classification Drop"])
-            dataFrameTest = pandas.DataFrame(columns=["Domain-shift Detection Metric", "Classification Drop"])
+                dataFrameTrain = pandas.DataFrame(columns=["Domain-shift Detection Metric", "Classification Drop"])
+                dataFrameTest = pandas.DataFrame(columns=["Domain-shift Detection Metric", "Classification Drop"])
 
-            for i, (x, y) in enumerate(trainValues.items()):
-                dataFrameTrain.loc[i] = [x, len([prediction for prediction in y if not prediction]) / len(y)]
+                for i, (x, y) in enumerate(trainValues.items()):
+                    dataFrameTrain.loc[i] = [x, len([prediction for prediction in y if not prediction]) / len(y)]
 
-            for i, (x, y) in enumerate(testValues.items()):
-                dataFrameTest.loc[i] = [x, len([prediction for prediction in y if not prediction]) / len(y)]
+                for i, (x, y) in enumerate(testValues.items()):
+                    dataFrameTest.loc[i] = [x, len([prediction for prediction in y if not prediction]) / len(y)]
 
-            xTrain = dataFrameTrain.iloc[:, :-1].values
-            xTest = dataFrameTest.iloc[:, :-1].values
-            yTrain = dataFrameTrain.iloc[:, 1].values
-            yTest = dataFrameTest.iloc[:, 1].values
+                xTrain = dataFrameTrain.iloc[:, :-1].values
+                xTest = dataFrameTest.iloc[:, :-1].values
+                yTrain = dataFrameTrain.iloc[:, 1].values
+                yTest = dataFrameTest.iloc[:, 1].values
 
-            # xTrain, xTest, yTrain, yTest = sklearn.model_selection.train_test_split(dataFrame.iloc[:, :-1].values, dataFrame.iloc[:, 1].values, test_size=0.2, random_state=0)
-            model = sklearn.linear_model.LinearRegression()
-            model.fit(xTrain, yTrain)
+                # xTrain, xTest, yTrain, yTest = sklearn.model_selection.train_test_split(dataFrame.iloc[:, :-1].values, dataFrame.iloc[:, 1].values, test_size=0.2, random_state=0)
+                model = sklearn.linear_model.LinearRegression()
+                model.fit(xTrain, yTrain)
 
-            yPredicted = model.predict(xTest)
-            print("Mean Absolute Error = " + str(sklearn.metrics.mean_absolute_error(yTest, yPredicted)))
+                pickle.dump(model, open("../models/accuracyPredictor.sav", "wb+"))
 
-            if showGraphs:
-                matplotlib.pyplot.rcParams["figure.autolayout"] = True
-                matplotlib.pyplot.scatter(xTest, yTest)
-                matplotlib.pyplot.plot(xTest, yPredicted, color="black", linewidth=3)
+                yPredicted = model.predict(xTest)
 
-                matplotlib.pyplot.xticks()
-                matplotlib.pyplot.yticks()
+                if showGraphs:
+                    matplotlib.pyplot.rcParams["figure.autolayout"] = True
+                    matplotlib.pyplot.scatter(xTest, yTest)
+                    matplotlib.pyplot.plot(xTest, yPredicted, color="black", linewidth=3)
 
-                matplotlib.pyplot.show()
+                    matplotlib.pyplot.xticks()
+                    matplotlib.pyplot.yticks()
 
-            pseudoTruths = []
+                    matplotlib.pyplot.show()
 
-            for distance in xTest:
-                prediction = model.predict([distance])[0]
-                if prediction == 0:
-                    pseudoTruths.append(True)
-                elif prediction == 1:
-                    pseudoTruths.append(False)
-                elif random.random() <= prediction:
-                    pseudoTruths.append(False)
-                else:
-                    pseudoTruths.append(True)
+                pseudoTruths = []
 
-            estimatedAccuracy = len([pseudoTruth for pseudoTruth in pseudoTruths if pseudoTruth]) / len(pseudoTruths)
+                for distance in xTest:
+                    prediction = model.predict([distance])[0]
+                    if prediction == 0:
+                        pseudoTruths.append(True)
+                    elif prediction == 1:
+                        pseudoTruths.append(False)
+                    elif random.random() <= prediction:
+                        pseudoTruths.append(False)
+                    else:
+                        pseudoTruths.append(True)
 
-            print("Estimated Accuracy = " + str(estimatedAccuracy))
+                estimatedAccuracy = len([pseudoTruth for pseudoTruth in pseudoTruths if pseudoTruth]) / len(pseudoTruths)
 
-            estimatedAccuracies.append(estimatedAccuracy)
+                print("Estimated Accuracy = " + str(estimatedAccuracy))
 
-            realPredictions = []
-            for point in testData:
-                if point[1] == point[2]:
-                    realPredictions.append(True)
-                else:
-                    realPredictions.append(False)
+                estimatedAccuracies.append(estimatedAccuracy)
 
-            realAccuracy = len([realPrediction for realPrediction in realPredictions if realPrediction]) / len(realPredictions)
+                realPredictions = []
+                for point in testData:
+                    if point[1] == point[2]:
+                        realPredictions.append(True)
+                    else:
+                        realPredictions.append(False)
 
-            print("Real Accuracy = " + str(realAccuracy))
+                realAccuracy = len([realPrediction for realPrediction in realPredictions if realPrediction]) / len(
+                    realPredictions)
 
-            realAccuracies.append(realAccuracy)
+                print("Real Accuracy = " + str(realAccuracy))
 
-            resultsFile.write(str(estimatedAccuracy) + "," + str(realAccuracy) + '\n')
-            iterationCounter += 1
+                realAccuracies.append(realAccuracy)
+
+                resultsFile.write(str(estimatedAccuracy) + "," + str(realAccuracy) + '\n')
+                iterationCounter += 1
+
+        results = pandas.read_csv("../results/finBert-EconomyNews-EstimatedAccuracy.csv")
+        print("MAE = " + str(sklearn.metrics.mean_absolute_error(results["Real Accuracy"], results["Estimated Accuracy"])))
+        print("MAX = " + str(abs(results["Estimated Accuracy"] - results["Real Accuracy"]).max()))
+
+    else:
+        results = pandas.read_csv("../results/finBert-EconomyNews.csv")
+        print("ACC = " + str(sklearn.metrics.accuracy_score(results["Ground Truth"], results["Prediction"])))
+        print("Precision = " + str(sklearn.metrics.precision_score(results["Ground Truth"], results["Prediction"])))
+        print("Recall = " + str(sklearn.metrics.recall_score(results["Ground Truth"], results["Prediction"])))
+        print("F1 = " + str(sklearn.metrics.f1_score(results["Ground Truth"], results["Prediction"])))
