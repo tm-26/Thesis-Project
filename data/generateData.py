@@ -103,7 +103,7 @@ if __name__ == "__main__":
     # Parameter Declaration
     remakeFiles = False
     remakeStockNames = False
-    datasetName = "kdd17"  # Can be either "kdd17" or "stocknet"
+    datasetName = "stocknet"  # Can be either "kdd17" or "stocknet"
     stockCounter = False  # Overrides remakeFiles=True
     createOurpped = True
 
@@ -257,9 +257,9 @@ if __name__ == "__main__":
 
         saveStockCounter(datasetName + "/stockArticleCounter.csv", "Number of Articles", stockArticleCounter)
 
-    for stock in tqdm(os.listdir("kdd17/NYT-Business/Individual Articles")):
+    for stock in tqdm(os.listdir(datasetName + "/NYT-Business/Individual Articles")):
         saveMe = [["Date", "Articles"]]
-        for article in os.listdir("kdd17/NYT-Business/Individual Articles/" + stock):
+        for article in os.listdir(datasetName + "/NYT-Business/Individual Articles/" + stock):
             with open(datasetName + "/NYT-Business/Individual Articles/" + stock + '/' + article, "r", encoding="utf-8") as file:
                 saveMe.append([article[:-5], file.read()])
         with open(datasetName + "/NYT-Business/ourpped/" + stock + ".csv", "w+", encoding="utf-8", newline='') as file:
