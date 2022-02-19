@@ -33,8 +33,10 @@ def getData(dataset, label):
             for point in economyNews:
                 dataList.append([point["headlineText"], label])
     elif dataset == "phrasebank":
-        print("Not yet implemented")
-        exit()
+        with open("../data/FinancialPhraseBank-v1.0/Sentences_AllAgree.txt", encoding="ISO-8859-1") as file:
+            lines = file.readlines()
+            for line in lines:
+                dataList.append([line.rsplit(' ', 1)[0], label])
     else:
         print("Parameter error: dataset=" + str(dataset) + "is not an accepted input")
         exit()
@@ -46,7 +48,7 @@ if __name__ == "__main__":
 
     # Parameter Declaration
     sourceDataset = "stocknet"  # Can be either "kdd17" or "stocknet" or "economynews" or "phrasebank"
-    targetDataset = "economynews"  # Can be either "kdd17" or "stocknet" or "economynews" or "phrasebank"
+    targetDataset = "phrasebank"  # Can be either "kdd17" or "stocknet" or "economynews" or "phrasebank"
     numberOfIterations = 10
     showOtherMetrics = False
 
