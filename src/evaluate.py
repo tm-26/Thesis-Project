@@ -15,6 +15,18 @@ from transformers import AutoModelForSequenceClassification
 from torch.nn.functional import kl_div
 
 
+def labelConverter(label):
+    if "negative" in label:
+        return -1
+    elif "neutral" in label:
+        return 0
+    elif "positive" in label:
+        return 1
+    else:
+        print("Dataset error: " + str(label) + " is not a positive, neutral or negative label")
+        exit()
+
+
 def getDistances(data):
     values = {}
 
@@ -37,37 +49,54 @@ def getDistances(data):
 def generateAccuracyFile():
     finBert = AutoModelForSequenceClassification.from_pretrained("../models/FinBert", cache_dir=None, num_labels=3)
     points = []
-    predictions = []
-    groundTruths = []
 
-    with open("../data/economyNews/economyNews.json", encoding="utf-8") as file:
-        data = json.load(file)
-        for point in tqdm(data):
-            scores = []
-            groundTruths.append(point["classification"])
+    if dataset == "economynews":
+        with open("../data/economyNews/economyNews.json", encoding="utf-8") as file:
+            data = json.load(file)
+            for point in tqdm(data):
+                scores = []
 
-            answer = predict(point["headlineText"], finBert)
-            for j, score in enumerate(answer["sentiment_score"]):
-                scores.append(score)
+                answer = predict(point["headlineText"], finBert)
+                for j, score in enumerate(answer["sentiment_score"]):
+                    scores.append(score)
 
-            answer = predict(point["headlineTitle"], finBert)
-            for j, score in enumerate(answer["sentiment_score"]):
-                scores.append(score)
+                answer = predict(point["headlineTitle"], finBert)
+                for j, score in enumerate(answer["sentiment_score"]):
+                    scores.append(score)
 
-            if mean(scores) > 0:
-                points.append((point["headlineText"] + ' ' + point["headlineTitle"], 1, point["classification"]))
-                predictions.append(1)
-            else:
-                points.append((point["headlineText"] + ' ' + point["headlineTitle"], -1, point["classification"]))
-                predictions.append(-1)
+                if mean(scores) > 0:
+                    points.append((point["headlineText"] + ' ' + point["headlineTitle"], 1, point["classification"]))
+                else:
+                    points.append((point["headlineText"] + ' ' + point["headlineTitle"], -1, point["classification"]))
 
-    with open("../results/finBert-EconomyNews.csv", "w+", encoding="UTF-8", newline='') as file:
-        csvWriter = csv.writer(file)
-        csvWriter.writerow(("Text", "Prediction", "Ground Truth"))
-        for point in points:
-            csvWriter.writerow(point)
+        with open("../results/finBert-EconomyNews.csv", "w+", encoding="UTF-8", newline='') as file:
+            csvWriter = csv.writer(file)
+            csvWriter.writerow(("Text", "Prediction", "Ground Truth"))
+            for point in points:
+                csvWriter.writerow(point)
 
-    print("Calculated Accuracy = " + str(sklearn.metrics.accuracy_score(groundTruths, predictions)))
+    # elif dataset == "phrasebank":
+    #     tempCounter = 0
+    #     with open("../data/FinancialPhraseBank-v1.0/Sentences_AllAgree.txt", encoding="ISO-8859-1") as file:
+    #         for line in tqdm(file.readlines()):
+    #             line = line.rsplit(' ', 1)
+    #
+    #             for column in predict(line[0], finBert).iterrows():
+    #                 points.append((column[1]["sentence"], labelConverter(line[1]), labelConverter(column[1]["prediction"])))
+    #             tempCounter += 1
+    #
+    #             if tempCounter == 10:
+    #                 break
+    #
+    #         with open("../results/finBert-EconomyNews.csv", "w+", encoding="ISO-8859-1", newline='') as file:
+    #             csvWriter = csv.writer(file)
+    #             csvWriter.writerow(("Text", "Prediction", "Ground Truth"))
+    #             for point in points:
+    #                 csvWriter.writerow(point)
+
+    else:
+        print("Parameter error: dataset=" + str(dataset) + "is not an accepted input")
+        exit()
 
 
 if __name__ == "__main__":
@@ -75,14 +104,16 @@ if __name__ == "__main__":
     logging.disable()
 
     # Parameter Declaration
+    dataset = "economynews"  # Should always be set to economynews
     estimateScore = False  # True --> Estimate performance of FinBert, False --> Calculate real performance of FinBert
-    generateFile = False
+    generateFile = True
     newResultsFile = False
     showGraphs = True
     iterations = 0  # iterations = 0 -->  Calculate Metrics based on current values
 
     if generateFile:
         generateAccuracyFile()
+        print("jobs done")
 
     if estimateScore:
         iterationCounter = 0
@@ -169,7 +200,8 @@ if __name__ == "__main__":
                     else:
                         pseudoTruths.append(True)
 
-                estimatedAccuracy = len([pseudoTruth for pseudoTruth in pseudoTruths if pseudoTruth]) / len(pseudoTruths)
+                estimatedAccuracy = len([pseudoTruth for pseudoTruth in pseudoTruths if pseudoTruth]) / len(
+                    pseudoTruths)
 
                 print("Estimated Accuracy = " + str(estimatedAccuracy))
 
@@ -193,7 +225,8 @@ if __name__ == "__main__":
                 iterationCounter += 1
 
         results = pandas.read_csv("../results/finBert-EconomyNews-EstimatedAccuracy.csv")
-        print("MAE = " + str(sklearn.metrics.mean_absolute_error(results["Real Accuracy"], results["Estimated Accuracy"])))
+        print("MAE = " + str(
+            sklearn.metrics.mean_absolute_error(results["Real Accuracy"], results["Estimated Accuracy"])))
         print("MAX = " + str(abs(results["Estimated Accuracy"] - results["Real Accuracy"]).max()))
 
     else:

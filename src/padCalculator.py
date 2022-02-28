@@ -1,5 +1,6 @@
 import csv
 import json
+import math
 import os
 import pandas
 import statistics
@@ -33,10 +34,32 @@ def getData(dataset, label):
             for point in economyNews:
                 dataList.append([point["headlineText"], label])
     elif dataset == "phrasebank":
-        with open("../data/FinancialPhraseBank-v1.0/Sentences_AllAgree.txt", encoding="ISO-8859-1") as file:
+        with open("../data/FinancialPhraseBank-v1.0/Sentences_50Agree.txt", encoding="ISO-8859-1") as file:
             lines = file.readlines()
             for line in lines:
                 dataList.append([line.rsplit(' ', 1)[0], label])
+    elif dataset == "bbcsport":
+        for area in os.listdir("../data/bbcsport"):
+            for document in os.listdir("../data/bbcsport/" + area):
+                skip = False
+                with open("../data/bbcsport/" + area + '/' + document) as file:
+                    lines = file.readlines()
+                    for line in lines:
+                        if not skip:
+                            dataList.append([line.replace('\n', ''), label])
+                            skip = True
+                        else:
+                            skip = False
+    elif dataset == "slsamazon":
+        with open("../data/SLS/amazon_cells_labelled.txt") as file:
+            lines = file.readlines()
+            for line in lines:
+                dataList.append([line[:-3], label])
+    elif dataset == "slsimbd":
+        with open("../data/SLS/imdb_labelled.txt") as file:
+            lines = file.readlines()
+            for line in lines:
+                dataList.append([line[:-3], label])
     else:
         print("Parameter error: dataset=" + str(dataset) + "is not an accepted input")
         exit()
@@ -47,8 +70,10 @@ def getData(dataset, label):
 if __name__ == "__main__":
 
     # Parameter Declaration
-    sourceDataset = "stocknet"  # Can be either "kdd17" or "stocknet" or "economynews" or "phrasebank"
-    targetDataset = "phrasebank"  # Can be either "kdd17" or "stocknet" or "economynews" or "phrasebank"
+    sourceDataset = "slsimbd"  # Can be either "kdd17" or "stocknet" or "economynews" or "phrasebank" or "bbcsport"
+    # or "slsamazon" or "slsimbd"
+    targetDataset = "economynews"  # Can be either "kdd17" or "stocknet" or "economynews" or "phrasebank" or "bbcsport"
+    # or "slsamazon"
     numberOfIterations = 10
     showOtherMetrics = False
 
@@ -70,8 +95,10 @@ if __name__ == "__main__":
 
         if showOtherMetrics:
             print("MAE = " + str(mae) + ", F1 = " + str(f1_score(yTest, predicted)))
-        print("(#" + str(iterationCounter + 1) + ") PAD from " + sourceDataset + " to " + targetDataset + " = " + str(padList[-1]))
+        print("(#" + str(iterationCounter + 1) + ") PAD from " + sourceDataset + " to " + targetDataset + " = " + str(
+            padList[-1]))
 
         iterationCounter += 1
 
     print("Average PAD from " + sourceDataset + " to " + targetDataset + " = " + str(sum(padList) / len(padList)) + ' ±' + str(statistics.stdev(padList)))
+
