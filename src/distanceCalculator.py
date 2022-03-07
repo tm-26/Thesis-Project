@@ -1,5 +1,6 @@
 import csv
 import json
+import numpy
 import os
 import pandas
 import pickle
@@ -7,6 +8,7 @@ import statistics
 import torch
 from decimal import Decimal, ROUND_HALF_UP
 from finbert_embedding.embedding import FinbertEmbedding
+from scipy.spatial.distance import jensenshannon
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics import mean_absolute_error, f1_score
 from sklearn.model_selection import train_test_split
@@ -15,6 +17,15 @@ from sklearn.pipeline import make_pipeline
 from sklearn.svm import LinearSVC
 from torch.nn.functional import kl_div
 from tqdm import tqdm
+
+
+def equalizeDate(p, q):
+    if p.shape[0] > q.shape[0]:
+        q = torch.cat((q, torch.zeros([p.shape[0] - q.shape[0], 768])))
+    elif p.shape[0] < q.shape[0]:
+        p = torch.cat((p, torch.zeros([q.shape[0] - p.shape[0], 768])))
+
+    return p, q
 
 
 def calculateDistance(sourceDataset, targetDataset):
@@ -57,25 +68,48 @@ def calculateDistance(sourceDataset, targetDataset):
 
     elif distanceMetric == "kl":
         """
-        N.B, KLDistance has the limitation that the two lists should be equal. If they are not the longer one 
+        N.B, KL Distance has the limitation that the two lists should be equal. If they are not the longer one 
         will be shortened to the length of the shorter one. 
         """
 
-        sourceData = torch.stack(getData(sourceDataset, "embedding"))
-        targetData = torch.stack(getData(targetDataset, "embedding"))
-
-        if sourceData.shape[0] > targetData.shape[0]:
-            targetData = torch.cat((targetData, torch.zeros([sourceData.shape[0] - targetData.shape[0], 768])))
-        elif sourceData.shape[0] < targetData.shape[0]:
-            sourceData = torch.cat((sourceData, torch.zeros([targetData.shape[0] - sourceData.shape[0], 768])))
+        sourceData, targetData = equalizeDate(torch.stack(getData(sourceDataset, "embedding")),
+                                              torch.stack(getData(targetDataset, "embedding")))
 
         if roundAnswers:
-            print("Kl-Distance from " + sourceDataset + " to " + targetDataset + " = " + str(Decimal(
+            print("Kl distance from " + sourceDataset + " to " + targetDataset + " = " + str(Decimal(
                 Decimal(kl_div(sourceData, targetData, reduction="batchmean").item()).quantize(Decimal("0.0001"),
                                                                                                rounding=ROUND_HALF_UP))))
         else:
-            print("Kl-Distance from " + sourceDataset + " to " + targetDataset + " = " + str(
+            print("Kl distance from " + sourceDataset + " to " + targetDataset + " = " + str(
                 kl_div(sourceData, targetData, reduction="batchmean").item()))
+
+    elif distanceMetric == "hellinger":
+        sourceData, targetData = equalizeDate(torch.stack(getData(sourceDataset, "embedding")),
+                                              torch.stack(getData(targetDataset, "embedding")))
+
+        if roundAnswers:
+            print("Hellinger distance from " + sourceDataset + " to " + targetDataset + " = " + str(Decimal(Decimal(
+                numpy.sqrt(numpy.nansum((numpy.sqrt(sourceData) - numpy.sqrt(targetData)) ** 2)) / numpy.sqrt(
+                    2)).quantize(Decimal("0.0001"), rounding=ROUND_HALF_UP))))
+        else:
+            print("Hellinger distance from " + sourceDataset + " to " + targetDataset + " = " + str(
+                numpy.sqrt(numpy.nansum((numpy.sqrt(sourceData) - numpy.sqrt(targetData)) ** 2)) / numpy.sqrt(2)))
+
+    elif distanceMetric == "tv":
+
+        sourceData, targetData = equalizeDate(torch.stack(getData(sourceDataset, "embedding")),
+                                              torch.stack(getData(targetDataset, "embedding")))
+
+        if roundAnswers:
+            print("Total variation distance from " + sourceDataset + " to " + targetDataset + " = " +
+                  str(Decimal(Decimal(
+
+                      numpy.float(numpy.nansum(numpy.absolute(sourceData.numpy() - targetData.numpy())))
+
+                  )).quantize(Decimal("0.0001"), rounding=ROUND_HALF_UP)))
+        else:
+            print("Total variation distance from " + sourceDataset + " to " + targetDataset + " = " + str(
+                numpy.sqrt(numpy.nansum((numpy.sqrt(sourceData) - numpy.sqrt(targetData)) ** 2)) / numpy.sqrt(2)))
 
     else:
         print("Parameter error: distanceMetric=" + str(distanceMetric) + " is not an accepted input")
@@ -171,7 +205,6 @@ def createEmbeddings(dataset):
 
 
 def getData(dataset, label):
-
     if label == "embedding":
         if dataset == "kdd17" or dataset == "stocknet":
             return getEmbeddings(open("../data/" + dataset + "/NYT-Business/embeddings.pkl", "rb"))
@@ -261,15 +294,15 @@ if __name__ == "__main__":
     # or "slsamazon" or "slsimbd" or "slsyelp" or "stsgold"
     targetDataset = "all"  # Can be "kdd17" or "stocknet" or "economynews" or "phrasebank" or "bbcsport"
     # or "slsamazon" or "slsimbd" or "slsyelp" or "stsgold" or "all"
-    distanceMetric = "kl"  # Can be either "pad" or "kl"
+    distanceMetric = "tv"  # Can be either "pad" or "kl" or "hellinger" or "tv"
     numberOfIterations = 10
     showOtherMetrics = False  # Used in conjunction with distanceMetric=pad
     roundAnswers = True
     createEmbeddingsFiles = False
 
     if targetDataset == "all":
-        for dataset in ["kdd17", "stocknet", "economynews", "phrasebank", "bbcsport", "slsamazon", "slsimbd", "slsyelp", "stsgold"]:
+        for dataset in ["kdd17", "stocknet", "economynews", "phrasebank", "bbcsport", "slsamazon", "slsimbd", "slsyelp",
+                        "stsgold"]:
             calculateDistance(sourceDataset, dataset)
     else:
         calculateDistance(sourceDataset, targetDataset)
-
