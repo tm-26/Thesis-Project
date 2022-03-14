@@ -102,11 +102,7 @@ def calculateDistance(sourceDataset, targetDataset):
 
         if roundAnswers:
             print("Total variation distance from " + sourceDataset + " to " + targetDataset + " = " +
-                  str(Decimal(Decimal(
-
-                      numpy.float(numpy.nansum(numpy.absolute(sourceData.numpy() - targetData.numpy())))
-
-                  )).quantize(Decimal("0.0001"), rounding=ROUND_HALF_UP)))
+                  str(Decimal(Decimal(numpy.float(numpy.nansum(numpy.absolute(sourceData.numpy() - targetData.numpy()))))).quantize(Decimal("0.0001"), rounding=ROUND_HALF_UP)))
         else:
             print("Total variation distance from " + sourceDataset + " to " + targetDataset + " = " + str(
                 numpy.sqrt(numpy.nansum((numpy.sqrt(sourceData) - numpy.sqrt(targetData)) ** 2)) / numpy.sqrt(2)))
