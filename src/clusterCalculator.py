@@ -53,4 +53,4 @@ if __name__ == "__main__":
     if smallestDistance == 0:
         print("Using Single Link --> " + str(Decimal(Decimal(min([c for dataset in distances for c in dataset])).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP))) + '%')
         print("Using Complete Link --> " + str(Decimal(Decimal(max([c for dataset in distances for c in dataset])).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP))) + '%')
-        print("Using Average Link --> " + str(Decimal(Decimal((sum([sum(i) for i in zip(*distances)]) / 20)).quantize(Decimal("0.01"),rounding=ROUND_HALF_UP))) + '%')
+        print("Using Average Link --> " + str(Decimal(Decimal((sum([sum(i) for i in zip(*distances)]) / 20)).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP))) + '%')

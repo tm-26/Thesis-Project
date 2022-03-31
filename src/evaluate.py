@@ -101,6 +101,16 @@ def generateAccuracyFile():
 
 if __name__ == "__main__":
 
+    # Temp example
+
+    finBert = AutoModelForSequenceClassification.from_pretrained("../models/FinBert", cache_dir=None, num_labels=3)
+    test = predict("Amazon.com was the lead investor in a funding round for Shelfari, a social-networking site for people interested in books. The amount was not disclosed but published reports estimated the total at about $1 million. Seattle-based Shelfari was founded in October. Company officials say they'll use the money for site development, sales and marketing initiatives, and general administrative costs. In the growing field of executive coaching, Marshall Goldsmith is among the cream of the crop and seems to be feeling very Zen about it. Mr. Goldsmith, who apparently has coached bigwigs at companies including Boeing, Motorola and Goldman Sachs, promotes a Buddhist-inspired path to enlightened leadership, according to a profile of the coach in The Chicago Tribune", finBert)
+    print(test)
+    test = predict("Another PSU bank, Punjab National Bank which also reported numbers managed to see a slight improvement in asset quality", finBert)
+    print(test)
+    #
+
+    exit()
     logging.disable()
 
     # Parameter Declaration

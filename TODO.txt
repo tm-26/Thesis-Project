@@ -1,0 +1,5 @@
+TODO for 11/04/22
+
+1) Generate Sentiment Scores for dataset
+2) Draw time series graph of sentiment scores vs close price
+3) Observe relationship in previously drawn graph
