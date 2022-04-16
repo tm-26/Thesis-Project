@@ -1,5 +1,10 @@
+General TODO:
+1) Move/Refactor generateData.py and generateSentimentScores.py into src folder
+2) Refactor certain py files in src to be inline with one naming convention
+
 TODO for 11/04/22
 
-1) Generate Sentiment Scores for dataset
+1) Generate Sentiment Scores for dataset (X)
 2) Draw time series graph of sentiment scores vs close price
+-Design of graph could be better
 3) Observe relationship in previously drawn graph

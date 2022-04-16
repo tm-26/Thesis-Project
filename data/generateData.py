@@ -265,4 +265,3 @@ if __name__ == "__main__":
         with open(datasetName + "/NYT-Business/ourpped/" + stock + ".csv", "w+", encoding="utf-8", newline='') as file:
             writer = csv.writer(file)
             writer.writerows(saveMe)
-
