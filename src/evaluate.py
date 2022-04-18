@@ -2,6 +2,7 @@ import csv
 import json
 import logging
 import matplotlib.pyplot
+import numpy
 import os
 import pandas
 import pickle
@@ -104,11 +105,10 @@ if __name__ == "__main__":
     logging.disable()
 
     # Parameter Declaration
-    dataset = "economynews"  # Which dataset is going to be used to generate the accuracy file. Should always be set to economynews
-    targetDataset = "economynews"
+    dataset = "kdd17"  # Which dataset is going to be used to generate the accuracy file. Should always be set to economynews
     estimateScore = True  # True --> Estimate performance of FinBert, False --> Calculate real performance of FinBert
     generateFile = False
-    newResultsFile = True
+    newResultsFile = False
     showGraphs = True
     iterations = 10  # iterations = 0 -->  Calculate Metrics based on current values
 
@@ -116,24 +116,24 @@ if __name__ == "__main__":
         generateAccuracyFile()
 
     if estimateScore:
-        iterationCounter = 0
-        realAccuracies = []
-        estimatedAccuracies = []
+        if dataset == "economynews":
 
-        with open("../results/finBert-EconomyNews.csv", "r", encoding="UTF-8") as file:
-            csvReader = csv.reader(file)
-            next(csvReader)  # skip header
-            data = list(map(tuple, csvReader))
+            iterationCounter = 0
+            realAccuracies = []
+            estimatedAccuracies = []
 
-        if not os.path.isfile("../results/finBert-" + targetDataset + "-EstimatedAccuracy.csv"):
-            newResultsFile = True
-        elif newResultsFile:
-            os.remove("../results/finBert-" + targetDataset + "-EstimatedAccuracy.csv")
+            with open("../results/finBert-EconomyNews.csv", 'r', encoding="UTF-8") as file:
+                csvReader = csv.reader(file)
+                next(csvReader)  # skip header
+                data = list(map(tuple, csvReader))
 
-        with open("../results/finBert-" + targetDataset + "-EstimatedAccuracy.csv", "a+", encoding="UTF-8",
-                  newline="") as resultsFile:
+            if not os.path.isfile("../results/finBert-economynews-EstimatedAccuracy.csv"):
+                newResultsFile = True
+            elif newResultsFile:
+                os.remove("../results/finBert-economynews-EstimatedAccuracy.csv")
 
-            if targetDataset == "economynews":
+            with open("../results/finBert-economynews-EstimatedAccuracy.csv", "a+", encoding="UTF-8",
+                      newline="") as resultsFile:
 
                 if newResultsFile:
                     resultsFile.write("Estimated Accuracy,Real Accuracy\n")
@@ -177,7 +177,7 @@ if __name__ == "__main__":
                     model = sklearn.linear_model.LinearRegression()
                     model.fit(xTrain, yTrain)
 
-                    pickle.dump(model, open("../models/accuracyPredictors/accuracyPredictor" + str(iterationCounter) + ".sav", "wb+"))
+                    pickle.dump((chosenEmbedding, model), open("../models/accuracyPredictors/accuracyPredictor" + str(iterationCounter) + ".sav", "wb+"))
 
                     yPredicted = model.predict(xTest)
 
@@ -193,16 +193,13 @@ if __name__ == "__main__":
 
                     pseudoTruths = []
 
-                    for distance in xTest:
-                        prediction = model.predict([distance])[0]
+                    for prediction in yPredicted:
                         if prediction == 0:
                             pseudoTruths.append(True)
                         elif prediction == 1:
                             pseudoTruths.append(False)
-                        elif random.random() <= prediction:
-                            pseudoTruths.append(False)
                         else:
-                            pseudoTruths.append(True)
+                            pseudoTruths.append(random.random() > prediction)
 
                     estimatedAccuracy = len([pseudoTruth for pseudoTruth in pseudoTruths if pseudoTruth]) / len(
                         pseudoTruths)
@@ -228,36 +225,56 @@ if __name__ == "__main__":
                     resultsFile.write(str(estimatedAccuracy) + "," + str(realAccuracy) + '\n')
                     iterationCounter += 1
 
-                results = pandas.read_csv("../results/finBert-economynews-EstimatedAccuracy.csv")
-                print("MAE = " + str(
-                    sklearn.metrics.mean_absolute_error(results["Real Accuracy"], results["Estimated Accuracy"])))
-                print("MAX = " + str(abs(results["Estimated Accuracy"] - results["Real Accuracy"]).max()))
+            results = pandas.read_csv("../results/finBert-economynews-EstimatedAccuracy.csv")
+            print("MAE = " + str(
+                sklearn.metrics.mean_absolute_error(results["Real Accuracy"], results["Estimated Accuracy"])))
+            print("MAX = " + str(abs(results["Estimated Accuracy"] - results["Real Accuracy"]).max()))
 
-            else:
+        else:
+
+            # Variable Declaration
+            finbertEmbedder = FinbertEmbedding()
+            data = []
+            distances = []
+            pseudoTruths = []
+            completed = []
+            with open("../models/accuracyPredictor.sav", "rb") as modelFile:
+                chosenEmbedding, model = pickle.load(modelFile)
+            with open("../results/finBert-kdd17-EstimatedAccuracy.csv", "a+", newline="") as saveFile:
                 if newResultsFile:
-                    resultsFile.write("Estimated Accuracy\n")
+                    saveFile.write("Stock Code, Estimated Accuracy\n")
+                else:
+                    csvReader = csv.reader(saveFile)
+                    for row in csvReader:
+                        completed.append(row[0])
+                for stockCode in tqdm(os.listdir("../data/" + dataset + "/SentimentScores/NYT-Business")):
+                    if stockCode in completed:
+                        continue
 
-                random.shuffle(data)
+                    with open("../data/" + dataset + "/SentimentScores/NYT-Business/" + stockCode, 'r', encoding="UTF-8") as file:
+                        csvReader = csv.reader(file)
+                        next(csvReader)  # skip header
+                        for row in csvReader:
+                            data.append(row[1])
 
-                finbertEmbedder = FinbertEmbedding()
-                chosenEmbedding = 0
+                    for sentence in data:
+                        distances.append(round(kl_div(chosenEmbedding, finbertEmbedder.sentence_vector(sentence), reduction="batchmean").item(), 4))
 
-                for point in data:
-                    if point[1] == point[2]:
-                        chosenEmbedding = finbertEmbedder.sentence_vector(point[0])
-                        break
+                    predictions = model.predict(numpy.array(distances).reshape(-1, 1))
 
-                # Get Dict of Distances
-                values = getDistances(data)
+                    for prediction in predictions:
+                        if prediction == 0:
+                            pseudoTruths.append(True)
+                        elif prediction == 1:
+                            pseudoTruths.append(False)
+                        else:
+                            pseudoTruths.append(random.random() > prediction)
 
-                # Convert list of booleans to percentage
-                dataFrame = pandas.DataFrame(columns=["Domain-shift Detection Metric", "Classification Drop"])
+                    estimatedAccuracy = len([pseudoTruth for pseudoTruth in pseudoTruths if pseudoTruth]) / len(
+                        pseudoTruths)
 
-                for i, (x, y) in enumerate(values.items()):
-                    dataFrame.loc[i] = [x, len([prediction for prediction in y if not prediction]) / len(y)]
-
-                model = sklearn.linear_model.LinearRegression()
-                model.fit(dataFrame.iloc[:, :-1].values, dataFrame.iloc[:, 1].values)
+                    print("Estimated Accuracy for " + stockCode[:-4] + " = " + str(estimatedAccuracy))
+                    saveFile.write(stockCode[:-4] + ', ' + str(estimatedAccuracy))
 
     else:
         results = pandas.read_csv("../results/finBert-EconomyNews.csv")
