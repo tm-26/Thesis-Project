@@ -1,20 +1,20 @@
-Number of drifts not inline with low/high sentiment score = 400
-Number of drifts inline with very high/low sentiment score = 26
+Number of drifts not inline with low/high sentiment score = 135
+Number of drifts inline with very low/high sentiment score = 31
 
--Number of inline drifts occurring on the same day = 2 (7.69%)
+-Number of inline drifts occurring on the same day = 2 (6.45%)
 
--Number of inline drifts occurring early = 14 (53.85%)
---Number of inline drifts occurring 1 day early = 4 (15.38%)
---Number of inline drifts occurring 2 days early = 3 (11.54%)
---Number of inline drifts occurring 3 days early = 1 (3.85%)
---Number of inline drifts occurring 5 days early = 6 (23.08%)
+-Number of inline drifts occurring early = 14 (45.16%)
+--Number of inline drifts occurring 1 day early = 7 (22.58%)
+--Number of inline drifts occurring 3 days early = 3 (9.68%)
+--Number of inline drifts occurring 4 days early = 1 (3.23%)
+--Number of inline drifts occurring 5 days early = 3 (9.68%)
 
--Number of inline drifts occurring late = 10 (38.46%)
---Number of inline drifts occurring 1 day late = 2 (7.69%)
---Number of inline drifts occurring 2 days late = 2 (7.69%)
---Number of inline drifts occurring 3 days late = 2 (7.69%)
---Number of inline drifts occurring 4 days late = 2 (7.69%)
---Number of inline drifts occurring 5 days late = 2 (7.69%)
+-Number of inline drifts occurring late = 15 (48.39%)
+--Number of inline drifts occurring 1 day late = 2 (6.45%)
+--Number of inline drifts occurring 2 days late = 4 (12.9%)
+--Number of inline drifts occurring 3 days late = 2 (6.45%)
+--Number of inline drifts occurring 4 days late = 4 (12.9%)
+--Number of inline drifts occurring 5 days late = 3 (9.68%)
 
-Number of low/high sentiment scores inline with drifts = 26
-Number of low/high sentiment scores not inline with drifts = 1528
+Number of low/high sentiment scores inline with drifts = 29
+Number of low/high sentiment scores not inline with drifts = 43

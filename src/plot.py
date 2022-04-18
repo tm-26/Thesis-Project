@@ -104,14 +104,14 @@ def plot(stockCode):
 
 if __name__ == "__main__":
     # Parameter Declaration
-    stockCode = "all"
+    stockCode = "AAPL"
     saveLocation = ""
     start = "2007-1-1"  # YYYY-MM-DD
     end = "2017-12-1"  # YYYY-MM-DD
     threshold = 0.8
     generateDriftCircles = True
     saveTextLocation = "../results/sentiment in relation to concept drift/EDDM.txt"
-    CDD = "eddm"
+    CDD = "hddma"
 
     # Variable Declaration
     totalBeforeDict = {-1: 0, -2: 0, -3: 0, -4: 0, -5: 0}
