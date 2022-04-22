@@ -234,21 +234,29 @@ if __name__ == "__main__":
 
             # Variable Declaration
             finbertEmbedder = FinbertEmbedding()
-            data = []
-            distances = []
-            pseudoTruths = []
             completed = []
             with open("../models/accuracyPredictor.sav", "rb") as modelFile:
                 chosenEmbedding, model = pickle.load(modelFile)
-            with open("../results/finBert-kdd17-EstimatedAccuracy.csv", "a+", newline="") as saveFile:
-                if newResultsFile:
-                    saveFile.write("Stock Code, Estimated Accuracy\n")
-                else:
+
+            if not newResultsFile:
+                with open("../results/finBert-kdd17-EstimatedAccuracy.csv", "r", newline='') as saveFile:
                     csvReader = csv.reader(saveFile)
+                    next(csvReader)  # skip header
                     for row in csvReader:
                         completed.append(row[0])
+
+                    del csvReader
+
+            with open("../results/finBert-kdd17-EstimatedAccuracy.csv", "a+", newline='') as saveFile:
+                csvWriter = csv.writer(saveFile)
+                if newResultsFile:
+                    csvWriter.writerow(["Stock Code", "Estimated Accuracy"])
+                    saveFile.flush()
                 for stockCode in tqdm(os.listdir("../data/" + dataset + "/SentimentScores/NYT-Business")):
-                    if stockCode in completed:
+                    data = []
+                    distances = []
+                    pseudoTruths = []
+                    if stockCode[:-4] in completed:
                         continue
 
                     with open("../data/" + dataset + "/SentimentScores/NYT-Business/" + stockCode, 'r', encoding="UTF-8") as file:
@@ -259,23 +267,23 @@ if __name__ == "__main__":
 
                     for sentence in data:
                         distances.append(round(kl_div(chosenEmbedding, finbertEmbedder.sentence_vector(sentence), reduction="batchmean").item(), 4))
+                    if len(distances) != 0:
+                        predictions = model.predict(numpy.array(distances).reshape(-1, 1))
 
-                    predictions = model.predict(numpy.array(distances).reshape(-1, 1))
+                        for prediction in predictions:
+                            if prediction == 0:
+                                pseudoTruths.append(True)
+                            elif prediction == 1:
+                                pseudoTruths.append(False)
+                            else:
+                                pseudoTruths.append(random.random() > prediction)
 
-                    for prediction in predictions:
-                        if prediction == 0:
-                            pseudoTruths.append(True)
-                        elif prediction == 1:
-                            pseudoTruths.append(False)
-                        else:
-                            pseudoTruths.append(random.random() > prediction)
+                        estimatedAccuracy = len([pseudoTruth for pseudoTruth in pseudoTruths if pseudoTruth]) / len(
+                            pseudoTruths)
 
-                    estimatedAccuracy = len([pseudoTruth for pseudoTruth in pseudoTruths if pseudoTruth]) / len(
-                        pseudoTruths)
-
-                    print("Estimated Accuracy for " + stockCode[:-4] + " = " + str(estimatedAccuracy))
-                    saveFile.write(stockCode[:-4] + ', ' + str(estimatedAccuracy))
-
+                        print("Estimated Accuracy for " + stockCode[:-4] + " = " + str(estimatedAccuracy))
+                        csvWriter.writerow([stockCode[:-4], estimatedAccuracy])
+                        saveFile.flush()
     else:
         results = pandas.read_csv("../results/finBert-EconomyNews.csv")
         print("ACC = " + str(sklearn.metrics.accuracy_score(results["Ground Truth"], results["Prediction"])))
