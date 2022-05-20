@@ -105,10 +105,10 @@ if __name__ == "__main__":
     logging.disable()
 
     # Parameter Declaration
-    dataset = "kdd17"  # Which dataset is going to be used to generate the accuracy file. Should always be set to economynews
+    dataset = "stocknet"
     estimateScore = True  # True --> Estimate performance of FinBert, False --> Calculate real performance of FinBert
     generateFile = False
-    newResultsFile = False
+    newResultsFile = True
     showGraphs = True
     iterations = 10  # iterations = 0 -->  Calculate Metrics based on current values
 
@@ -239,7 +239,7 @@ if __name__ == "__main__":
                 chosenEmbedding, model = pickle.load(modelFile)
 
             if not newResultsFile:
-                with open("../results/finBert-kdd17-EstimatedAccuracy.csv", "r", newline='') as saveFile:
+                with open("../results/finBert-" + dataset + "-EstimatedAccuracy.csv", "r", newline='') as saveFile:
                     csvReader = csv.reader(saveFile)
                     next(csvReader)  # skip header
                     for row in csvReader:
@@ -247,7 +247,7 @@ if __name__ == "__main__":
 
                     del csvReader
 
-            with open("../results/finBert-kdd17-EstimatedAccuracy.csv", "a+", newline='') as saveFile:
+            with open("../results/finBert-" + dataset + "-EstimatedAccuracy.csv", "a+", newline='') as saveFile:
                 csvWriter = csv.writer(saveFile)
                 if newResultsFile:
                     csvWriter.writerow(["Stock Code", "Estimated Accuracy"])

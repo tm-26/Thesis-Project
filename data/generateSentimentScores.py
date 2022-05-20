@@ -33,8 +33,8 @@ def useFinBert(article):
 if __name__ == "__main__":
 
     # Parameter Declaration
-    datasetName = "kdd17"  # Can be either "kdd17" or "stocknet"
-    fromStart = False
+    datasetName = "stocknet"  # Can be either "kdd17" or "stocknet"
+    fromStart = True
 
     # Variable Declaration
     stockCodes = os.listdir(datasetName + "/NYT-Business/ourpped")

@@ -1,8 +1,9 @@
 import pandas
 import skmultiflow.drift_detection
+from financialCDD import minps, mySD, myTanDD
 
 
-def conceptDriftDetector(stream, CDD="hddma"):
+def conceptDriftDetector(stream, CDD="hddma", driftConfidence=0.001):
 
     driftPoints = []
 
@@ -23,9 +24,15 @@ def conceptDriftDetector(stream, CDD="hddma"):
         return driftPoints
 
     elif CDD == "hddma":
-        CDD = skmultiflow.drift_detection.hddm_a.HDDM_A()
+        CDD = skmultiflow.drift_detection.hddm_a.HDDM_A(driftConfidence)
     elif CDD == "hddmw":
         CDD = skmultiflow.drift_detection.hddm_w.HDDM_W()
+    elif CDD == "minps":
+        CDD = minps.MINPS(20)
+    elif CDD == "mysd":
+        CDD = mySD.mySDDD(20)
+    elif CDD == "mytandd":
+        CDD = myTanDD.myTanDD(20)
     elif CDD == "ph":
         CDD = skmultiflow.drift_detection.page_hinkley.PageHinkley()
 
