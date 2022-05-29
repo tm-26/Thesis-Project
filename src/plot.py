@@ -11,7 +11,7 @@ from statistics import mean
 from tqdm import tqdm
 
 
-def calculateCorrelationFunction(numberOfStocks, CDD):
+def calculateCorrelationFunction(numberOfStocks, CDD, predictCD):
 
     # Variable Declaration
     dates = []
@@ -32,13 +32,13 @@ def calculateCorrelationFunction(numberOfStocks, CDD):
     for stockCode in tqdm(sorted(numberOfArticles, key=numberOfArticles.get, reverse=True)[:numberOfStocks]):
         # Getting numerical first
         currentNumerical = pandas.read_csv("../data/kdd17/Numerical/price_long_50/" + stockCode + ".csv", header=0).loc[::-1]
-        currentNumerical["Date"] = pandas.to_datetime(numerical["Date"])
+        currentNumerical["Date"] = pandas.to_datetime(currentNumerical["Date"])
 
         numerical.append(currentNumerical)
 
         # Getting sentiment next
         currentSentiment = pandas.read_csv("../data/kdd17/SentimentScores/NYT-Business/" + stockCode + ".csv", header=0)
-        currentSentiment["Date"] = pandas.to_datetime(sentiment["Date"])
+        currentSentiment["Date"] = pandas.to_datetime(currentSentiment["Date"])
 
         sentiment.append(currentSentiment)
 
@@ -97,18 +97,29 @@ def calculateCorrelationFunction(numberOfStocks, CDD):
 
     # This fails if a drift happens in the first 5 days - Should not be the case, but worth pointing out nonetheless
 
-    for counter, drift in enumerate(conceptDriftPoints):
-        if drift == 1 and 1 in sentimentChangePoints[counter - 5: counter + 6]:
-            labels.append(1)
-        else:
-            labels.append(0)
+    if predictCD:
+        for counter, drift in enumerate(conceptDriftPoints):
+            if drift == 1 and 1 in sentimentChangePoints[counter - 5: counter + 6]:
+                labels.append(1)
+            else:
+                labels.append(0)
+    else:
+        for counter, drift in enumerate(sentimentChangePoints):
+            if drift == 1 and 1 in conceptDriftPoints[counter - 5: counter + 6]:
+                labels.append(1)
+            else:
+                labels.append(0)
 
-    x = pandas.DataFrame({"Date": dates, "Stock Price": stockPrices, "Sentiment Score": dailySentiment, "Concept Drift": conceptDriftPoints, "Sentiment Change": sentimentChangePoints})
 
-    xTrain, xTest, yTrain, yTest = sklearn.model_selection.train_test_split(x, labels, train_size=0.8, shuffle=False)
-    model = sklearn.svm.SVR(kernel="rbf", gamma=0.5, C=10, epsilon=0.05)
+    x = pandas.DataFrame({"Stock Price": stockPrices, "Sentiment Score": dailySentiment, "Concept Drift": conceptDriftPoints, "Sentiment Change": sentimentChangePoints})
+    y = pandas.DataFrame({"Label": labels})
+
+    xTrain, xTest, yTrain, yTest = sklearn.model_selection.train_test_split(x, y, train_size=0.8, shuffle=False)
+    model = sklearn.svm.SVC(kernel="rbf", gamma=0.5, C=10)
     model.fit(xTrain, yTrain)
     predicted = model.predict(xTest)
+
+    return sklearn.metrics.accuracy_score(yTest, predicted)
 
 
 def plotter(stockCode, saveLocation, start, end, threshold, generateDriftCircles, CDD, SCD, sentimentChange, thresholdSentiment, windowSize, showGraph, saveSentimentLocation, sentimentWindowSize, sentimentThreshold):
@@ -429,4 +440,4 @@ def plot(stockCode="all", saveLocation='', start="2007-01-01", end="2017-01-01",
 
 
 if __name__ == "__main__":
-    print(calculateCorrelationFunction(5, "hddma"))
+    print(calculateCorrelationFunction(5, "hddma", False))
