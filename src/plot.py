@@ -11,7 +11,7 @@ from statistics import mean
 from tqdm import tqdm
 
 
-def calculateCorrelationFunction(numberOfStocks, CDD, predictCD):
+def calculateCorrelationFunction(numberOfStocks, CDD, predictCD, considerMovement):
 
     # Variable Declaration
     dates = []
@@ -98,14 +98,26 @@ def calculateCorrelationFunction(numberOfStocks, CDD, predictCD):
     # This fails if a drift happens in the first 5 days - Should not be the case, but worth pointing out nonetheless
 
     if predictCD:
-        for counter, drift in enumerate(conceptDriftPoints):
-            if drift == 1 and 1 in sentimentChangePoints[counter - 5: counter + 6]:
-                labels.append(1)
+        first = sentimentChangePoints
+        second = conceptDriftPoints
+    else:
+        first = conceptDriftPoints
+        second = sentimentChangePoints
+
+    if considerMovement:
+        for counter, drift in enumerate(first):
+            if drift == 1 and 1 in second[counter: counter + 6]:
+                index = counter + second[counter: counter + 6].index(1)
+                if stockPrices[index] < stockPrices[index - 1]:
+                    print(2)
+                    labels.append(2)
+                else:
+                    labels.append(1)
             else:
                 labels.append(0)
     else:
-        for counter, drift in enumerate(sentimentChangePoints):
-            if drift == 1 and 1 in conceptDriftPoints[counter - 5: counter + 6]:
+        for counter, drift in enumerate(first):
+            if drift == 1 and 1 in second[counter: counter + 6]:
                 labels.append(1)
             else:
                 labels.append(0)
@@ -115,11 +127,11 @@ def calculateCorrelationFunction(numberOfStocks, CDD, predictCD):
     y = pandas.DataFrame({"Label": labels})
 
     xTrain, xTest, yTrain, yTest = sklearn.model_selection.train_test_split(x, y, train_size=0.8, shuffle=False)
-    model = sklearn.svm.SVC(kernel="rbf", gamma=0.5, C=10)
+    model = sklearn.svm.SVC(kernel="rbf", gamma=0.5, class_weight="balanced")
     model.fit(xTrain, yTrain)
     predicted = model.predict(xTest)
 
-    return sklearn.metrics.accuracy_score(yTest, predicted)
+    return [sklearn.metrics.accuracy_score(yTest, predicted), sklearn.metrics.f1_score(yTest, predicted), sklearn.metrics.confusion_matrix(yTest, predicted)]
 
 
 def plotter(stockCode, saveLocation, start, end, threshold, generateDriftCircles, CDD, SCD, sentimentChange, thresholdSentiment, windowSize, showGraph, saveSentimentLocation, sentimentWindowSize, sentimentThreshold):
@@ -436,8 +448,8 @@ def plot(stockCode="all", saveLocation='', start="2007-01-01", end="2017-01-01",
 
         return [totalNumDriftPoints, str(total) + '(' + str(
             round((total / totalNumDriftPoints) * 100)) + "%)", str(totalInline) + '(' + str(
-            round((totalInline / totalNumOfSentimentCircles)* 100)) + "%)", totalNumOfSentimentCircles]
+            round((totalInline / totalNumOfSentimentCircles) * 100)) + "%)", totalNumOfSentimentCircles]
 
 
 if __name__ == "__main__":
-    print(calculateCorrelationFunction(5, "hddma", False))
+    print(calculateCorrelationFunction(25, "hddma", True, True))
