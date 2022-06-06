@@ -1,10 +1,12 @@
+import csv
+import json
 import matplotlib.pyplot
 import os
 import pandas
 import sklearn
 import skmultiflow.drift_detection
 import sys
-from datetime import timedelta
+from datetime import timedelta, datetime
 from detector import conceptDriftDetector
 from detecta import detect_cusum
 from statistics import mean
@@ -12,7 +14,6 @@ from tqdm import tqdm
 
 
 def calculateCorrelationFunction(numberOfStocks, CDD, predictCD, considerMovement):
-
     # Variable Declaration
     dates = []
     stockPrices = []
@@ -31,7 +32,8 @@ def calculateCorrelationFunction(numberOfStocks, CDD, predictCD, considerMovemen
 
     for stockCode in tqdm(sorted(numberOfArticles, key=numberOfArticles.get, reverse=True)[:numberOfStocks]):
         # Getting numerical first
-        currentNumerical = pandas.read_csv("../data/kdd17/Numerical/price_long_50/" + stockCode + ".csv", header=0).loc[::-1]
+        currentNumerical = pandas.read_csv("../data/kdd17/Numerical/price_long_50/" + stockCode + ".csv", header=0).loc[
+                           ::-1]
         currentNumerical["Date"] = pandas.to_datetime(currentNumerical["Date"])
 
         numerical.append(currentNumerical)
@@ -78,7 +80,8 @@ def calculateCorrelationFunction(numberOfStocks, CDD, predictCD, considerMovemen
             conceptDriftPoints.append(0)
 
     (sentimentDates, sentimentScores) = zip(*sentimentScores.items())
-    changePoints = detect_cusum(list(map(lambda idx: sum(idx) / float(len(idx)), sentimentScores)), show=False)[0].tolist()
+    changePoints = detect_cusum(list(map(lambda idx: sum(idx) / float(len(idx)), sentimentScores)), show=False)[
+        0].tolist()
 
     for point in changePoints:
         # Needs to be done to account for days when stock market is not open
@@ -122,8 +125,9 @@ def calculateCorrelationFunction(numberOfStocks, CDD, predictCD, considerMovemen
             else:
                 labels.append(0)
 
-
-    x = pandas.DataFrame({"Stock Price": stockPrices, "Sentiment Score": dailySentiment, "Concept Drift": conceptDriftPoints, "Sentiment Change": sentimentChangePoints})
+    x = pandas.DataFrame(
+        {"Stock Price": stockPrices, "Sentiment Score": dailySentiment, "Concept Drift": conceptDriftPoints,
+         "Sentiment Change": sentimentChangePoints})
     y = pandas.DataFrame({"Label": labels})
 
     xTrain, xTest, yTrain, yTest = sklearn.model_selection.train_test_split(x, y, train_size=0.8, shuffle=False)
@@ -131,10 +135,13 @@ def calculateCorrelationFunction(numberOfStocks, CDD, predictCD, considerMovemen
     model.fit(xTrain, yTrain)
     predicted = model.predict(xTest)
 
-    return [sklearn.metrics.accuracy_score(yTest, predicted), sklearn.metrics.f1_score(yTest, predicted), sklearn.metrics.confusion_matrix(yTest, predicted)]
+    return [sklearn.metrics.accuracy_score(yTest, predicted), sklearn.metrics.f1_score(yTest, predicted),
+            sklearn.metrics.confusion_matrix(yTest, predicted)]
 
 
-def plotter(stockCode, saveLocation, start, end, threshold, generateDriftCircles, CDD, SCD, sentimentChange, thresholdSentiment, windowSize, showGraph, saveSentimentLocation, sentimentWindowSize, sentimentThreshold):
+def plotter(stockCode, saveLocation, start, end, threshold, generateDriftCircles, CDD, SCD, sentimentChange,
+            thresholdSentiment, windowSize, showGraph, saveSentimentLocation, sentimentWindowSize, sentimentThreshold,
+            volumeThreshold):
     # Getting numerical first
     numerical = pandas.read_csv("../data/kdd17/Numerical/price_long_50/" + stockCode + ".csv", header=0).loc[::-1]
     numerical["Date"] = pandas.to_datetime(numerical["Date"])
@@ -204,10 +211,16 @@ def plotter(stockCode, saveLocation, start, end, threshold, generateDriftCircles
     for i in range(len(driftPoints)):
         driftPoints[i] = numerical["Date"][driftPoints[i]]
 
+    if volumeThreshold > 0:
+        with open("../data/kdd17/NYT-Business/ourpped/" + stockCode + ".csv", encoding="UTF-8") as file:
+            reader = csv.reader(file)
+            next(reader)  # skip header
+            allArticles = {row[0]: row[1] for row in reader}
+
     # For statistical purposes
     exact = 0
-    before = {-1: 0, -2: 0, -3: 0, -4: 0, -5: 0}
-    after = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0}
+    before = {-1: 0, -2: 0, -3: 0, -4: 0, -5: 0, -6: 0, -7: 0, -8: 0, -9: 0, -10: 0}
+    after = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0}
     inline = 0
     numOfSentimentCircles = 0
 
@@ -219,10 +232,8 @@ def plotter(stockCode, saveLocation, start, end, threshold, generateDriftCircles
 
             if -threshold >= current:
                 circleFormat = "or"
-                numOfSentimentCircles += 1
             elif threshold <= current:
                 circleFormat = "og"
-                numOfSentimentCircles += 1
             else:
                 continue
 
@@ -241,8 +252,6 @@ def plotter(stockCode, saveLocation, start, end, threshold, generateDriftCircles
                         circleFormat = "or"
                     else:
                         circleFormat = "og"
-
-                    numOfSentimentCircles += 1
                 else:
                     continue
 
@@ -258,7 +267,6 @@ def plotter(stockCode, saveLocation, start, end, threshold, generateDriftCircles
                     else:
                         circleFormat = "og"
 
-                    numOfSentimentCircles += 1
                 else:
                     continue
 
@@ -270,9 +278,15 @@ def plotter(stockCode, saveLocation, start, end, threshold, generateDriftCircles
                     else:
                         circleFormat = "og"
 
-                    numOfSentimentCircles += 1
                 else:
                     continue
+
+        if volumeThreshold > 0:
+            currentArticles = allArticles[str(date)[:-9]]
+            if currentArticles[0] != '[' or len(json.loads(currentArticles)) < volumeThreshold:
+                continue
+
+        numOfSentimentCircles += 1
 
         sentimentAxes.plot_date(date, current, circleFormat, fillstyle="none", ms=5.0)
 
@@ -292,7 +306,7 @@ def plotter(stockCode, saveLocation, start, end, threshold, generateDriftCircles
         for driftPoint in driftPoints:
             dateDifference = (driftPoint - date).days
 
-            if abs(dateDifference) > 5:
+            if abs(dateDifference) > 10:
                 break
 
             if not incremented:
@@ -343,8 +357,8 @@ def plotter(stockCode, saveLocation, start, end, threshold, generateDriftCircles
 
 def plot(stockCode="all", saveLocation='', start="2007-01-01", end="2017-01-01", threshold=0.8,
          generateDriftCircles=True, saveTextLocation='', CDD="hddma", SCD="cusum", sentimentChange=False,
-         thresholdSentiment=False, windowSize=0, showGraph=False, saveSentimentLocation="", printValues=False, sentimentWindowSize=0, sentimentThreshold=1):
-
+         thresholdSentiment=False, windowSize=0, showGraph=False, saveSentimentLocation="", printValues=False,
+         sentimentWindowSize=0, sentimentThreshold=1, volumeThreshold=0):
     # Variable Declaration
     totalBeforeDict = {-1: 0, -2: 0, -3: 0, -4: 0, -5: 0}
     totalExact = 0
@@ -355,7 +369,16 @@ def plot(stockCode="all", saveLocation='', start="2007-01-01", end="2017-01-01",
 
     if stockCode == "all":
         for stockCode in tqdm(os.listdir("../data/kdd17/Numerical/ourpped")):
-            before, exact, after, totalDriftPoints, inline, numOfSentimentCircles = plotter(stockCode[-4], saveLocation, start, end, threshold, generateDriftCircles, CDD, SCD, sentimentChange, thresholdSentiment, windowSize, showGraph, saveSentimentLocation, sentimentWindowSize, sentimentThreshold)
+            before, exact, after, totalDriftPoints, inline, numOfSentimentCircles = plotter(stockCode[-4], saveLocation,
+                                                                                            start, end, threshold,
+                                                                                            generateDriftCircles, CDD,
+                                                                                            SCD, sentimentChange,
+                                                                                            thresholdSentiment,
+                                                                                            windowSize, showGraph,
+                                                                                            saveSentimentLocation,
+                                                                                            sentimentWindowSize,
+                                                                                            sentimentThreshold,
+                                                                                            volumeThreshold)
 
             for i in range(1, 6):
                 totalBeforeDict[-i] += before[-i]
@@ -382,7 +405,10 @@ def plot(stockCode="all", saveLocation='', start="2007-01-01", end="2017-01-01",
                                                                                             SCD, sentimentChange,
                                                                                             thresholdSentiment,
                                                                                             windowSize, showGraph,
-                                                                                            saveSentimentLocation, sentimentWindowSize, sentimentThreshold)
+                                                                                            saveSentimentLocation,
+                                                                                            sentimentWindowSize,
+                                                                                            sentimentThreshold,
+                                                                                            volumeThreshold)
             for i in range(1, 6):
                 totalBeforeDict[-i] += before[-i]
                 totalAfterDict[i] += after[i]
@@ -392,7 +418,10 @@ def plot(stockCode="all", saveLocation='', start="2007-01-01", end="2017-01-01",
             totalInline += inline
             totalNumOfSentimentCircles += numOfSentimentCircles
     else:
-        totalBeforeDict, totalExact, totalAfterDict, totalNumDriftPoints, totalInline, totalNumOfSentimentCircles = plotter(stockCode, saveLocation, start, end, threshold, generateDriftCircles, CDD, SCD, sentimentChange, thresholdSentiment, windowSize, showGraph, saveSentimentLocation, sentimentWindowSize, sentimentThreshold)
+        totalBeforeDict, totalExact, totalAfterDict, totalNumDriftPoints, totalInline, totalNumOfSentimentCircles = plotter(
+            stockCode, saveLocation, start, end, threshold, generateDriftCircles, CDD, SCD, sentimentChange,
+            thresholdSentiment, windowSize, showGraph, saveSentimentLocation, sentimentWindowSize, sentimentThreshold,
+            volumeThreshold)
 
     totalBefore = sum(totalBeforeDict.values())
     totalAfter = sum(totalAfterDict.values())
@@ -445,11 +474,10 @@ def plot(stockCode="all", saveLocation='', start="2007-01-01", end="2017-01-01",
                 totalNumOfSentimentCircles - totalInline))
 
     if thresholdSentiment or sentimentChange:
-
         return [totalNumDriftPoints, str(total) + '(' + str(
             round((total / totalNumDriftPoints) * 100)) + "%)", str(totalInline) + '(' + str(
             round((totalInline / totalNumOfSentimentCircles) * 100)) + "%)", totalNumOfSentimentCircles]
 
 
 if __name__ == "__main__":
-    print(calculateCorrelationFunction(25, "hddma", True, True))
+    print(plot(5, sentimentChange=True, thresholdSentiment=False))
