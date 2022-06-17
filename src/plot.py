@@ -6,7 +6,7 @@ import pandas
 import sklearn
 import skmultiflow.drift_detection
 import sys
-from datetime import timedelta, datetime
+from datetime import timedelta
 from detector import conceptDriftDetector
 from detecta import detect_cusum
 from statistics import mean
@@ -111,7 +111,7 @@ def calculateCorrelationFunction(numberOfStocks, CDD, predictCD, considerMovemen
         for counter, drift in enumerate(first):
             if drift == 1 and 1 in second[counter: counter + 6]:
                 index = counter + second[counter: counter + 6].index(1)
-                if stockPrices[index] < stockPrices[index - 1]:
+                if stockPrices[index] < stockPrices[counter]:
                     print(2)
                     labels.append(2)
                 else:
@@ -134,6 +134,9 @@ def calculateCorrelationFunction(numberOfStocks, CDD, predictCD, considerMovemen
     model = sklearn.svm.SVC(kernel="rbf", gamma=0.5, class_weight="balanced")
     model.fit(xTrain, yTrain)
     predicted = model.predict(xTest)
+
+    if considerMovement:
+        return [sklearn.metrics.accuracy_score(yTest, predicted)]
 
     return [sklearn.metrics.accuracy_score(yTest, predicted), sklearn.metrics.f1_score(yTest, predicted),
             sklearn.metrics.confusion_matrix(yTest, predicted)]
@@ -480,4 +483,5 @@ def plot(stockCode="all", saveLocation='', start="2007-01-01", end="2017-01-01",
 
 
 if __name__ == "__main__":
-    print(plot(5, sentimentChange=True, thresholdSentiment=False))
+    # print(plot(20, sentimentChange=True, thresholdSentiment=False, printValues=True))
+    print(calculateCorrelationFunction(5, CDD="hddma", predictCD=True, considerMovement=True))
