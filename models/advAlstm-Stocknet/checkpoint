@@ -1,0 +1,2 @@
+model_checkpoint_path: "advAlstm-Stocknet"
+all_model_checkpoint_paths: "advAlstm-Stocknet"
