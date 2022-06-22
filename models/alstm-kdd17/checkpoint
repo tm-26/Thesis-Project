@@ -1,0 +1,2 @@
+model_checkpoint_path: "alstm-KDD17"
+all_model_checkpoint_paths: "alstm-KDD17"

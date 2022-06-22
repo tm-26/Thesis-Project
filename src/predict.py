@@ -92,8 +92,6 @@ def predict(forcePreProcessing, method, conceptSplitSize=5):
     # Enter folder containing data
     os.chdir("../data/kdd17/Numerical")
 
-    if method != 0:
-
     folder = "trainingPointsV" + str(method)
 
     # If data does not exist, create it

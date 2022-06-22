@@ -483,5 +483,5 @@ def plot(stockCode="all", saveLocation='', start="2007-01-01", end="2017-01-01",
 
 
 if __name__ == "__main__":
-    # print(plot(20, sentimentChange=True, thresholdSentiment=False, printValues=True))
-    print(calculateCorrelationFunction(5, CDD="hddma", predictCD=True, considerMovement=True))
+    print(plot(20, sentimentChange=True, thresholdSentiment=False, printValues=True))
+    # print(calculateCorrelationFunction(5, CDD="hddma", predictCD=True, considerMovement=True))
