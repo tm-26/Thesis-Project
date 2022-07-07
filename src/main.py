@@ -14,12 +14,12 @@ if __name__ == "__main__":
     warnings.filterwarnings("ignore", category=RuntimeWarning)
     # Parameter Declaration
     dataset = "kdd17"
-    retrainOnDrift = False
+    retrainOnDrift = True
     retrainOnChange = True
     currentDirectory = os.getcwd()
-    resultsFile = "../results/AdvALSTM - Method 5 - Sentiment Change.csv"
+    resultsFile = "../results/AdvALSTM - Method 5 - Concept Drift and Sentiment Change.csv"
     # resultsFile = ''
-    start = 40
+    start = 39
     end = 41
 
     for i in range(start, end):
@@ -30,7 +30,10 @@ if __name__ == "__main__":
         print("Now doing numberOfWaitDays = " + str(numberOfWaitDays))
         print("-----------------------------------------------------------------")
 
-        if retrainOnDrift:
+        if retrainOnDrift and retrainOnChange:
+            acc, mcc = predict(True, 5, numberOfWaitDays, 2)
+
+        elif retrainOnDrift:
             acc, mcc = predict(True, 5, numberOfWaitDays, 0)
 
         elif retrainOnChange:

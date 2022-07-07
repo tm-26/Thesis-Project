@@ -38,7 +38,6 @@ def stockChangeDetector(data, CDD="hddma", driftConfidence=0.001, SCD="cusum",
 
     if typeOfReturn == "change" or typeOfReturn == "all":
         for point in changePoints:
-
             # Needs to be done to account for days when stock market is not open
             currentDate = sentimentSeries.index[point]
             while True:
@@ -46,6 +45,29 @@ def stockChangeDetector(data, CDD="hddma", driftConfidence=0.001, SCD="cusum",
                     conceptDriftDays.append(currentDate)
                     break
                 currentDate = currentDate + pandas.DateOffset(days=1)
+
+    if typeOfReturn == "conjunction":
+
+        driftDays = []
+
+        for point in driftPoints:
+            driftDays.append(priceSeries.index[point])
+
+        for point in changePoints:
+            currentDate = sentimentSeries.index[point]
+
+            # Needs to be done to account for days when stock market is not open
+            while True:
+                if currentDate in priceSeries.index:
+
+                    # Sort by dates closest to current
+                    driftDays.sort(key=lambda i: abs(i - currentDate))
+                    if abs((driftDays[0] - currentDate).days) < 7:
+                        conceptDriftDays.append(currentDate)
+                    break
+                else:
+                    currentDate = currentDate + pandas.DateOffset(days=1)
+
 
     conceptDriftDays.sort()
     return list(dict.fromkeys(conceptDriftDays))
