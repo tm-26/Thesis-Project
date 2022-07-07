@@ -32,10 +32,11 @@ def stockChangeDetector(data, CDD="hddma", driftConfidence=0.001, SCD="cusum",
 
     conceptDriftDays = []
 
-    if typeOfReturn == "all":
+    if typeOfReturn == "drift" or typeOfReturn == "all":
         for point in driftPoints:
             conceptDriftDays.append(priceSeries.index[point])
 
+    if typeOfReturn == "change" or typeOfReturn == "all":
         for point in changePoints:
 
             # Needs to be done to account for days when stock market is not open
@@ -46,8 +47,9 @@ def stockChangeDetector(data, CDD="hddma", driftConfidence=0.001, SCD="cusum",
                     break
                 currentDate = currentDate + pandas.DateOffset(days=1)
 
-        conceptDriftDays.sort()
-        return list(dict.fromkeys(conceptDriftDays))
+    conceptDriftDays.sort()
+    return list(dict.fromkeys(conceptDriftDays))
+
 
 def conceptDriftDetector(stream, CDD="hddma", driftConfidence=0.001):
     driftPoints = []
@@ -92,7 +94,7 @@ if __name__ == "__main__":
     # Parameter Declaration
     datasetName = "kdd17"  # Can be either "kdd17" or "stocknet"
     stockCode = "AAPL"
-    startDate = "2007-01-01"
+    startDate = "2016-01-01"
     endDate = "2017-01-01"
 
     numerical = pandas.read_csv("../data/" + datasetName + "/Numerical/price_long_50/AAPL.csv", index_col="Date", parse_dates=["Date"])["Close"].iloc[::-1]
@@ -130,4 +132,4 @@ if __name__ == "__main__":
             allSentiment.append(None)
 
     dataFrame = pandas.DataFrame({"Date": allDates, "Adj-Close Price": allPrices, "Sentiment": allSentiment})
-    print(stockChangeDetector(dataFrame))
+    print(stockChangeDetector(dataFrame, typeOfReturn="change"))
