@@ -16,10 +16,11 @@ if __name__ == "__main__":
     dataset = "kdd17"
     retrainOnDrift = True
     retrainOnChange = True
+    both = True
     currentDirectory = os.getcwd()
     resultsFile = "../results/AdvALSTM - Method 5 - Concept Drift and Sentiment Change.csv"
     # resultsFile = ''
-    start = 39
+    start = 40
     end = 41
 
     for i in range(start, end):
@@ -30,7 +31,10 @@ if __name__ == "__main__":
         print("Now doing numberOfWaitDays = " + str(numberOfWaitDays))
         print("-----------------------------------------------------------------")
 
-        if retrainOnDrift and retrainOnChange:
+        if both:
+            acc, mcc = predict(True, 5, numberOfWaitDays, 3)
+
+        elif retrainOnDrift and retrainOnChange:
             acc, mcc = predict(True, 5, numberOfWaitDays, 2)
 
         elif retrainOnDrift:

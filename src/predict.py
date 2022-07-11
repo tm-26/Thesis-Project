@@ -91,12 +91,15 @@ def handlePreProcessing(forcePreProcessing, method, typeOfDrift, conceptSplitSiz
                                 conceptNumber += 1
                     elif first:
                         skipped += 1
-            elif typeOfDrift == 1 or typeOfDrift == 2:
+            elif 1 <= typeOfDrift <= 3:
 
                 if typeOfDrift == 1:
                     typeOfReturn = "change"
-                else:
+                elif typeOfDrift == 2:
                     typeOfReturn = "conjunction"
+                elif typeOfDrift == 3:
+                    typeOfReturn = "all"
+
                 sentiment = pandas.read_csv("../SentimentScores/NYT-Business/" + stockName, header=0)
                 sentiment["Date"] = pandas.to_datetime(sentiment["Date"])
 
@@ -245,7 +248,8 @@ def predict(forcePreProcessing, method, conceptSplitSize=5, typeOfDrift=0):
     """
     typeOfDrift = 0 --> Concept Drift
     typeOfDrift = 1 --> Sentiment Change
-    typeOfDrift = 2 --> Concept Drift ^ Sentiment Change
+    typeOfDrift = 2 --> Concept Drift and Sentiment Change (Conjunction (^))
+    typeOfDrift = 3 --> Concept Drift or Sentiment Change (Disjunction (∨))
     """
 
     # sys.stdout = open(os.devnull, 'w')  # Remove normal printing due to excess amount of printing in pred_lstm.py

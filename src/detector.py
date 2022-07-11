@@ -68,7 +68,6 @@ def stockChangeDetector(data, CDD="hddma", driftConfidence=0.001, SCD="cusum",
                 else:
                     currentDate = currentDate + pandas.DateOffset(days=1)
 
-
     conceptDriftDays.sort()
     return list(dict.fromkeys(conceptDriftDays))
 
